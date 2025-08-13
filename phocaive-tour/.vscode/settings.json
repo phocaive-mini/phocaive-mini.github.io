@@ -1,0 +1,95 @@
+{
+    // Flutter & Dart 설정
+    "dart.flutterSdkPath": "",
+    "dart.debugExternalPackageLibraries": true,
+    "dart.debugSdkLibraries": false,
+    "dart.enableSdkFormatter": true,
+    "dart.insertArgumentPlaceholders": true,
+    "dart.previewFlutterUiGuides": true,
+    "dart.previewFlutterUiGuidesCustomTracking": true,
+    "dart.flutterHotReloadOnSave": "allIfDirty",
+    "dart.flutterCreateAndroidLanguage": "kotlin",
+    "dart.flutterCreateIOSLanguage": "swift",
+    
+    // 코드 포맷팅
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll": "explicit",
+        "source.organizeImports": "explicit"
+    },
+    
+    // Flutter 특정 파일 연결
+    "[dart]": {
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true,
+        "editor.rulers": [80],
+        "editor.selectionHighlight": false,
+        "editor.suggest.snippetsPreventQuickSuggestions": false,
+        "editor.suggestSelection": "first",
+        "editor.wordBasedSuggestions": "off"
+    },
+    
+    // JSON 파일 설정 (pubspec.yaml 등)
+    "[yaml]": {
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true
+    },
+    
+    // 파일 탐색기 설정
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/.dart_tool": true,
+        "**/build": true,
+        "**/*.lock": true
+    },
+    
+    // 파일 감시 제외 (성능 향상)
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/node_modules/*/**": true,
+        "**/.dart_tool/**": true,
+        "**/build/**": true
+    },
+    
+    // 검색 제외
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/*.code-search": true,
+        "**/.dart_tool": true,
+        "**/build": true,
+        "ios/": true,
+        "android/": true,
+        "windows/": true,
+        "linux/": true,
+        "macos/": true,
+        "web/": true
+    },
+    
+    // Flutter 로그 설정
+    "dart.flutterRunLogFile": "logs/flutter_run.log",
+    "dart.analysisServerFolding": true,
+    "dart.closingLabels": true,
+    "dart.showTodos": true,
+    
+    // Git 설정
+    "git.ignoreLimitWarning": true,
+    
+    // 터미널 설정
+    "terminal.integrated.env.osx": {
+        "FVM_FLUTTER_URL": ""
+    },
+    
+    // 멀티라인 검색 가능
+    "search.searchOnType": false,
+    
+    // Flutter Inspector
+    "dart.previewEmbeddedDartSdk": true,
+    "dart.embedFlutterWeb": true
+}

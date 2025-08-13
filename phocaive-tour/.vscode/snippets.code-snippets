@@ -1,0 +1,88 @@
+{
+    "Stateless Widget": {
+        "prefix": "stl",
+        "body": [
+            "class ${1:WidgetName} extends StatelessWidget {",
+            "  const ${1:WidgetName}({super.key});",
+            "",
+            "  @override",
+            "  Widget build(BuildContext context) {",
+            "    return ${2:Container()};",
+            "  }",
+            "}"
+        ],
+        "description": "Create a StatelessWidget"
+    },
+    "Stateful Widget": {
+        "prefix": "stf",
+        "body": [
+            "class ${1:WidgetName} extends StatefulWidget {",
+            "  const ${1:WidgetName}({super.key});",
+            "",
+            "  @override",
+            "  State<${1:WidgetName}> createState() => _${1:WidgetName}State();",
+            "}",
+            "",
+            "class _${1:WidgetName}State extends State<${1:WidgetName}> {",
+            "  @override",
+            "  Widget build(BuildContext context) {",
+            "    return ${2:Container()};",
+            "  }",
+            "}"
+        ],
+        "description": "Create a StatefulWidget"
+    },
+    "AppLocalizations": {
+        "prefix": "l10n",
+        "body": [
+            "AppLocalizations.of(context)!.${1:key}"
+        ],
+        "description": "Insert localization"
+    },
+    "Screen Template": {
+        "prefix": "screen",
+        "body": [
+            "import 'package:flutter/material.dart';",
+            "import '../flutter_gen/gen_l10n/app_localizations.dart';",
+            "",
+            "class ${1:ScreenName}Screen extends StatelessWidget {",
+            "  const ${1:ScreenName}Screen({super.key});",
+            "",
+            "  @override",
+            "  Widget build(BuildContext context) {",
+            "    final l10n = AppLocalizations.of(context)!;",
+            "    ",
+            "    return Scaffold(",
+            "      appBar: AppBar(",
+            "        title: Text(l10n.${2:title}),",
+            "        backgroundColor: Theme.of(context).colorScheme.inversePrimary,",
+            "      ),",
+            "      body: ${3:Container()},",
+            "    );",
+            "  }",
+            "}"
+        ],
+        "description": "Create a new screen with AppBar and localization"
+    },
+    "Riverpod Provider": {
+        "prefix": "provider",
+        "body": [
+            "final ${1:providerName}Provider = ${2:Provider}<${3:Type}>((ref) {",
+            "  return ${4:value};",
+            "});"
+        ],
+        "description": "Create a Riverpod provider"
+    },
+    "Consumer Widget": {
+        "prefix": "consumer",
+        "body": [
+            "Consumer(",
+            "  builder: (context, ref, child) {",
+            "    final ${1:value} = ref.watch(${2:provider});",
+            "    return ${3:Widget};",
+            "  },",
+            ")"
+        ],
+        "description": "Create a Consumer widget"
+    }
+}

@@ -1,0 +1,12 @@
+{
+  "@@locale": "ko",
+  "appTitle": "포카이브 투어",
+  "mapMenu": "지도",
+  "koreaMenu": "한국",
+  "usaMenu": "미국",
+  "globalMenu": "글로벌",
+  "moreMenu": "더보기",
+  "aboutApp": "앱 소개",
+  "aboutDescription": "포카이브 투어는 방탄소년단이 다녀간 장소들을 아카이빙하여, 팬들에게 전 세계 BTS 관련 장소들을 탐험할 수 있는 종합적인 가이드를 제공하는 앱입니다.",
+  "loading": "로딩 중..."
+}

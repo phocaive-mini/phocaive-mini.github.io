@@ -1,0 +1,39 @@
+{
+    "recommendations": [
+        // Flutter & Dart 필수 확장
+        "Dart-Code.flutter",
+        "Dart-Code.dart-code",
+        
+        // 유용한 개발 도구
+        "ms-vscode.vscode-json",
+        "redhat.vscode-yaml",
+        "ms-vscode.vscode-typescript-next",
+        
+        // Git 관련
+        "mhutchie.git-graph",
+        "eamodio.gitlens",
+        
+        // 코드 품질 & 포맷팅
+        "streetsidesoftware.code-spell-checker",
+        "esbenp.prettier-vscode",
+        "bradlc.vscode-tailwindcss",
+        
+        // Flutter 특화 도구
+        "alexisvt.flutter-snippets",
+        "Nash.awesome-flutter-snippets",
+        "robert-brunhage.flutter-riverpod-snippets",
+        
+        // 개발 생산성
+        "ms-vscode.vscode-json",
+        "PKief.material-icon-theme",
+        "zhuangtongfa.Material-theme",
+        "oderwat.indent-rainbow",
+        "CoenraadS.bracket-pair-colorizer-2",
+        
+        // 디버깅 & 성능
+        "ms-vscode.vscode-js-profile-flame"
+    ],
+    "unwantedRecommendations": [
+        "ms-vscode.vscode-typescript"
+    ]
+}

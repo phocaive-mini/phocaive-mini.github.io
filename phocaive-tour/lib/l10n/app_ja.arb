@@ -1,0 +1,12 @@
+{
+  "@@locale": "ja",
+  "appTitle": "フォカイブ ツアー",
+  "mapMenu": "地図",
+  "koreaMenu": "韓国",
+  "usaMenu": "アメリカ",
+  "globalMenu": "グローバル",
+  "moreMenu": "その他",
+  "aboutApp": "アプリについて",
+  "aboutDescription": "フォカイブ ツアーは、BTSが訪れた場所をアーカイブし、ファンが世界中のBTS関連の場所を探索できる包括的なガイドを提供するアプリです。",
+  "loading": "読み込み中..."
+}

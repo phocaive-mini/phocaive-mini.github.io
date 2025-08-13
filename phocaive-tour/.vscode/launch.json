@@ -1,0 +1,76 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Phocaive Tour (Debug)",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main.dart",
+            "args": ["--debug"],
+            "console": "debugConsole",
+            "deviceId": "flutter-tester"
+        },
+        {
+            "name": "Phocaive Tour (Profile)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile",
+            "program": "lib/main.dart",
+            "args": ["--profile"],
+            "console": "debugConsole"
+        },
+        {
+            "name": "Phocaive Tour (Release)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release",
+            "program": "lib/main.dart",
+            "args": ["--release"],
+            "console": "debugConsole"
+        },
+        {
+            "name": "Phocaive Tour (Chrome)",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main.dart",
+            "deviceId": "chrome"
+        },
+        {
+            "name": "Phocaive Tour (Android)",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main.dart",
+            "deviceId": "android"
+        },
+        {
+            "name": "Phocaive Tour (iOS)",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main.dart",
+            "deviceId": "iphone"
+        },
+        {
+            "name": "Flutter: Run Tests",
+            "request": "launch",
+            "type": "dart",
+            "program": "test/",
+            "args": ["--reporter", "json"]
+        },
+        {
+            "name": "Flutter: Run Widget Tests",
+            "request": "launch",
+            "type": "dart",
+            "program": "test/widget_test.dart"
+        }
+    ],
+    "compounds": [
+        {
+            "name": "All Platforms",
+            "configurations": [
+                "Phocaive Tour (Android)",
+                "Phocaive Tour (iOS)",
+                "Phocaive Tour (Chrome)"
+            ]
+        }
+    ]
+}

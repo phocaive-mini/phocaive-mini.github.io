@@ -1,0 +1,39 @@
+{
+  "@@locale": "en",
+  "appTitle": "Phocaive Tour",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "mapMenu": "Map",
+  "@mapMenu": {
+    "description": "Map menu item"
+  },
+  "koreaMenu": "Korea",
+  "@koreaMenu": {
+    "description": "Korea menu item"
+  },
+  "usaMenu": "USA",
+  "@usaMenu": {
+    "description": "USA menu item"
+  },
+  "globalMenu": "Global",
+  "@globalMenu": {
+    "description": "Global menu item"
+  },
+  "moreMenu": "More",
+  "@moreMenu": {
+    "description": "More menu item"
+  },
+  "aboutApp": "About App",
+  "@aboutApp": {
+    "description": "About app page title"
+  },
+  "aboutDescription": "Phocaive Tour is an app that archives places visited by BTS, providing a comprehensive guide for fans to explore BTS-related locations around the world.",
+  "@aboutDescription": {
+    "description": "App description"
+  },
+  "loading": "Loading...",
+  "@loading": {
+    "description": "Loading text"
+  }
+}
