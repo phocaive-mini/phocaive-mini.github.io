@@ -53,6 +53,12 @@ dependencies:
   
   # Splash Screen
   flutter_native_splash: ^2.4.1
+  
+  # AdMob
+  google_mobile_ads: ^5.2.0
+  
+  # Icons
+  font_awesome_flutter: ^10.8.0
 
 dev_dependencies:
   flutter_test:
