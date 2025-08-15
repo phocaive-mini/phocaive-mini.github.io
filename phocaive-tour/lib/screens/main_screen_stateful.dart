@@ -1,9 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import '../providers/navigation_provider.dart';
-import '../providers/ad_provider.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+import '../services/admob_service.dart';
 import '../flutter_gen/gen_l10n/app_localizations.dart';
 import 'pages/map_page.dart';
 import 'pages/korea_page.dart';
@@ -11,16 +10,50 @@ import 'pages/usa_page.dart';
 import 'pages/global_page.dart';
 import 'pages/more_page.dart';
 
-class MainScreen extends ConsumerWidget {
+class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
 
-  static const List<Widget> _pages = [
+  @override
+  State<MainScreen> createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<MainScreen> {
+  int _selectedIndex = 0;
+  InterstitialAd? _headerInterstitialAd;
+
+  final List<Widget> _pages = const [
     MapPage(),
     KoreaPage(),
     UsaPage(),
     GlobalPage(),
     MorePage(),
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    if (!kIsWeb) {
+      _loadHeaderInterstitialAd();
+    }
+  }
+
+  void _loadHeaderInterstitialAd() async {
+    _headerInterstitialAd = await AdMobService.createHeaderInterstitialAd();
+  }
+
+  void _showHeaderInterstitialAd() {
+    if (_headerInterstitialAd != null) {
+      AdMobService.showInterstitialAd(_headerInterstitialAd!);
+      _headerInterstitialAd = null;
+      _loadHeaderInterstitialAd();
+    }
+  }
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   List<String> _getTitles(AppLocalizations l10n) {
     return [
@@ -33,10 +66,8 @@ class MainScreen extends ConsumerWidget {
   }
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
-    final selectedIndex = ref.watch(navigationProvider);
-    final adState = ref.watch(adProvider);
     final titles = _getTitles(l10n);
 
     return Scaffold(
@@ -45,7 +76,7 @@ class MainScreen extends ConsumerWidget {
         elevation: 0,
         backgroundColor: Colors.white,
         title: Text(
-          titles[selectedIndex],
+          titles[_selectedIndex],
           style: const TextStyle(
             color: Color(0xFF2D3748),
             fontSize: 24,
@@ -58,9 +89,7 @@ class MainScreen extends ConsumerWidget {
             Padding(
               padding: const EdgeInsets.only(right: 16.0),
               child: ElevatedButton(
-                onPressed: adState.isLoading 
-                    ? null 
-                    : () => ref.read(adProvider.notifier).showHeaderInterstitialAd(),
+                onPressed: _showHeaderInterstitialAd,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF8B5CF6),
                   foregroundColor: Colors.white,
@@ -72,27 +101,18 @@ class MainScreen extends ConsumerWidget {
                     vertical: 8,
                   ),
                 ),
-                child: adState.isLoading
-                    ? const SizedBox(
-                        width: 16,
-                        height: 16,
-                        child: CircularProgressIndicator(
-                          strokeWidth: 2,
-                          valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-                        ),
-                      )
-                    : Text(
-                        l10n.supportPhocaive,
-                        style: const TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
+                child: Text(
+                  l10n.supportPhocaive,
+                  style: const TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
               ),
             ),
         ],
       ),
-      body: _pages[selectedIndex],
+      body: _pages[_selectedIndex],
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
           color: Colors.white,
@@ -112,8 +132,8 @@ class MainScreen extends ConsumerWidget {
           unselectedItemColor: const Color(0xFF9CA3AF),
           selectedFontSize: 12,
           unselectedFontSize: 12,
-          currentIndex: selectedIndex,
-          onTap: (index) => ref.read(navigationProvider.notifier).changeTab(index),
+          currentIndex: _selectedIndex,
+          onTap: _onItemTapped,
           elevation: 0,
           items: [
             BottomNavigationBarItem(

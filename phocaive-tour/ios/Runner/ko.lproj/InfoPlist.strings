@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  Runner
+
+  Created by Flutter.
+*/
+
+"CFBundleDisplayName" = "포카이브 투어";
+"CFBundleName" = "포카이브 투어";

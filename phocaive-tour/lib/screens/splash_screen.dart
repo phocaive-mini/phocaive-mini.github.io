@@ -30,6 +30,13 @@ class _SplashScreenState extends State<SplashScreen> {
           setState(() {
             _isBannerAdReady = true;
           });
+          if (kDebugMode) {
+            print('[DEBUG] Splash banner ad loaded successfully');
+          }
+        }
+      }).catchError((error) {
+        if (kDebugMode) {
+          print('[DEBUG] Splash banner ad failed to load: $error');
         }
       });
     }
@@ -42,7 +49,16 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void _navigateToMain() async {
-    await Future.delayed(const Duration(seconds: 2));
+    // Wait at least 3 seconds for splash screen
+    await Future.delayed(const Duration(seconds: 3));
+    
+    // Wait a bit more if ad is still loading (up to 2 additional seconds)
+    int extraWaitTime = 0;
+    while (!_isBannerAdReady && extraWaitTime < 2000 && mounted) {
+      await Future.delayed(const Duration(milliseconds: 500));
+      extraWaitTime += 500;
+    }
+    
     if (mounted) {
       context.go('/');
     }

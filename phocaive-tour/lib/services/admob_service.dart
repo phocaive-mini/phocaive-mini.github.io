@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
@@ -10,11 +11,12 @@ enum AdType {
   globalBanner,
   moreBanner,
   interstitial,
+  headerInterstitial, // 헤더 '포카이브 응원하기' 버튼용 전면광고
 }
 
 class AdMobService {
-  // Debug mode flag - set to false for production
-  static const bool isDebugMode = true;
+  // Debug mode detection - automatically determined by Flutter's kDebugMode
+  static bool get isDebugMode => kDebugMode;
   
   static String getAdUnitId(AdType adType) {
     // Use test ad unit IDs for debugging
@@ -31,6 +33,7 @@ class AdMobService {
               ? 'ca-app-pub-3940256099942544/6300978111'
               : 'ca-app-pub-3940256099942544/2934735716';
         case AdType.interstitial:
+        case AdType.headerInterstitial:
           // Test interstitial ad unit ID
           return Platform.isAndroid
               ? 'ca-app-pub-3940256099942544/1033173712'
@@ -55,6 +58,8 @@ class AdMobService {
           return 'ca-app-pub-1930793573506049/6930177683';
         case AdType.interstitial:
           return 'ca-app-pub-1930793573506049/1634738536';
+        case AdType.headerInterstitial:
+          return 'ca-app-pub-1930793573506049/1634738536';
       }
     } else if (Platform.isIOS) {
       switch (adType) {
@@ -71,6 +76,8 @@ class AdMobService {
         case AdType.moreBanner:
           return 'ca-app-pub-1930793573506049/4586568450';
         case AdType.interstitial:
+          return 'ca-app-pub-1930793573506049/5573983546';
+        case AdType.headerInterstitial:
           return 'ca-app-pub-1930793573506049/5573983546';
       }
     } else {
@@ -148,6 +155,46 @@ class AdMobService {
     );
     
     return interstitialAd;
+  }
+
+  static Future<InterstitialAd?> createHeaderInterstitialAd() async {
+    final adUnitId = getAdUnitId(AdType.headerInterstitial);
+    String mode = isDebugMode ? '[TEST]' : '[PROD]';
+    
+    debugPrint('$mode Starting to load header interstitial ad - ID: $adUnitId');
+    
+    try {
+      final completer = Completer<InterstitialAd?>();
+      
+      InterstitialAd.load(
+        adUnitId: adUnitId,
+        request: const AdRequest(),
+        adLoadCallback: InterstitialAdLoadCallback(
+          onAdLoaded: (InterstitialAd ad) {
+            debugPrint('$mode ✅ Header interstitial ad LOADED successfully - ID: $adUnitId');
+            completer.complete(ad);
+          },
+          onAdFailedToLoad: (LoadAdError error) {
+            debugPrint('$mode ❌ Header interstitial ad FAILED to load - ID: $adUnitId');
+            debugPrint('$mode Error details: $error');
+            completer.complete(null);
+          },
+        ),
+      );
+      
+      final result = await completer.future;
+      
+      if (result != null) {
+        debugPrint('$mode 🎉 Header interstitial ad ready for use!');
+      } else {
+        debugPrint('$mode ❌ Header interstitial ad failed - returning NULL');
+      }
+      
+      return result;
+    } catch (e) {
+      debugPrint('$mode ❌ Exception in createHeaderInterstitialAd: $e');
+      return null;
+    }
   }
 
   static void showInterstitialAd(InterstitialAd ad) {

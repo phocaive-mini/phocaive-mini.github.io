@@ -91,21 +91,21 @@ final GoRouter _router = GoRouter(
     GoRoute(
       path: '/korea',
       builder: (context, state) => const WebViewScreen(
-        url: 'https://www.notion.so/phocaive/7fd03246c75c450d9cb04291e4d1a67d?v=f1eeb43098c34027bafc9f4ed299d8a9',
+        url: 'https://phocaive.notion.site/ebd/7fd03246c75c450d9cb04291e4d1a67d?v=f1eeb43098c34027bafc9f4ed299d8a9',
         title: 'Korea',
       ),
     ),
     GoRoute(
       path: '/usa',
       builder: (context, state) => const WebViewScreen(
-        url: 'https://www.notion.so/phocaive/ec0cc5ec72fe4f15aa6a2932849ee377?v=9f1cf97ea7844f30905e4b10d9209763',
+        url: 'https://phocaive.notion.site/ebd/ec0cc5ec72fe4f15aa6a2932849ee377?v=9f1cf97ea7844f30905e4b10d9209763',
         title: 'USA',
       ),
     ),
     GoRoute(
       path: '/global',
       builder: (context, state) => const WebViewScreen(
-        url: 'https://www.notion.so/phocaive/fae7c377717a45efab5b3504cd382c39?v=f657452e62504f03877789817a30cee4',
+        url: 'https://phocaive.notion.site/ebd/fae7c377717a45efab5b3504cd382c39?v=f657452e62504f03877789817a30cee4',
         title: 'Global',
       ),
     ),

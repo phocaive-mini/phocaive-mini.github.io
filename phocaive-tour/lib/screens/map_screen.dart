@@ -11,7 +11,7 @@ class MapScreen extends StatefulWidget {
 }
 
 class _MapScreenState extends State<MapScreen> {
-  GoogleMapController? _controller;
+  GoogleMapController? _controller; // Used in mobile map implementation
   
   // Default location (Seoul, South Korea)
   static const CameraPosition _initialPosition = CameraPosition(
@@ -51,7 +51,7 @@ class _MapScreenState extends State<MapScreen> {
           ),
           const SizedBox(height: 8),
           Text(
-            'BTS 관련 장소들을 확인하세요',
+            l10n.checkBtsPlaces,
             style: Theme.of(context).textTheme.bodyLarge?.copyWith(
               color: Colors.grey.shade600,
             ),
@@ -60,7 +60,7 @@ class _MapScreenState extends State<MapScreen> {
           ElevatedButton.icon(
             onPressed: () => _launchGoogleMap(),
             icon: const Icon(Icons.open_in_new),
-            label: const Text('Google Maps에서 보기'),
+            label: Text(l10n.openInGoogleMaps),
           ),
         ],
       ),
@@ -71,7 +71,9 @@ class _MapScreenState extends State<MapScreen> {
     return GoogleMap(
       initialCameraPosition: _initialPosition,
       onMapCreated: (GoogleMapController controller) {
-        _controller = controller;
+        setState(() {
+          _controller = controller;
+        });
       },
       myLocationEnabled: true,
       myLocationButtonEnabled: true,
@@ -84,14 +86,17 @@ class _MapScreenState extends State<MapScreen> {
     const url = 'https://www.google.com/maps/d/u/0/viewer?mid=1knazh0TzMvi_cR4kjZmfGwTXsK7-UbcE&hl=en_US&femb=1&ll=35.95447704760809%2C127.76692200000002&z=6';
     
     // Web에서는 window.open을 사용해야 하지만, 지금은 간단히 메시지 표시
+    final l10n = AppLocalizations.of(context)!;
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: const Text('Google Maps 링크가 클립보드에 복사되었습니다'),
+        content: Text(l10n.mapLinkCopied),
         action: SnackBarAction(
-          label: '링크 보기',
+          label: l10n.viewLink,
           onPressed: () {
             // URL을 콘솔에 출력 (웹 개발자 도구에서 확인 가능)
-            print('BTS Map URL: $url');
+            if (kDebugMode) {
+              print('BTS Map URL: $url');
+            }
           },
         ),
       ),

@@ -47,7 +47,7 @@ class AboutScreen extends StatelessWidget {
             
             // Version
             Text(
-              'Version 1.0.0',
+              l10n.version,
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                 color: Colors.grey.shade600,
               ),
@@ -75,7 +75,7 @@ class AboutScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Features:',
+                      l10n.features,
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
@@ -87,19 +87,19 @@ class AboutScreen extends StatelessWidget {
                     ),
                     _FeatureItem(
                       icon: Icons.location_on,
-                      text: '${l10n.koreaMenu} Guide',
+                      text: l10n.koreaGuide,
                     ),
                     _FeatureItem(
                       icon: Icons.flag,
-                      text: '${l10n.usaMenu} Guide',
+                      text: l10n.usaGuide,
                     ),
                     _FeatureItem(
                       icon: Icons.public,
-                      text: '${l10n.globalMenu} Guide',
+                      text: l10n.globalGuide,
                     ),
                     _FeatureItem(
                       icon: Icons.language,
-                      text: 'Multi-language Support',
+                      text: l10n.multiLanguageSupport,
                     ),
                   ],
                 ),

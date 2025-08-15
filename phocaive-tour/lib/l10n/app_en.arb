@@ -35,5 +35,130 @@
   "loading": "Loading...",
   "@loading": {
     "description": "Loading text"
+  },
+  "supportPhocaive": "Support Phocaive",
+  "@supportPhocaive": {
+    "description": "Support button text"
+  },
+  "webDebugMode": "Web Debug Mode",
+  "@webDebugMode": {
+    "description": "Web debug mode title"
+  },
+  "webNotSupported": "Not supported on web.",
+  "@webNotSupported": {
+    "description": "Web not supported message"
+  },
+  "mobileAppContent": "Actual web content loads in the mobile app.",
+  "@mobileAppContent": {
+    "description": "Mobile app content message"
+  },
+  "storeOpenError": "Unable to open {storeName}.",
+  "@storeOpenError": {
+    "description": "Error message for opening app store",
+    "placeholders": {
+      "storeName": {
+        "type": "String"
+      }
+    }
+  },
+  "openInGoogleMaps": "View in Google Maps",
+  "@openInGoogleMaps": {
+    "description": "Button to open Google Maps"
+  },
+  "mapLinkCopied": "Google Maps link copied to clipboard",
+  "@mapLinkCopied": {
+    "description": "Message when map link is copied"
+  },
+  "viewLink": "View Link",
+  "@viewLink": {
+    "description": "Link view button"
+  },
+  "checkBtsPlaces": "Check out BTS-related places",
+  "@checkBtsPlaces": {
+    "description": "Map description text"
+  },
+  "specialServiceForArmy": "Special Service for ARMY",
+  "@specialServiceForArmy": {
+    "description": "Special service section title"
+  },
+  "phocaiveDescription1": "Phocaive Tour is a service for 'ARMY' that guides you to special places around the world visited by BTS members with maps.",
+  "@phocaiveDescription1": {
+    "description": "App description paragraph 1"
+  },
+  "phocaiveDescription2": "Travel following the footsteps of the members and discover the precious memories and stories they left behind.",
+  "@phocaiveDescription2": {
+    "description": "App description paragraph 2"
+  },
+  "phocaiveDescription3": "Start your special journey with Phocaive Tour right now to trace the footsteps of BTS members💜",
+  "@phocaiveDescription3": {
+    "description": "App description paragraph 3"
+  },
+  "tipRequest": "Tip Request",
+  "@tipRequest": {
+    "description": "Tip request section title"
+  },
+  "tipRequestMessage": "If you have any BTS tour information that we haven't covered, please feel free to share it with us🙏",
+  "@tipRequestMessage": {
+    "description": "Tip request message"
+  },
+  "phocaiveAppIntro": "Phocaive App Introduction",
+  "@phocaiveAppIntro": {
+    "description": "App introduction section title"
+  },
+  "phocaiveServiceNote": "※ Phocaive Tour is a service provided by 'Phocaive'.",
+  "@phocaiveServiceNote": {
+    "description": "Service note text"
+  },
+  "phocaiveMainAppNote": "※ Phocaive is a photocard archiving & exchange service for BTS ARMY. Please search for 'Phocaive' on the Play Store or App Store.",
+  "@phocaiveMainAppNote": {
+    "description": "Main app note text"
+  },
+  "features": "Features:",
+  "@features": {
+    "description": "Features section title"
+  },
+  "koreaGuide": "Korea Guide",
+  "@koreaGuide": {
+    "description": "Korea guide feature"
+  },
+  "usaGuide": "USA Guide",
+  "@usaGuide": {
+    "description": "USA guide feature"
+  },
+  "globalGuide": "Global Guide",
+  "@globalGuide": {
+    "description": "Global guide feature"
+  },
+  "multiLanguageSupport": "Multi-language Support",
+  "@multiLanguageSupport": {
+    "description": "Multi-language support feature"
+  },
+  "version": "Version 1.0.0",
+  "@version": {
+    "description": "App version"
+  },
+  "downloadOnTheAppStore": "Download on the",
+  "@downloadOnTheAppStore": {
+    "description": "App Store download text"
+  },
+  "appStore": "App Store",
+  "@appStore": {
+    "description": "App Store text"
+  },
+  "getItOn": "GET IT ON",
+  "@getItOn": {
+    "description": "Google Play get it on text"
+  },
+  "googlePlay": "Google Play",
+  "@googlePlay": {
+    "description": "Google Play text"
+  },
+  "testAdLoading": "TEST AD LOADING...",
+  "@testAdLoading": {
+    "description": "Test ad loading message"
+  },
+  "adLoading": "AD LOADING...",
+  "@adLoading": {
+    "description": "Ad loading message"
   }
 }
