@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import '../services/admob_service.dart';
+import '../flutter_gen/gen_l10n/app_localizations.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -100,7 +101,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    'BTS Tour Guide',
+                    AppLocalizations.of(context)!.tourGuideSubtitle,
                     style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                       color: Colors.purple.shade600,
                     ),

@@ -1,6 +1,7 @@
 {
   "@@locale": "en",
   "appTitle": "Phocaive Tour",
+  "tourGuideSubtitle": "BTS Tour Guide",
   "@appTitle": {
     "description": "The title of the application"
   },
@@ -36,7 +37,7 @@
   "@loading": {
     "description": "Loading text"
   },
-  "supportPhocaive": "Support Phocaive",
+  "supportPhocaive": "Support Phocaive🎉",
   "@supportPhocaive": {
     "description": "Support button text"
   },
@@ -81,7 +82,7 @@
   "@specialServiceForArmy": {
     "description": "Special service section title"
   },
-  "phocaiveDescription1": "Phocaive Tour is a service for 'ARMY' that guides you to special places around the world visited by BTS members with maps.",
+  "phocaiveDescription1": "'Phocaive Tour' is a service for 'ARMY' that guides you to special places around the world visited by BTS members with maps.",
   "@phocaiveDescription1": {
     "description": "App description paragraph 1"
   },
@@ -89,7 +90,7 @@
   "@phocaiveDescription2": {
     "description": "App description paragraph 2"
   },
-  "phocaiveDescription3": "Start your special journey with Phocaive Tour right now to trace the footsteps of BTS members💜",
+  "phocaiveDescription3": "Start your special journey with Phocaive Tour right now to trace the footsteps of BTS members\u00A0💜",
   "@phocaiveDescription3": {
     "description": "App description paragraph 3"
   },
@@ -97,7 +98,7 @@
   "@tipRequest": {
     "description": "Tip request section title"
   },
-  "tipRequestMessage": "If you have any BTS tour information that we haven't covered, please feel free to share it with us🙏",
+  "tipRequestMessage": "If you have any BTS tour information that we haven't covered,\nplease feel free to share it with us\u00A0🙏",
   "@tipRequestMessage": {
     "description": "Tip request message"
   },
@@ -105,11 +106,11 @@
   "@phocaiveAppIntro": {
     "description": "App introduction section title"
   },
-  "phocaiveServiceNote": "※ Phocaive Tour is a service provided by 'Phocaive'.",
+  "phocaiveServiceNote": "'Phocaive Tour' is a service provided by 'Phocaive'.",
   "@phocaiveServiceNote": {
     "description": "Service note text"
   },
-  "phocaiveMainAppNote": "※ Phocaive is a photocard archiving & exchange service for BTS ARMY. Please search for 'Phocaive' on the Play Store or App Store.",
+  "phocaiveMainAppNote": "'Phocaive' is a photocard archiving & exchange service for BTS ARMY. Please search for 'Phocaive' on the Play Store or App Store.",
   "@phocaiveMainAppNote": {
     "description": "Main app note text"
   },

@@ -11,8 +11,6 @@ class MapScreen extends StatefulWidget {
 }
 
 class _MapScreenState extends State<MapScreen> {
-  GoogleMapController? _controller; // Used in mobile map implementation
-  
   // Default location (Seoul, South Korea)
   static const CameraPosition _initialPosition = CameraPosition(
     target: LatLng(37.5665, 126.9780),
@@ -71,9 +69,7 @@ class _MapScreenState extends State<MapScreen> {
     return GoogleMap(
       initialCameraPosition: _initialPosition,
       onMapCreated: (GoogleMapController controller) {
-        setState(() {
-          _controller = controller;
-        });
+        // Map controller is ready
       },
       myLocationEnabled: true,
       myLocationButtonEnabled: true,

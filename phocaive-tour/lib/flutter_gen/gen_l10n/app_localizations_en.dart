@@ -12,6 +12,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get appTitle => 'Phocaive Tour';
 
   @override
+  String get tourGuideSubtitle => 'BTS Tour Guide';
+
+  @override
   String get mapMenu => 'Map';
 
   @override
@@ -37,7 +40,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get loading => 'Loading...';
 
   @override
-  String get supportPhocaive => 'Support Phocaive';
+  String get supportPhocaive => 'Support Phocaive🎉';
 
   @override
   String get webDebugMode => 'Web Debug Mode';
@@ -70,7 +73,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get phocaiveDescription1 =>
-      'Phocaive Tour is a service for \'ARMY\' that guides you to special places around the world visited by BTS members with maps.';
+      '\'Phocaive Tour\' is a service for \'ARMY\' that guides you to special places around the world visited by BTS members with maps.';
 
   @override
   String get phocaiveDescription2 =>
@@ -78,25 +81,25 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get phocaiveDescription3 =>
-      'Start your special journey with Phocaive Tour right now to trace the footsteps of BTS members💜';
+      'Start your special journey with Phocaive Tour right now to trace the footsteps of BTS members 💜';
 
   @override
   String get tipRequest => 'Tip Request';
 
   @override
   String get tipRequestMessage =>
-      'If you have any BTS tour information that we haven\'t covered, please feel free to share it with us🙏';
+      'If you have any BTS tour information that we haven\'t covered,\nplease feel free to share it with us 🙏';
 
   @override
   String get phocaiveAppIntro => 'Phocaive App Introduction';
 
   @override
   String get phocaiveServiceNote =>
-      '※ Phocaive Tour is a service provided by \'Phocaive\'.';
+      '\'Phocaive Tour\' is a service provided by \'Phocaive\'.';
 
   @override
   String get phocaiveMainAppNote =>
-      '※ Phocaive is a photocard archiving & exchange service for BTS ARMY. Please search for \'Phocaive\' on the Play Store or App Store.';
+      '\'Phocaive\' is a photocard archiving & exchange service for BTS ARMY. Please search for \'Phocaive\' on the Play Store or App Store.';
 
   @override
   String get features => 'Features:';

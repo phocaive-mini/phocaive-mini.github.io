@@ -12,6 +12,9 @@ class AppLocalizationsKo extends AppLocalizations {
   String get appTitle => '포카이브 투어';
 
   @override
+  String get tourGuideSubtitle => '방탄소년단(BTS) 투어 가이드';
+
+  @override
   String get mapMenu => '지도';
 
   @override
@@ -37,7 +40,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get loading => '로딩 중...';
 
   @override
-  String get supportPhocaive => '포카이브 응원하기';
+  String get supportPhocaive => '포카이브 응원하기🎉';
 
   @override
   String get webDebugMode => '웹 디버깅 모드';
@@ -70,7 +73,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get phocaiveDescription1 =>
-      '포카이브 투어는 방탄소년단(BTS) 멤버들이 방문했던 전 세계의 특별한 장소들을 지도와 함께 안내하는 \'ARMY\'들을 위한 서비스입니다.';
+      '\'포카이브 투어\'는 방탄소년단(BTS) 멤버들이 방문했던 전 세계의 특별한 장소들을 지도와 함께 안내하는 \'ARMY\'들을 위한 서비스입니다.';
 
   @override
   String get phocaiveDescription2 =>
@@ -78,23 +81,23 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get phocaiveDescription3 =>
-      '지금 바로 포카이브 투어와 함께 방탄소년단(BTS) 멤버들의 흔적이 담긴 특별한 여행을 시작하세요💜';
+      '지금 바로 포카이브 투어와 함께 방탄소년단(BTS) 멤버들의 흔적이 담긴 특별한 여행을 시작하세요 💜';
 
   @override
   String get tipRequest => '제보 요청';
 
   @override
-  String get tipRequestMessage => '미처 담지 못한 방탄투어 정보가 있다면 언제든 제보 부탁드립니다🙏';
+  String get tipRequestMessage => '미처 담지 못한 방탄투어 정보가 있다면\n언제든 제보 부탁드립니다 🙏';
 
   @override
   String get phocaiveAppIntro => '포카이브 앱 소개';
 
   @override
-  String get phocaiveServiceNote => '※ 포카이브투어는 \'포카이브\'에서 제공하는 서비스입니다.';
+  String get phocaiveServiceNote => '\'포카이브 투어\'는 \'포카이브\'에서 제공하는 서비스입니다.';
 
   @override
   String get phocaiveMainAppNote =>
-      '※ 포카이브는 BTS ARMY를 위한 포토카드 아카이빙 & 교환 서비스입니다. 플레이스토어 또는 앱스토어에서 \'포카이브\'를 검색해주세요.';
+      '\'포카이브\'는 방탄소년단(BTS) ARMY를 위한 포토카드 아카이빙 & 교환 서비스입니다. 플레이스토어 또는 앱스토어에서 \'포카이브\'를 검색해주세요.';
 
   @override
   String get features => '기능:';

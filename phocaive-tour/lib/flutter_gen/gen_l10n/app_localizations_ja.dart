@@ -12,6 +12,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get appTitle => 'フォカイブ ツアー';
 
   @override
+  String get tourGuideSubtitle => 'BTSツアーガイド';
+
+  @override
   String get mapMenu => '地図';
 
   @override
@@ -37,7 +40,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get loading => '読み込み中...';
 
   @override
-  String get supportPhocaive => 'フォカイブを応援';
+  String get supportPhocaive => 'フォカイブを応援🎉';
 
   @override
   String get webDebugMode => 'ウェブデバッグモード';
@@ -70,7 +73,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get phocaiveDescription1 =>
-      'フォカイブツアーは、BTSメンバーが訪れた世界中の特別な場所を地図とともに案内する\'ARMY\'のためのサービスです。';
+      '\'フォカイブ ツアー\'は、BTSメンバーが訪れた世界中の特別な場所を地図とともに案内する\'ARMY\'のためのサービスです。';
 
   @override
   String get phocaiveDescription2 =>
@@ -78,24 +81,24 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get phocaiveDescription3 =>
-      '今すぐフォカイブツアーと一緒にBTSメンバーの足跡が残る特別な旅を始めましょう💜';
+      '今すぐフォカイブツアーと一緒にBTSメンバーの足跡が残る特別な旅を始めましょう 💜';
 
   @override
   String get tipRequest => '情報提供のお願い';
 
   @override
   String get tipRequestMessage =>
-      'まだ收集できていないBTSツアー情報がありましたら、いつでも情報提供をお願いいたします🙏';
+      'まだ收集できていないBTSツアー情報がありましたら、\nいつでも情報提供をお願いいたします 🙏';
 
   @override
   String get phocaiveAppIntro => 'フォカイブアプリ紹介';
 
   @override
-  String get phocaiveServiceNote => '※ フォカイブツアーは\'フォカイブ\'が提供するサービスです。';
+  String get phocaiveServiceNote => '\'フォカイブ ツアー\'は\'フォカイブ\'が提供するサービスです。';
 
   @override
   String get phocaiveMainAppNote =>
-      '※ フォカイブはBTS ARMYのためのフォトカードアーカイブ&交換サービスです。Play StoreまたはApp Storeで\'フォカイブ\'を検索してください。';
+      '\'フォカイブ\'はBTS ARMYのためのフォトカードアーカイブ&交換サービスです。Play StoreまたはApp Storeで\'フォカイブ\'を検索してください。';
 
   @override
   String get features => '機能:';

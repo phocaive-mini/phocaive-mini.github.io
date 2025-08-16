@@ -106,6 +106,12 @@ abstract class AppLocalizations {
   /// **'Phocaive Tour'**
   String get appTitle;
 
+  /// No description provided for @tourGuideSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'BTS Tour Guide'**
+  String get tourGuideSubtitle;
+
   /// Map menu item
   ///
   /// In en, this message translates to:
@@ -157,7 +163,7 @@ abstract class AppLocalizations {
   /// Support button text
   ///
   /// In en, this message translates to:
-  /// **'Support Phocaive'**
+  /// **'Support Phocaive🎉'**
   String get supportPhocaive;
 
   /// Web debug mode title
@@ -217,7 +223,7 @@ abstract class AppLocalizations {
   /// App description paragraph 1
   ///
   /// In en, this message translates to:
-  /// **'Phocaive Tour is a service for \'ARMY\' that guides you to special places around the world visited by BTS members with maps.'**
+  /// **'\'Phocaive Tour\' is a service for \'ARMY\' that guides you to special places around the world visited by BTS members with maps.'**
   String get phocaiveDescription1;
 
   /// App description paragraph 2
@@ -229,7 +235,7 @@ abstract class AppLocalizations {
   /// App description paragraph 3
   ///
   /// In en, this message translates to:
-  /// **'Start your special journey with Phocaive Tour right now to trace the footsteps of BTS members💜'**
+  /// **'Start your special journey with Phocaive Tour right now to trace the footsteps of BTS members 💜'**
   String get phocaiveDescription3;
 
   /// Tip request section title
@@ -241,7 +247,7 @@ abstract class AppLocalizations {
   /// Tip request message
   ///
   /// In en, this message translates to:
-  /// **'If you have any BTS tour information that we haven\'t covered, please feel free to share it with us🙏'**
+  /// **'If you have any BTS tour information that we haven\'t covered,\nplease feel free to share it with us 🙏'**
   String get tipRequestMessage;
 
   /// App introduction section title
@@ -253,13 +259,13 @@ abstract class AppLocalizations {
   /// Service note text
   ///
   /// In en, this message translates to:
-  /// **'※ Phocaive Tour is a service provided by \'Phocaive\'.'**
+  /// **'\'Phocaive Tour\' is a service provided by \'Phocaive\'.'**
   String get phocaiveServiceNote;
 
   /// Main app note text
   ///
   /// In en, this message translates to:
-  /// **'※ Phocaive is a photocard archiving & exchange service for BTS ARMY. Please search for \'Phocaive\' on the Play Store or App Store.'**
+  /// **'\'Phocaive\' is a photocard archiving & exchange service for BTS ARMY. Please search for \'Phocaive\' on the Play Store or App Store.'**
   String get phocaiveMainAppNote;
 
   /// Features section title
