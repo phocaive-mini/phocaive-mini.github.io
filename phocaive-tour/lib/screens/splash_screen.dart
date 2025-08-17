@@ -68,7 +68,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.purple.shade50,
+      backgroundColor: const Color(0xFFFFFFFF),
       body: Column(
         children: [
           // Main content area
@@ -77,25 +77,35 @@ class _SplashScreenState extends State<SplashScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  // TODO: Add actual logo image
+                  // App logo image
                   Container(
                     width: 150,
                     height: 150,
                     decoration: BoxDecoration(
-                      color: Colors.purple,
-                      borderRadius: BorderRadius.circular(75),
+                      borderRadius: BorderRadius.circular(20),
+                      boxShadow: [
+                        BoxShadow(
+                          color: const Color(0xFF8E54E9).withValues(alpha: 0.3),
+                          blurRadius: 20,
+                          offset: const Offset(0, 10),
+                        ),
+                      ],
                     ),
-                    child: const Icon(
-                      Icons.tour,
-                      size: 80,
-                      color: Colors.white,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Image.asset(
+                        'assets/images/app_icon.png',
+                        width: 150,
+                        height: 150,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                   const SizedBox(height: 24),
                   Text(
                     'Phocaive Tour',
                     style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                      color: Colors.purple,
+                      color: const Color(0xFF8E54E9),
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -103,11 +113,13 @@ class _SplashScreenState extends State<SplashScreen> {
                   Text(
                     AppLocalizations.of(context)!.tourGuideSubtitle,
                     style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                      color: Colors.purple.shade600,
+                      color: const Color(0xFF8E54E9).withValues(alpha: 0.7),
                     ),
                   ),
                   const SizedBox(height: 40),
-                  const CircularProgressIndicator(),
+                  const CircularProgressIndicator(
+                    valueColor: AlwaysStoppedAnimation<Color>(Color(0xFF8E54E9)),
+                  ),
                 ],
               ),
             ),
