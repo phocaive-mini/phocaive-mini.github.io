@@ -13,6 +13,9 @@
             background-color: #f4f7f6;
             color: #333;
             line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         .container {
@@ -40,11 +43,15 @@
         }
 
         .services-section {
-            display: flex;
-            flex-wrap: wrap;
+            padding: 50px 0;
+            flex-grow: 1;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
             gap: 30px;
             justify-content: center;
-            padding: 50px 0;
         }
 
         .service-card {
@@ -53,8 +60,6 @@
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
             padding: 30px;
             transition: transform 0.3s, box-shadow 0.3s;
-            max-width: 350px;
-            width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -100,7 +105,15 @@
             margin-bottom: 20px;
         }
 
-        /* 반응형 디자인 (모바일) */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+            margin-top: auto;
+        }
+
+        /* 반응형 디자인 */
         @media (max-width: 768px) {
             header {
                 padding: 40px 20px;
@@ -114,8 +127,8 @@
                 font-size: 1rem;
             }
 
-            .service-card {
-                padding: 25px;
+            .service-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -129,37 +142,45 @@
         </header>
     
         <section class="services-section">
-            <div class="service-card">
-                <img src="https://i.imgur.com/K3t51Xg.png" alt="포카이브 앱 아이콘" class="icon">
-                <h2>포카이브</h2>
-                <p>
-                    K-POP 포토카드와 앨범을 체계적으로 관리하고, 
-                    팬덤 활동을 더 즐겁게 만들어주는 올인원 서비스입니다.
-                </p>
-                <a href="https://phocaive.com" class="service-link" target="_blank">자세히 보기</a>
-            </div>
-    
-            <div class="service-card">
-                <img src="https://i.imgur.com/L3rRk70.png" alt="포카이브 투어 앱 아이콘" class="icon">
-                <h2>포카이브 투어</h2>
-                <p>
-                    방탄소년단(BTS) 멤버들이 방문한 전 세계의 모든 스팟을
-                    지도와 상세한 가이드로 안내하는 특별한 투어 서비스입니다.
-                </p>
-                <a href="https://phocaive.com" class="service-link" target="_blank">자세히 보기</a>
-            </div>
-    
-            <div class="service-card">
-                <img src="https://i.imgur.com/h5vV8X6.png" alt="태스크 체크보드 앱 아이콘" class="icon">
-                <h2>태스크 체크보드</h2>
-                <p>
-                    복잡한 할 일들을 한눈에 파악하고 효율적으로 관리할 수 있도록
-                    설계된 직관적인 투두 리스트 및 생산성 앱입니다.
-                </p>
-                <a href="https://phocaive.com" class="service-link" target="_blank">자세히 보기</a>
+            <div class="service-grid">
+                <div class="service-card">
+                    <img src="https://i.imgur.com/K3t51Xg.png" alt="포카이브 앱 아이콘" class="icon">
+                    <h2>포카이브</h2>
+                    <p>
+                        K-POP 포토카드와 앨범을 체계적으로 관리하고, 
+                        팬덤 활동을 더 즐겁게 만들어주는 올인원 서비스입니다.
+                    </p>
+                    <a href="https://phocaive.com" class="service-link" target="_blank">자세히 보기</a>
+                </div>
+        
+                <div class="service-card">
+                    <img src="https://i.imgur.com/L3rRk70.png" alt="포카이브 투어 앱 아이콘" class="icon">
+                    <h2>포카이브 투어</h2>
+                    <p>
+                        방탄소년단(BTS) 멤버들이 방문한 전 세계의 모든 스팟을
+                        지도와 상세한 가이드로 안내하는 특별한 투어 서비스입니다.
+                    </p>
+                    <a href="https://phocaive.com" class="service-link" target="_blank">자세히 보기</a>
+                </div>
+        
+                <div class="service-card">
+                    <img src="https://i.imgur.com/h5vV8X6.png" alt="태스크 체크보드 앱 아이콘" class="icon">
+                    <h2>태스크 체크보드</h2>
+                    <p>
+                        복잡한 할 일들을 한눈에 파악하고 효율적으로 관리할 수 있도록
+                        설계된 직관적인 투두 리스트 및 생산성 앱입니다.
+                    </p>
+                    <a href="https://phocaive.com" class="service-link" target="_blank">자세히 보기</a>
+                </div>
             </div>
         </section>
     </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; phocaive</p>
+        </div>
+    </footer>
 
 </body>
 </html>
