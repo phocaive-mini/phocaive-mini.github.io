@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>포카이브 서비스 소개</title>
+    <title>포카이브 서비스</title>
     <style>
         /* 기본 스타일 */
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f7f6;
-            color: #333;
+            background-color: #f9f9f9;
+            color: #222;
             line-height: 1.6;
             display: flex;
             flex-direction: column;
@@ -19,46 +19,46 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 20px;
         }
 
         header {
             text-align: center;
-            padding: 60px 20px;
-            background-color: #fff;
-            border-bottom: 1px solid #ddd;
+            padding: 100px 20px;
+            background: linear-gradient(to right, #4a90e2, #8A2BE2);
+            color: #fff;
         }
 
         header h1 {
-            font-size: 2.5rem;
-            color: #1a1a1a;
+            font-size: 3rem;
+            font-weight: 700;
             margin-bottom: 10px;
         }
 
         header p {
-            font-size: 1.1rem;
-            color: #666;
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: #f0f0f0;
         }
 
         .services-section {
-            padding: 50px 0;
+            padding: 80px 0;
             flex-grow: 1;
         }
 
         .service-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-            gap: 30px;
-            justify-content: center;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
         }
 
         .service-card {
             background-color: #fff;
             border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            padding: 30px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            padding: 40px;
             transition: transform 0.3s, box-shadow 0.3s;
             display: flex;
             flex-direction: column;
@@ -67,48 +67,51 @@
         }
 
         .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            transform: translateY(-12px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
         }
 
         .service-card h2 {
             font-size: 1.8rem;
-            color: #333;
+            color: #222;
             margin-top: 0;
             margin-bottom: 15px;
         }
         
         .service-card p {
             font-size: 1rem;
-            color: #555;
+            color: #666;
             margin-bottom: 25px;
+            flex-grow: 1; /* 높이 맞춤 */
         }
 
         .service-link {
             display: inline-block;
-            background-color: #007bff;
+            background: linear-gradient(to right, #4a90e2, #8A2BE2);
             color: #fff;
-            padding: 12px 24px;
+            padding: 12px 30px;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s;
+            font-weight: 500;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
         .service-link:hover {
-            background-color: #0056b3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
         
         .icon {
             width: 80px;
             height: 80px;
             margin-bottom: 20px;
+            border-radius: 20px;
         }
 
         footer {
             text-align: center;
             padding: 20px;
-            background-color: #333;
+            background-color: #222;
             color: #fff;
             margin-top: auto;
         }
@@ -116,15 +119,11 @@
         /* 반응형 디자인 */
         @media (max-width: 768px) {
             header {
-                padding: 40px 20px;
+                padding: 60px 20px;
             }
 
             header h1 {
                 font-size: 2rem;
-            }
-
-            header p {
-                font-size: 1rem;
             }
 
             .service-grid {
@@ -138,7 +137,7 @@
     <div class="container">
         <header>
             <h1>포카이브 서비스</h1>
-            <p>포카이브는 K-POP 팬덤 문화를 더 즐겁고 편리하게 만드는 서비스를 제공합니다.</p>
+            <p>K-POP 팬덤 문화를 더 즐겁고 편리하게 만듭니다.</p>
         </header>
     
         <section class="services-section">
