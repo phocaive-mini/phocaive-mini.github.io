@@ -1,0 +1,98 @@
+<div style="width: 1280px; height: 1450px; position: relative; background: white; overflow: hidden">
+  <div style="left: 100px; top: 71px; position: absolute; color: black; font-size: 24px; font-family: Inter; font-weight: 700; word-wrap: break-word">Phocaive 고객지원</div>
+  <div style="left: 100px; top: 284px; position: absolute; color: black; font-size: 18px; font-family: Inter; font-weight: 700; word-wrap: break-word">Phocaive</div>
+  <div style="left: 470px; top: 284px; position: absolute; color: black; font-size: 18px; font-family: Inter; font-weight: 700; word-wrap: break-word">Phocaive Tour</div>
+  <div style="left: 841px; top: 284px; position: absolute; color: black; font-size: 18px; font-family: Inter; font-weight: 700; word-wrap: break-word">Task Checkboard</div>
+  <div style="left: 100px; top: 136px; position: absolute; color: black; font-size: 14px; font-family: Inter; font-weight: 400; line-height: 21px; word-wrap: break-word">안녕하세요 Phocaive 개발팀입니다.<br/>Phociave는 아래의 서비스를 제공하고 있습니다.</div>
+  <div style="width: 340px; left: 100px; top: 401px; position: absolute"><span style="color: black; font-size: 14px; font-family: Inter; font-weight: 700; line-height: 21px; word-wrap: break-word">‘포카이브’</span><span style="color: black; font-size: 14px; font-family: Inter; font-weight: 400; line-height: 21px; word-wrap: break-word">는 방탄소년단 포토카드 교환 플랫폼입니다.<br/></span><span style="color: black; font-size: 14px; font-family: Inter; font-weight: 400; line-height: 21px; word-wrap: break-word">이용약관 </span><span style="color: black; font-size: 14px; font-family: Inter; font-weight: 400; text-decoration: underline; line-height: 21px; word-wrap: break-word">링크<br/></span><span style="color: black; font-size: 14px; font-family: Inter; font-weight: 400; line-height: 21px; word-wrap: break-word">개인정보처리방침 </span><span style="color: black; font-size: 14px; font-family: Inter; font-weight: 400; text-decoration: underline; line-height: 21px; word-wrap: break-word">링크</span></div>
+  <div style="width: 340px; left: 471px; top: 401px; position: absolute"><span style="color: black; font-size: 14px; font-family: Inter; font-weight: 700; line-height: 21px; word-wrap: break-word">‘포카이브 투어’</span><span style="color: black; font-size: 14px; font-family: Inter; font-weight: 400; line-height: 21px; word-wrap: break-word">는 방탄소년단 멤버들이 방문했던 장소들을 지도와 함께 안내하는 앱입니다.<br/></span><span style="color: black; font-size: 14px; font-family: Inter; font-weight: 400; line-height: 21px; word-wrap: break-word">개인정보처리방침 </span><span style="color: black; font-size: 14px; font-family: Inter; font-weight: 400; text-decoration: underline; line-height: 21px; word-wrap: break-word">링크</span></div>
+  <div style="width: 340px; left: 840px; top: 401px; position: absolute"><span style="color: black; font-size: 14px; font-family: Inter; font-weight: 700; line-height: 21px; word-wrap: break-word">‘체크보드’</span><span style="color: black; font-size: 14px; font-family: Inter; font-weight: 400; line-height: 21px; word-wrap: break-word">는 간단한 할 일 관리 앱입니다.<br/></span><span style="color: black; font-size: 14px; font-family: Inter; font-weight: 400; line-height: 21px; word-wrap: break-word">개인정보처리방침 </span><span style="color: black; font-size: 14px; font-family: Inter; font-weight: 400; text-decoration: underline; line-height: 21px; word-wrap: break-word">링크</span></div>
+  <img style="width: 340px; height: 700px; left: 101px; top: 500px; position: absolute" src="https://placehold.co/340x700" />
+  <img style="width: 171px; height: 51px; left: 269px; top: 328px; position: absolute" src="https://placehold.co/171x51" />
+  <div style="width: 155px; height: 51px; left: 100px; top: 328px; position: absolute; overflow: hidden">
+    <div style="width: 155px; height: 51px; left: 0px; top: 0px; position: absolute; background: black"></div>
+    <div style="width: 152.74px; height: 48.77px; left: 1.13px; top: 1.12px; position: absolute; background: white"></div>
+    <div style="width: 23.86px; height: 21.91px; left: 12.45px; top: 16.97px; position: absolute; background: black"></div>
+    <div style="width: 5.89px; height: 6.66px; left: 24.32px; top: 10px; position: absolute; background: black"></div>
+    <div style="width: 14.31px; height: 15.83px; left: 44.59px; top: 23.05px; position: absolute; background: black"></div>
+    <div style="width: 11.05px; height: 15.49px; left: 60.40px; top: 27.22px; position: absolute; background: black"></div>
+    <div style="width: 11.05px; height: 15.49px; left: 73.30px; top: 27.22px; position: absolute; background: black"></div>
+    <div style="width: 12.34px; height: 16.36px; left: 90.42px; top: 22.79px; position: absolute; background: black"></div>
+    <div style="width: 6.35px; height: 14.34px; left: 103.83px; top: 24.61px; position: absolute; background: black"></div>
+    <div style="width: 11.13px; height: 11.83px; left: 111.48px; top: 27.20px; position: absolute; background: black"></div>
+    <div style="width: 6px; height: 11.67px; left: 124.59px; top: 27.22px; position: absolute; background: black"></div>
+    <div style="width: 10.71px; height: 11.83px; left: 131.10px; top: 27.20px; position: absolute; background: black"></div>
+    <div style="width: 6.46px; height: 7.62px; left: 46.20px; top: 11.12px; position: absolute; background: black"></div>
+    <div style="width: 5.53px; height: 5.96px; left: 53.97px; top: 12.89px; position: absolute; background: black"></div>
+    <div style="width: 8.08px; height: 5.74px; left: 60.32px; top: 13px; position: absolute; background: black"></div>
+    <div style="width: 4.97px; height: 5.86px; left: 69.75px; top: 12.88px; position: absolute; background: black"></div>
+    <div style="width: 1.15px; height: 7.98px; left: 76.54px; top: 10.76px; position: absolute; background: black"></div>
+    <div style="width: 5.53px; height: 5.96px; left: 79.28px; top: 12.89px; position: absolute; background: black"></div>
+    <div style="width: 4.90px; height: 5.96px; left: 86.01px; top: 12.89px; position: absolute; background: black"></div>
+    <div style="width: 5.45px; height: 8.08px; left: 92.41px; top: 10.76px; position: absolute; background: black"></div>
+    <div style="width: 5.53px; height: 5.96px; left: 102.61px; top: 12.89px; position: absolute; background: black"></div>
+    <div style="width: 4.97px; height: 5.86px; left: 109.67px; top: 12.88px; position: absolute; background: black"></div>
+    <div style="width: 3.34px; height: 7.20px; left: 119.05px; top: 11.57px; position: absolute; background: black"></div>
+    <div style="width: 5.04px; height: 7.98px; left: 123.96px; top: 10.76px; position: absolute; background: black"></div>
+    <div style="width: 5.32px; height: 5.98px; left: 130.45px; top: 12.89px; position: absolute; background: black"></div>
+  </div>
+  <img style="width: 171px; height: 51px; left: 639px; top: 328px; position: absolute" src="https://placehold.co/171x51" />
+  <div style="width: 155px; height: 51px; left: 470px; top: 328px; position: absolute; overflow: hidden">
+    <div style="width: 155px; height: 51px; left: 0px; top: 0px; position: absolute; background: black"></div>
+    <div style="width: 152.74px; height: 48.77px; left: 1.13px; top: 1.12px; position: absolute; background: white"></div>
+    <div style="width: 23.86px; height: 21.91px; left: 12.45px; top: 16.97px; position: absolute; background: black"></div>
+    <div style="width: 5.89px; height: 6.66px; left: 24.32px; top: 10px; position: absolute; background: black"></div>
+    <div style="width: 14.31px; height: 15.83px; left: 44.59px; top: 23.05px; position: absolute; background: black"></div>
+    <div style="width: 11.05px; height: 15.49px; left: 60.40px; top: 27.22px; position: absolute; background: black"></div>
+    <div style="width: 11.05px; height: 15.49px; left: 73.30px; top: 27.22px; position: absolute; background: black"></div>
+    <div style="width: 12.34px; height: 16.36px; left: 90.42px; top: 22.79px; position: absolute; background: black"></div>
+    <div style="width: 6.35px; height: 14.34px; left: 103.83px; top: 24.61px; position: absolute; background: black"></div>
+    <div style="width: 11.13px; height: 11.83px; left: 111.48px; top: 27.20px; position: absolute; background: black"></div>
+    <div style="width: 6px; height: 11.67px; left: 124.59px; top: 27.22px; position: absolute; background: black"></div>
+    <div style="width: 10.71px; height: 11.83px; left: 131.10px; top: 27.20px; position: absolute; background: black"></div>
+    <div style="width: 6.46px; height: 7.62px; left: 46.20px; top: 11.12px; position: absolute; background: black"></div>
+    <div style="width: 5.53px; height: 5.96px; left: 53.97px; top: 12.89px; position: absolute; background: black"></div>
+    <div style="width: 8.08px; height: 5.74px; left: 60.32px; top: 13px; position: absolute; background: black"></div>
+    <div style="width: 4.97px; height: 5.86px; left: 69.75px; top: 12.88px; position: absolute; background: black"></div>
+    <div style="width: 1.15px; height: 7.98px; left: 76.54px; top: 10.76px; position: absolute; background: black"></div>
+    <div style="width: 5.53px; height: 5.96px; left: 79.28px; top: 12.89px; position: absolute; background: black"></div>
+    <div style="width: 4.90px; height: 5.96px; left: 86.01px; top: 12.89px; position: absolute; background: black"></div>
+    <div style="width: 5.45px; height: 8.08px; left: 92.41px; top: 10.76px; position: absolute; background: black"></div>
+    <div style="width: 5.53px; height: 5.96px; left: 102.61px; top: 12.89px; position: absolute; background: black"></div>
+    <div style="width: 4.97px; height: 5.86px; left: 109.67px; top: 12.88px; position: absolute; background: black"></div>
+    <div style="width: 3.34px; height: 7.20px; left: 119.05px; top: 11.57px; position: absolute; background: black"></div>
+    <div style="width: 5.04px; height: 7.98px; left: 123.96px; top: 10.76px; position: absolute; background: black"></div>
+    <div style="width: 5.32px; height: 5.98px; left: 130.45px; top: 12.89px; position: absolute; background: black"></div>
+  </div>
+  <img style="width: 171px; height: 51px; left: 1009px; top: 328px; position: absolute" src="https://placehold.co/171x51" />
+  <div style="width: 155px; height: 51px; left: 840px; top: 328px; position: absolute; overflow: hidden">
+    <div style="width: 155px; height: 51px; left: 0px; top: 0px; position: absolute; background: black"></div>
+    <div style="width: 152.74px; height: 48.77px; left: 1.13px; top: 1.12px; position: absolute; background: white"></div>
+    <div style="width: 23.86px; height: 21.91px; left: 12.45px; top: 16.97px; position: absolute; background: black"></div>
+    <div style="width: 5.89px; height: 6.66px; left: 24.32px; top: 10px; position: absolute; background: black"></div>
+    <div style="width: 14.31px; height: 15.83px; left: 44.59px; top: 23.05px; position: absolute; background: black"></div>
+    <div style="width: 11.05px; height: 15.49px; left: 60.40px; top: 27.22px; position: absolute; background: black"></div>
+    <div style="width: 11.05px; height: 15.49px; left: 73.30px; top: 27.22px; position: absolute; background: black"></div>
+    <div style="width: 12.34px; height: 16.36px; left: 90.42px; top: 22.79px; position: absolute; background: black"></div>
+    <div style="width: 6.35px; height: 14.34px; left: 103.83px; top: 24.61px; position: absolute; background: black"></div>
+    <div style="width: 11.13px; height: 11.83px; left: 111.48px; top: 27.20px; position: absolute; background: black"></div>
+    <div style="width: 6px; height: 11.67px; left: 124.59px; top: 27.22px; position: absolute; background: black"></div>
+    <div style="width: 10.71px; height: 11.83px; left: 131.10px; top: 27.20px; position: absolute; background: black"></div>
+    <div style="width: 6.46px; height: 7.62px; left: 46.20px; top: 11.12px; position: absolute; background: black"></div>
+    <div style="width: 5.53px; height: 5.96px; left: 53.97px; top: 12.89px; position: absolute; background: black"></div>
+    <div style="width: 8.08px; height: 5.74px; left: 60.32px; top: 13px; position: absolute; background: black"></div>
+    <div style="width: 4.97px; height: 5.86px; left: 69.75px; top: 12.88px; position: absolute; background: black"></div>
+    <div style="width: 1.15px; height: 7.98px; left: 76.54px; top: 10.76px; position: absolute; background: black"></div>
+    <div style="width: 5.53px; height: 5.96px; left: 79.28px; top: 12.89px; position: absolute; background: black"></div>
+    <div style="width: 4.90px; height: 5.96px; left: 86.01px; top: 12.89px; position: absolute; background: black"></div>
+    <div style="width: 5.45px; height: 8.08px; left: 92.41px; top: 10.76px; position: absolute; background: black"></div>
+    <div style="width: 5.53px; height: 5.96px; left: 102.61px; top: 12.89px; position: absolute; background: black"></div>
+    <div style="width: 4.97px; height: 5.86px; left: 109.67px; top: 12.88px; position: absolute; background: black"></div>
+    <div style="width: 3.34px; height: 7.20px; left: 119.05px; top: 11.57px; position: absolute; background: black"></div>
+    <div style="width: 5.04px; height: 7.98px; left: 123.96px; top: 10.76px; position: absolute; background: black"></div>
+    <div style="width: 5.32px; height: 5.98px; left: 130.45px; top: 12.89px; position: absolute; background: black"></div>
+  </div>
+  <img style="width: 340px; height: 700px; left: 471px; top: 500px; position: absolute" src="https://placehold.co/340x700" />
+  <img style="width: 340px; height: 700px; left: 841px; top: 500px; position: absolute" src="https://placehold.co/340x700" />
+  <div style="width: 1079px; height: 0px; left: 101px; top: 1336px; position: absolute; outline: 1px #D1D1D1 solid; outline-offset: -0.50px"></div>
+</div>
