@@ -7,40 +7,64 @@
     <style>
         /* 기본 스타일 */
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-family: -apple-system, BlinkMacMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
-            color: #222;
+            background-color: #f8f9fa; /* 더 밝은 배경색 */
+            color: #343a40; /* 짙은 텍스트 색상 */
             line-height: 1.6;
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
+            min-height: 100vh; /* 최소 높이를 뷰포트 높이로 설정 */
+            scroll-behavior: smooth; /* 부드러운 스크롤 */
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1600px; /* 요청에 따라 최대 너비 1600px */
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 40px; /* 좌우 패딩 증가 */
         }
 
         header {
+            width: 100%; /* 전체 너비로 확장 */
             text-align: center;
-            padding: 100px 20px;
-            background: linear-gradient(to right, #4a90e2, #8A2BE2);
+            padding: 80px 20px; /* 높이 조정 (이전 100px에서 줄임) */
+            background: linear-gradient(135deg, #4a90e2 0%, #8A2BE2 100%); /* 그라데이션 */
             color: #fff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden; /* 이미지 오버플로우 방지 */
+        }
+
+        header::before { /* 추상적인 배경 패턴 추가 (선택 사항) */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top left, rgba(255,255,255,0.1) 0%, transparent 50%),
+                        radial-gradient(circle at bottom right, rgba(255,255,255,0.1) 0%, transparent 50%);
+            opacity: 0.8;
+            z-index: 0;
         }
 
         header h1 {
-            font-size: 3rem;
+            font-size: 3.2rem; /* 제목 크기 조정 */
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
         }
 
         header p {
-            font-size: 1.2rem;
+            font-size: 1.3rem; /* 문구 크기 조정 */
             font-weight: 300;
-            color: #f0f0f0;
+            color: #e0e0e0;
+            position: relative;
+            z-index: 1;
+            max-width: 800px; /* 문구 너비 제한 */
+            margin: 0 auto;
         }
 
         .services-section {
@@ -50,84 +74,273 @@
 
         .service-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
+            grid-template-columns: 1fr; /* 1열 그리드로 변경 */
+            gap: 60px; /* 서비스 블록 간 간격 증가 */
+            justify-content: center;
+            align-items: center;
         }
 
         .service-card {
             background-color: #fff;
-            border-radius: 12px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-            padding: 40px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
+            border-radius: 16px; /* 모서리 둥글기 증가 */
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); /* 그림자 강도 증가 */
+            padding: 50px; /* 내부 패딩 증가 */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex; /* Flexbox 레이아웃 사용 */
+            flex-direction: row; /* 기본적으로 가로 배열 */
+            align-items: center; /* 세로 중앙 정렬 */
+            text-align: left; /* 텍스트 왼쪽 정렬 */
+            gap: 40px; /* 이미지와 텍스트 사이 간격 */
         }
 
+        /* 좌우 정렬을 위한 스타일 */
+        .service-card.reverse {
+            flex-direction: row-reverse; /* 이미지와 텍스트 순서 반전 */
+            text-align: right;
+        }
+        .service-card.reverse .service-info {
+            order: 1; /* 텍스트를 이미지 앞으로 */
+        }
+        .service-card.reverse .service-image {
+            order: 2; /* 이미지를 텍스트 뒤로 */
+        }
+
+
         .service-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            transform: translateY(-15px); /* 호버 시 더 크게 위로 */
+            box-shadow: 0 18px 60px rgba(0, 0, 0, 0.15); /* 호버 시 그림자 더 진하게 */
+        }
+        
+        .service-info {
+            flex: 1; /* 남은 공간을 차지 */
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* 텍스트 시작점 정렬 */
+        }
+        .service-card.reverse .service-info {
+            align-items: flex-end; /* 텍스트 끝점 정렬 */
         }
 
         .service-card h2 {
-            font-size: 1.8rem;
-            color: #222;
+            font-size: 2.2rem; /* 서비스 제목 크기 증가 */
+            color: #343a40;
             margin-top: 0;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            font-weight: 600;
         }
         
         .service-card p {
-            font-size: 1rem;
-            color: #666;
-            margin-bottom: 25px;
-            flex-grow: 1; /* 높이 맞춤 */
+            font-size: 1.1rem; /* 설명 텍스트 크기 증가 */
+            color: #555;
+            margin-bottom: 30px; /* 설명과 이미지 사이 간격 */
+            max-width: 600px; /* 설명 텍스트 너비 제한 */
+            line-height: 1.7;
         }
 
-        .service-link {
-            display: inline-block;
-            background: linear-gradient(to right, #4a90e2, #8A2BE2);
-            color: #fff;
-            padding: 12px 30px;
-            border-radius: 50px;
+        .service-image {
+            flex: 1; /* 남은 공간을 차지 */
+            display: flex;
+            justify-content: center; /* 이미지 중앙 정렬 */
+            align-items: center;
+        }
+
+        .app-screenshot {
+            width: 100%;
+            max-width: 500px; /* 스크린샷 최대 너비 조정 */
+            height: auto;
+            border-radius: 12px; /* 모서리 둥글기 */
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .app-screenshot:hover {
+            transform: scale(1.02);
+        }
+
+        .download-buttons {
+            display: flex;
+            gap: 15px; /* 버튼 사이 간격 */
+            margin-top: 20px;
+            flex-wrap: wrap; /* 모바일에서 줄바꿈 */
+            justify-content: flex-start; /* 버튼 왼쪽 정렬 */
+        }
+        .service-card.reverse .download-buttons {
+            justify-content: flex-end; /* 버튼 오른쪽 정렬 */
+        }
+
+        .download-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f0f2f5; /* 버튼 배경색 변경 */
+            color: #333;
+            padding: 12px 25px; /* 버튼 패딩 조정 */
+            border-radius: 8px; /* 버튼 모서리 둥글게 */
             text-decoration: none;
-            font-weight: 500;
-            transition: transform 0.2s, box-shadow 0.2s;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* 버튼 그림자 */
+            min-width: 160px; /* 버튼 최소 너비 */
         }
 
-        .service-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        .download-button:hover {
+            background-color: #e2e6ea;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+        }
+
+        .download-button img {
+            width: 20px; /* 아이콘 크기 조정 */
+            height: 20px;
+            margin-right: 8px;
         }
         
         .icon {
-            width: 80px;
-            height: 80px;
-            margin-bottom: 20px;
-            border-radius: 20px;
+            width: 100px; /* 아이콘 크기 증가 */
+            height: 100px;
+            margin-bottom: 30px; /* 아이콘과 제목 사이 간격 증가 */
+            border-radius: 25%; /* 아이콘 모서리 둥글게 (Wix 템플릿 스타일) */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         footer {
             text-align: center;
-            padding: 20px;
-            background-color: #222;
-            color: #fff;
+            padding: 30px;
+            background-color: #212529; /* 더 어두운 푸터 배경 */
+            color: #f8f9fa;
             margin-top: auto;
+            font-size: 0.9rem;
         }
 
         /* 반응형 디자인 */
+        @media (max-width: 1200px) {
+            .container {
+                padding: 0 20px; /* 큰 화면에서 패딩 조정 */
+            }
+        }
+
+        @media (max-width: 992px) { /* 태블릿 가로 */
+            .service-card {
+                padding: 40px;
+                gap: 30px;
+            }
+            .service-card h2 {
+                font-size: 2rem;
+            }
+            .service-card p {
+                font-size: 1rem;
+            }
+            .app-screenshot {
+                max-width: 400px;
+            }
+            .download-button {
+                min-width: 140px;
+                padding: 10px 20px;
+            }
+        }
+
+
         @media (max-width: 768px) {
             header {
                 padding: 60px 20px;
             }
 
             header h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
 
-            .service-grid {
-                grid-template-columns: 1fr;
+            header p {
+                font-size: 1.1rem;
+            }
+
+            .services-section {
+                padding: 60px 0;
+            }
+
+            .service-card {
+                flex-direction: column; /* 모바일에서 세로 배열 */
+                text-align: center; /* 텍스트 중앙 정렬 */
+                padding: 30px;
+            }
+            .service-card.reverse { /* 모바일에서 반전 해제 */
+                flex-direction: column;
+                text-align: center;
+            }
+            .service-card.reverse .service-info,
+            .service-card.reverse .service-image {
+                order: unset; /* 순서 초기화 */
+            }
+            .service-info {
+                align-items: center; /* 모바일에서 중앙 정렬 */
+            }
+
+            .service-card h2 {
+                font-size: 1.8rem;
+            }
+
+            .service-card p {
+                font-size: 1rem;
+            }
+
+            .icon {
+                width: 80px;
+                height: 80px;
+                margin-bottom: 20px;
+            }
+
+            .download-buttons {
+                flex-direction: column; /* 모바일에서 버튼 세로 정렬 */
+                gap: 15px;
+                justify-content: center; /* 모바일에서 버튼 중앙 정렬 */
+            }
+            .service-card.reverse .download-buttons {
+                justify-content: center; /* 모바일에서 버튼 중앙 정렬 */
+            }
+
+            .download-button {
+                width: calc(100% - 60px); /* 패딩 고려 */
+            }
+            .app-screenshot {
+                max-width: 80%; /* 모바일에서 스크린샷 너비 조정 */
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 40px 15px;
+            }
+            header h1 {
+                font-size: 2rem;
+            }
+            header p {
+                font-size: 0.9rem;
+            }
+            .container {
+                padding: 0 15px;
+            }
+            .service-card {
+                padding: 20px;
+            }
+            .service-card h2 {
+                font-size: 1.5rem;
+            }
+            .service-card p {
+                font-size: 0.9rem;
+            }
+            .download-button {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+                min-width: unset;
+            }
+            .download-button img {
+                width: 18px;
+                height: 18px;
+                margin-right: 5px;
+            }
+            .icon {
+                width: 70px;
+                height: 70px;
             }
         }
     </style>
@@ -142,34 +355,79 @@
     
         <section class="services-section">
             <div class="service-grid">
+                <!-- 포카이브 서비스 카드 (좌측 이미지, 우측 텍스트) -->
                 <div class="service-card">
-                    <img src="https://i.imgur.com/K3t51Xg.png" alt="포카이브 앱 아이콘" class="icon">
-                    <h2>포카이브</h2>
-                    <p>
-                        K-POP 포토카드와 앨범을 체계적으로 관리하고, 
-                        팬덤 활동을 더 즐겁게 만들어주는 올인원 서비스입니다.
-                    </p>
-                    <a href="https://phocaive.com" class="service-link" target="_blank">자세히 보기</a>
+                    <div class="service-image">
+                        <img src="https://placehold.co/500x350/D3D3D3/FFFFFF?text=Phocaive+App+Screenshot" alt="포카이브 앱 스크린샷" class="app-screenshot">
+                    </div>
+                    <div class="service-info">
+                        <img src="https://i.imgur.com/K3t51Xg.png" alt="포카이브 앱 아이콘" class="icon">
+                        <h2>포카이브</h2>
+                        <p>
+                            K-POP 포토카드와 앨범을 체계적으로 관리하고, 
+                            팬덤 활동을 더 즐겁게 만들어주는 올인원 서비스입니다.
+                        </p>
+                        <div class="download-buttons">
+                            <a href="https://play.google.com/store/apps/details?id=YOUR_PHOCAIVE_ANDROID_APP_ID" class="download-button" target="_blank">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play">
+                                Google Play
+                            </a>
+                            <a href="https://apps.apple.com/us/app/YOUR_PHOCAIVE_IOS_APP_ID" class="download-button" target="_blank">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/2000px-Download_on_the_App_Store_Badge.svg.png" alt="App Store">
+                                App Store
+                            </a>
+                        </div>
+                    </div>
                 </div>
         
-                <div class="service-card">
-                    <img src="https://i.imgur.com/L3rRk70.png" alt="포카이브 투어 앱 아이콘" class="icon">
-                    <h2>포카이브 투어</h2>
-                    <p>
-                        방탄소년단(BTS) 멤버들이 방문한 전 세계의 모든 스팟을
-                        지도와 상세한 가이드로 안내하는 특별한 투어 서비스입니다.
-                    </p>
-                    <a href="https://phocaive.com" class="service-link" target="_blank">자세히 보기</a>
+                <!-- 포카이브 투어 서비스 카드 (우측 이미지, 좌측 텍스트 - reverse 클래스 사용) -->
+                <div class="service-card reverse">
+                    <div class="service-image">
+                        <img src="https://placehold.co/500x350/D3D3D3/FFFFFF?text=Phocaive+Tour+App+Screenshot" alt="포카이브 투어 앱 스크린샷" class="app-screenshot">
+                    </div>
+                    <div class="service-info">
+                        <img src="https://i.imgur.com/L3rRk70.png" alt="포카이브 투어 앱 아이콘" class="icon">
+                        <h2>포카이브 투어</h2>
+                        <p>
+                            방탄소년단(BTS) 멤버들이 방문한 전 세계의 모든 스팟을
+                            지도와 상세한 가이드로 안내하는 특별한 투어 서비스입니다.
+                        </p>
+                        <div class="download-buttons">
+                            <a href="https://play.google.com/store/apps/details?id=YOUR_PHOCAIVE_TOUR_ANDROID_APP_ID" class="download-button" target="_blank">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play">
+                                Google Play
+                            </a>
+                            <a href="https://apps.apple.com/us/app/YOUR_PHOCAIVE_TOUR_IOS_APP_ID" class="download-button" target="_blank">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/2000px-Download_on_the_App_Store_Badge.svg.png" alt="App Store">
+                                App Store
+                            </a>
+                        </div>
+                    </div>
                 </div>
         
+                <!-- 태스크 체크보드 서비스 카드 (좌측 이미지, 우측 텍스트) -->
                 <div class="service-card">
-                    <img src="https://i.imgur.com/h5vV8X6.png" alt="태스크 체크보드 앱 아이콘" class="icon">
-                    <h2>태스크 체크보드</h2>
-                    <p>
-                        복잡한 할 일들을 한눈에 파악하고 효율적으로 관리할 수 있도록
-                        설계된 직관적인 투두 리스트 및 생산성 앱입니다.
-                    </p>
-                    <a href="https://phocaive.com" class="service-link" target="_blank">자세히 보기</a>
+                    <div class="service-image">
+                        <img src="https://placehold.co/500x350/D3D3D3/FFFFFF?text=Task+Checkboard+App+Screenshot" alt="태스크 체크보드 앱 스크린샷" class="app-screenshot">
+                    </div>
+                    <div class="service-info">
+                        <img src="https://i.imgur.com/h5vV8X6.png" alt="태스크 체크보드 앱 아이콘" class="icon">
+                        <h2>태스크 체크보드</h2>
+                        <p>
+                            복잡한 할 일들을 한눈에 파악하고 효율적으로 관리할 수 있도록
+                            설계된 직관적인 투두 리스트 및 생산성 앱입니다.
+                        </p>
+                        <div class="download-buttons">
+                            <a href="https://play.google.com/store/apps/details?id=YOUR_TASK_CHECKBOARD_ANDROID_APP_ID" class="download-button" target="_blank">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play">
+                                Google Play
+                            </a>
+                            <a href="https://apps.apple.com/us/app/YOUR_TASK_CHECKBOARD_IOS_APP_ID" class="download-button" target="_blank">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/2000px-Download_on_the_App_Store_Badge.svg.png" alt="App Store">
+                                App Store
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
