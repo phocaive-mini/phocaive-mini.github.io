@@ -23,17 +23,27 @@
             max-width: 1600px; /* 요청에 따라 최대 너비 1600px */
             margin: 0 auto;
             padding: 0 40px; /* 좌우 패딩 증가 */
+            box-sizing: border-box; /* 패딩이 너비에 포함되도록 */
         }
 
         header {
             width: 100%; /* 전체 너비로 확장 */
-            text-align: center;
-            padding: 80px 20px; /* 높이 조정 (이전 100px에서 줄임) */
+            padding: 50px 0; /* 높이 조정 (이전 80px에서 줄임) */
             background: linear-gradient(135deg, #4a90e2 0%, #8A2BE2 100%); /* 그라데이션 */
             color: #fff;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             position: relative;
             overflow: hidden; /* 이미지 오버플로우 방지 */
+        }
+        
+        /* 헤더 내부 컨테이너 (텍스트 중앙 정렬 및 너비 제한) */
+        .header-content {
+            text-align: center;
+            max-width: 800px; /* 문구 너비 제한 */
+            margin: 0 auto;
+            padding: 0 20px; /* 내부 패딩 */
+            position: relative;
+            z-index: 1;
         }
 
         header::before { /* 추상적인 배경 패턴 추가 (선택 사항) */
@@ -53,18 +63,12 @@
             font-size: 3.2rem; /* 제목 크기 조정 */
             font-weight: 700;
             margin-bottom: 15px;
-            position: relative;
-            z-index: 1;
         }
 
         header p {
             font-size: 1.3rem; /* 문구 크기 조정 */
             font-weight: 300;
             color: #e0e0e0;
-            position: relative;
-            z-index: 1;
-            max-width: 800px; /* 문구 너비 제한 */
-            margin: 0 auto;
         }
 
         .services-section {
@@ -211,6 +215,22 @@
             margin-top: auto;
             font-size: 0.9rem;
         }
+        
+        footer p { /* 푸터 텍스트 간격 조정 */
+            margin: 5px 0;
+            line-height: 1.4;
+        }
+
+        footer a { /* 푸터 링크 스타일 */
+            color: #f8f9fa;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
 
         /* 반응형 디자인 */
         @media (max-width: 1200px) {
@@ -347,12 +367,14 @@
 </head>
 <body>
 
-    <div class="container">
-        <header>
+    <header>
+        <div class="header-content">
             <h1>포카이브 서비스</h1>
             <p>K-POP 팬덤 문화를 더 즐겁고 편리하게 만듭니다.</p>
-        </header>
+        </div>
+    </header>
     
+    <div class="container">
         <section class="services-section">
             <div class="service-grid">
                 <!-- 포카이브 서비스 카드 (좌측 이미지, 우측 텍스트) -->
@@ -435,7 +457,10 @@
 
     <footer>
         <div class="container">
-            <p>&copy; phocaive</p>
+            <p>
+                Copyright © Team PHOCAIVE All rights reserved.<br>
+                <a href="https://twitter.com/phocaive" target="_blank">@phocaive</a>  |  phocaive@gmail.com | PHOCAIVE for BTS ARMY💜
+            </p>
         </div>
     </footer>
 
