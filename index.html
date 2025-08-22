@@ -1,36 +1,468 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8">
-  <title>Phocaive 고객지원</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;max-width:760px;margin:40px auto;padding:0 16px;line-height:1.6}</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포카이브 고객지원</title>
+    <style>
+        /* 기본 스타일 */
+        body {
+            font-family: -apple-system, BlinkMacMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa; /* 더 밝은 배경색 */
+            color: #343a40; /* 짙은 텍스트 색상 */
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* 최소 높이를 뷰포트 높이로 설정 */
+            scroll-behavior: smooth; /* 부드러운 스크롤 */
+        }
+
+        .container {
+            max-width: 1600px; /* 최대 너비 1600px */
+            margin: 0 auto;
+            padding: 0 40px; /* 좌우 패딩 증가 */
+            box-sizing: border-box; /* 패딩이 너비에 포함되도록 */
+        }
+
+        header {
+            width: 100%; /* 전체 너비 */
+            padding: 50px 0; /* 높이 조정 (이전 80px에서 줄임) */
+            background: linear-gradient(135deg, #4a90e2 0%, #8A2BE2 100%); /* 그라데이션 */
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden; /* 이미지 오버플로우 방지 */
+        }
+        
+        /* 헤더 내부 컨테이너 (텍스트 중앙 정렬 및 너비 제한) */
+        .header-content {
+            text-align: center;
+            max-width: 800px; /* 문구 너비 제한 */
+            margin: 0 auto;
+            padding: 0 20px; /* 내부 패딩 */
+            position: relative;
+            z-index: 1;
+        }
+
+        header::before { /* 추상적인 배경 패턴 추가 (선택 사항) */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top left, rgba(255,255,255,0.1) 0%, transparent 50%),
+                        radial-gradient(circle at bottom right, rgba(255,255,255,0.1) 0%, transparent 50%);
+            opacity: 0.8;
+            z-index: 0;
+        }
+
+        header h1 {
+            font-size: 3.2rem; /* 제목 크기 조정 */
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        header p {
+            font-size: 1.3rem; /* 문구 크기 조정 */
+            font-weight: 300;
+            color: #e0e0e0;
+        }
+
+        .services-section {
+            padding: 80px 0;
+            flex-grow: 1;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: 1fr; /* 1열 그리드로 변경 */
+            gap: 60px; /* 서비스 블록 간 간격 증가 */
+            justify-content: center;
+            align-items: center;
+        }
+
+        .service-card {
+            background-color: #fff;
+            border-radius: 16px; /* 모서리 둥글기 증가 */
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); /* 그림자 강도 증가 */
+            padding: 50px; /* 내부 패딩 증가 */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex; /* Flexbox 레이아웃 사용 */
+            flex-direction: row; /* 기본적으로 가로 배열 */
+            align-items: center; /* 세로 중앙 정렬 */
+            text-align: left; /* 텍스트 왼쪽 정렬 */
+            gap: 40px; /* 이미지와 텍스트 사이 간격 */
+        }
+
+        /* 좌우 정렬을 위한 스타일 */
+        .service-card.reverse {
+            flex-direction: row-reverse; /* 이미지와 텍스트 순서 반전 */
+            text-align: right;
+        }
+        .service-card.reverse .service-info {
+            order: 1; /* 텍스트를 이미지 앞으로 */
+        }
+        .service-card.reverse .service-image {
+            order: 2; /* 이미지를 텍스트 뒤로 */
+        }
+
+
+        .service-card:hover {
+            transform: translateY(-15px); /* 호버 시 더 크게 위로 */
+            box-shadow: 0 18px 60px rgba(0, 0, 0, 0.15); /* 호버 시 그림자 더 진하게 */
+        }
+        
+        .service-info {
+            flex: 1; /* 남은 공간을 차지 */
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* 텍스트 시작점 정렬 */
+        }
+        .service-card.reverse .service-info {
+            align-items: flex-end; /* 텍스트 끝점 정렬 */
+        }
+
+        .service-card h2 {
+            font-size: 2.2rem; /* 서비스 제목 크기 증가 */
+            color: #343a40;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .service-card p {
+            font-size: 1.1rem; /* 설명 텍스트 크기 증가 */
+            color: #555;
+            margin-bottom: 30px; /* 설명과 이미지 사이 간격 */
+            max-width: 600px; /* 설명 텍스트 너비 제한 */
+            line-height: 1.7;
+        }
+
+        .service-image {
+            flex: 1; /* 남은 공간을 차지 */
+            display: flex;
+            justify-content: center; /* 이미지 중앙 정렬 */
+            align-items: center;
+        }
+
+        .app-screenshot {
+            width: auto; /* 너비를 자동으로 조정 */
+            max-width: 100%; /* 부모 요소의 너비를 넘지 않도록 */
+            max-height: 380px; /* 최대 높이 380px */
+            object-fit: contain; /* 비율 유지하며 이미지 맞춤 */
+            border-radius: 12px; /* 모서리 둥글기 */
+            /* box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); 그림자 제거 */
+            transition: transform 0.3s ease;
+        }
+
+        .app-screenshot:hover {
+            transform: scale(1.02);
+        }
+
+        .download-buttons {
+            display: flex;
+            gap: 15px; /* 버튼 사이 간격 */
+            margin-top: 20px;
+            flex-wrap: wrap; /* 모바일에서 줄바꿈 */
+            justify-content: flex-start; /* 버튼 왼쪽 정렬 */
+        }
+        .service-card.reverse .download-buttons {
+            justify-content: flex-end; /* 버튼 오른쪽 정렬 */
+        }
+
+        .download-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f0f2f5; /* 버튼 배경색 변경 */
+            color: #333;
+            padding: 12px 25px; /* 버튼 패딩 조정 */
+            border-radius: 8px; /* 버튼 모서리 둥글게 */
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* 버튼 그림자 */
+            min-width: 160px; /* 버튼 최소 너비 */
+        }
+
+        .download-button:hover {
+            background-color: #e2e6ea;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+        }
+
+        .download-button img {
+            width: 20px; /* 아이콘 크기 조정 */
+            height: 20px;
+            margin-right: 8px;
+        }
+        
+        .icon {
+            width: 100px; /* 아이콘 크기 증가 */
+            height: 100px;
+            margin-bottom: 30px; /* 아이콘과 제목 사이 간격 증가 */
+            border-radius: 25%; /* 아이콘 모서리 둥글게 (Wix 템플릿 스타일) */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #212529; /* 더 어두운 푸터 배경 */
+            color: #f8f9fa;
+            margin-top: auto;
+            font-size: 0.9rem;
+        }
+        
+        footer p { /* 푸터 텍스트 간격 조정 */
+            margin: 5px 0;
+            line-height: 1.4;
+        }
+
+        footer a { /* 푸터 링크 스타일 */
+            color: #f8f9fa;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* 반응형 디자인 */
+        @media (max-width: 1200px) {
+            .container {
+                padding: 0 20px; /* 큰 화면에서 패딩 조정 */
+            }
+        }
+
+        @media (max-width: 992px) { /* 태블릿 가로 */
+            .service-card {
+                padding: 40px;
+                gap: 30px;
+            }
+            .service-card h2 {
+                font-size: 2rem;
+            }
+            .service-card p {
+                font-size: 1rem;
+            }
+            .app-screenshot {
+                max-width: 400px;
+            }
+            .download-button {
+                min-width: 140px;
+                padding: 10px 20px;
+            }
+        }
+
+
+        @media (max-width: 768px) {
+            header {
+                padding: 60px 20px;
+            }
+
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            header p {
+                font-size: 1.1rem;
+            }
+
+            .services-section {
+                padding: 60px 0;
+            }
+
+            .service-card {
+                flex-direction: column; /* 모바일에서 세로 배열 */
+                text-align: center; /* 텍스트 중앙 정렬 */
+                padding: 30px;
+            }
+            .service-card.reverse { /* 모바일에서 반전 해제 */
+                flex-direction: column;
+                text-align: center;
+            }
+            .service-card.reverse .service-info,
+            .service-card.reverse .service-image {
+                order: unset; /* 순서 초기화 */
+            }
+            .service-info {
+                align-items: center; /* 모바일에서 중앙 정렬 */
+            }
+
+            .service-card h2 {
+                font-size: 1.8rem;
+            }
+
+            .service-card p {
+                font-size: 1rem;
+            }
+
+            .icon {
+                width: 80px;
+                height: 80px;
+                margin-bottom: 20px;
+            }
+
+            .download-buttons {
+                flex-direction: column; /* 모바일에서 버튼 세로 정렬 */
+                gap: 15px;
+                justify-content: center; /* 모바일에서 버튼 중앙 정렬 */
+            }
+            .service-card.reverse .download-buttons {
+                justify-content: center; /* 모바일에서 버튼 중앙 정렬 */
+            }
+
+            .download-button {
+                width: calc(100% - 60px); /* 패딩 고려 */
+            }
+            .app-screenshot {
+                max-width: 80%; /* 모바일에서 스크린샷 너비 조정 */
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 40px 15px;
+            }
+            header h1 {
+                font-size: 2rem;
+            }
+            header p {
+                font-size: 0.9rem;
+            }
+            .container {
+                padding: 0 15px;
+            }
+            .service-card {
+                padding: 20px;
+            }
+            .service-card h2 {
+                font-size: 1.5rem;
+            }
+            .service-card p {
+                font-size: 0.9rem;
+            }
+            .download-button {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+                min-width: unset;
+            }
+            .download-button img {
+                width: 18px;
+                height: 18px;
+                margin-right: 5px;
+            }
+            .icon {
+                width: 70px;
+                height: 70px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <h1>Phocaive 고객지원</h1>
-  <p>안녕하세요 Phocaive 개발팀입니다.</p>
-  <p>Phociave는 아래의 서비스를 제공하고 있습니다.</p>
+    <header>
+        <div class="header-content">
+            <h1>포카이브 서비스 소개</h1>
+            <p>안녕하세요 Phocaive 개발팀입니다.</p>
+            <p>Phociave는 아래의 서비스를 제공하고 있습니다.</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section class="services-section">
+            <div class="service-grid">
+                <!-- 포카이브 서비스 카드 (좌측 이미지, 우측 텍스트) -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://joy-hopeworld.github.io/image_main_Phocaive.png" alt="포카이브 앱 스크린샷" class="app-screenshot">
+                    </div>
+                    <div class="service-info">
+                        <img src="https://joy-hopeworld.github.io/image_Phocaive_Icon.png" alt="포카이브 앱 아이콘" class="icon">
+                        <h2>포카이브(Phocaive)</h2>
+                        <p>
+                            ‘포카이브’는 방탄소년단 포토카드 교환 플랫폼입니다.
+                        </p>
+                        <div class="download-buttons">
+                            <a href="https://play.google.com/store/apps/details?id=com.phocaive&pcampaignid=web_share" class="download-button" target="_blank">
+                                <img src="https://joy-hopeworld.github.io/image_googleplay-store-240.png" alt="Google Play">
+                                Google Play
+                            </a>
+                            <a href="https://apps.apple.com/kr/app/%ED%8F%AC%EC%B9%B4%EC%9D%B4%EB%B8%8C-phocaive-bts-%ED%8F%AC%ED%86%A0%EC%B9%B4%EB%93%9C/id1624512192" class="download-button" target="_blank">
+                                <img src="https://joy-hopeworld.github.io/image_appstore-240.png" alt="App Store">
+                                App Store
+                            </a>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- 포카이브 투어 서비스 카드 (우측 이미지, 좌측 텍스트 - reverse 클래스 사용) -->
+                <div class="service-card reverse">
+                    <div class="service-image">
+                        <img src="https://joy-hopeworld.github.io/image_main_Phocaive Tour.png" alt="포카이브 투어 앱 스크린샷" class="app-screenshot">
+                    </div>
+                    <div class="service-info">
+                        <img src="https://joy-hopeworld.github.io/image_Phocaive Tour_Icon.png" alt="포카이브 투어 앱 아이콘" class="icon">
+                        <h2>포카이브 투어(Phocaive Tour)</h2>
+                        <p>
+                            ‘포카이브 투어’는 방탄소년단 멤버들이 방문했던 장소들을 <br>
+                            지도와 함께 안내하는 앱입니다.
+                        </p>
+                        <div class="download-buttons">
+                            <a href="https://play.google.com/store/apps/details?id=YOUR_PHOCAIVE_TOUR_ANDROID_APP_ID" class="download-button" target="_blank">
+                                <img src="https://joy-hopeworld.github.io/image_googleplay-store-240.png" alt="Google Play">
+                                Google Play
+                            </a>
+                            <a href="https://apps.apple.com/us/app/YOUR_PHOCAIVE_TOUR_IOS_APP_ID" class="download-button" target="_blank">
+                                <img src="https://joy-hopeworld.github.io/image_appstore-240.png" alt="App Store">
+                                App Store
+                            </a>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- 태스크 체크보드 서비스 카드 (좌측 이미지, 우측 텍스트) -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://joy-hopeworld.github.io/image_main_Task Checkboard.png" alt="태스크 체크보드 앱 스크린샷" class="app-screenshot">
+                    </div>
+                    <div class="service-info">
+                        <img src="https://joy-hopeworld.github.io/image_Task Checkboard_Icon.png" alt="태스크 체크보드 앱 아이콘" class="icon">
+                        <h2>태스크 체크보드(Task Checkboard)</h2>
+                        <p>
+                            ‘체크보드’는 간단한 할 일 관리 앱입니다.
+                        </p>
+                        <div class="download-buttons">
+                            <a href="https://play.google.com/store/apps/details?id=com.checkboard.checkboard&pcampaignid=web_share" class="download-button" target="_blank">
+                                <img src="https://joy-hopeworld.github.io/image_googleplay-store-240.png" alt="Google Play">
+                                Google Play
+                            </a>
+                            <a href="https://apps.apple.com/kr/app/task-checkboard/id6749501379" class="download-button" target="_blank">
+                                <img src="https://joy-hopeworld.github.io/image_appstore-240.png" alt="App Store">
+                                App Store
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 
-  <h2>연락처</h2>
-  <ul>
-    <li>이메일: <a href="mailto:phocaive@gmail.com">phocaive@gmail.com</a></li>
-    <li>응답: 영업일 기준 48시간 이내</li>
-  </ul>
+    <footer>
+        <div class="container">
+            <p>
+                Copyright © Team PHOCAIVE All rights reserved.<br>
+                <a href="https://twitter.com/phocaive" target="_blank">@phocaive</a>  |  phocaive@gmail.com | PHOCAIVE for BTS ARMY💜
+            </p>
+        </div>
+    </footer>
 
-  <h2>자주 묻는 질문</h2>
-  <details>
-    <summary>한국/미국/글로벌 페이지 뒤로가기가 안되요</summary>
-    <p>좌측 상단 '장소명(또는 국가명, 지역명)'을 클릭하시면 이전페이지로 이동 가능한 탐색기가 확인됩니다.</p>
-  </details>
-  <details>
-    <summary>광고가 거슬려요</summary>
-    <p>광고는 앱 유지에 필요한 최소 수준으로만 노출합니다. 이상·부적절 광고는 스크린샷과 함께 신고 부탁드립니다.</p>
-  </details>
-
-
-  
-  <p><a href="https://joy-hopeworld.github.io/app-ads.txt">app-ads.txt</a> ·
-     <a href="https://phocaive.notion.site/Privacy-Policy-2446a3ccf36c80829087ca86fb7dc185">Privacy Policy</a></p>
 </body>
 </html>
