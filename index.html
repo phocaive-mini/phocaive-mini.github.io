@@ -28,7 +28,7 @@
 
         header {
             width: 100%; /* 전체 너비 */
-            padding: 50px 0; /* 높이 조정 (이전 80px에서 줄임) */
+            padding: 50px 0; /* 높이 조정 */
             background: linear-gradient(135deg, #4a90e2 0%, #8A2BE2 100%); /* 그라데이션 */
             color: #fff;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -39,7 +39,7 @@
         /* 헤더 내부 컨테이너 (텍스트 가운데 정렬 및 너비 제한) */
         .header-content {
             text-align: center;
-            max-width: 800px; /* 문구 너비 제한 */
+            max-width: 1000px; /* 문구 너비 제한 */
             margin: 0 auto;
             padding: 0 20px; /* 내부 패딩 */
             position: relative;
@@ -79,7 +79,7 @@
         .service-grid {
             display: grid;
             grid-template-columns: 1fr; /* 1열 그리드로 변경 */
-            gap: 50px; /* 서비스 블록 간 간격 조정 (80px -> 50px) */
+            gap: 30px; /* 서비스 블록 간 간격 조정 */
             justify-content: center;
             align-items: center;
         }
@@ -88,14 +88,14 @@
             background-color: #fff;
             border-radius: 16px; /* 모서리 둥글기 증가 */
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); /* 그림자 강도 증가 */
-            padding: 60px; /* 내부 패딩 증가 (50px -> 60px) */
+            padding: 40px; /* 내부 패딩 */
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex; /* Flexbox 레이아웃 사용 */
             flex-direction: row; /* 기본적으로 가로 배열 */
             align-items: stretch; /* 세로 방향으로 늘어나도록 변경 (높이 맞춤) */
             text-align: left; /* 텍스트 왼쪽 정렬 */
-            gap: 60px; /* 이미지와 텍스트 사이 간격 증가 (40px -> 60px) */
-            max-width: 1000px; /* 서비스 카드 최대 너비 통일 (추가) */
+            gap: 40px; /* 이미지와 텍스트 사이 간격 */
+            max-width: 1400px; /* 서비스 카드 최대 너비 통일 (추가) */
             margin: 0 auto; /* 가운데 정렬 */
             height: 430px; /* 서비스 카드 높이 고정 */
         }
@@ -141,7 +141,7 @@
             font-size: 1.1rem; /* 설명 텍스트 크기 증가 */
             color: #555;
             margin-bottom: 30px; /* 설명과 이미지 사이 간격 */
-            max-width: 600px; /* 설명 텍스트 너비 제한 */
+            max-width: 800px; /* 설명 텍스트 너비 제한 */
             line-height: 1.7;
         }
 
@@ -396,7 +396,8 @@
                     </div>
                     <div class="service-info">
                         <img src="https://joy-hopeworld.github.io/image_Phocaive_Icon.png" alt="포카이브 앱 아이콘" class="icon">
-                        <h2>포카이브(Phocaive)</h2>
+                        <h2>포카이브</h2>
+                        <h2>(Phocaive)</h2>
                         <p>
                             ‘포카이브’는 방탄소년단 포토카드 교환 플랫폼입니다.
                         </p>
@@ -420,7 +421,8 @@
                     </div>
                     <div class="service-info">
                         <img src="https://joy-hopeworld.github.io/image_Phocaive Tour_Icon.png" alt="포카이브 투어 앱 아이콘" class="icon">
-                        <h2>포카이브 투어(Phocaive Tour)</h2>
+                        <h2>포카이브 투어</h2>
+                        <h2>(Phocaive Tour)</h2>
                         <p>
                             ‘포카이브 투어’는 방탄소년단 멤버들이 방문했던 장소들을 <br>
                             지도와 함께 안내하는 앱입니다.
@@ -445,7 +447,8 @@
                     </div>
                     <div class="service-info">
                         <img src="https://joy-hopeworld.github.io/image_Task Checkboard_Icon.png" alt="태스크 체크보드 앱 아이콘" class="icon">
-                        <h2>태스크 체크보드(Task Checkboard)</h2>
+                        <h2>태스크 체크보드</h2>
+                        <h2>(Task Checkboard)</h2>
                         <p>
                             ‘체크보드’는 간단한 할 일 관리 앱입니다.
                         </p>
