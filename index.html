@@ -20,7 +20,7 @@
         }
 
         .container {
-            max-width: 1600px; /* 최대 너비 1600px */
+            max-width: 1800px; /* 최대 너비 1800px */
             margin: 0 auto;
             padding: 0 40px; /* 좌우 패딩 증가 */
             box-sizing: border-box; /* 패딩이 너비에 포함되도록 */
@@ -39,7 +39,7 @@
         /* 헤더 내부 컨테이너 (텍스트 가운데 정렬 및 너비 제한) */
         .header-content {
             text-align: center;
-            max-width: 1000px; /* 문구 너비 제한 */
+            max-width: 1200px; /* 문구 너비 제한 */
             margin: 0 auto;
             padding: 0 20px; /* 내부 패딩 */
             position: relative;
@@ -97,20 +97,8 @@
             gap: 40px; /* 이미지와 텍스트 사이 간격 */
             max-width: 1400px; /* 서비스 카드 최대 너비 통일 (추가) */
             margin: 0 auto; /* 가운데 정렬 */
-            height: 430px; /* 서비스 카드 높이 고정 */
+            height: auto; /* 서비스 카드 높이 고정 */
         }
-
-        /* 좌우 정렬을 위한 스타일 (reverse 클래스 제거로 인해 이제 사용되지 않음) */
-        /* .service-card.reverse {
-            flex-direction: row-reverse;
-            text-align: right;
-        }
-        .service-card.reverse .service-info {
-            order: 1;
-        }
-        .service-card.reverse .service-image {
-            order: 2;
-        } */
 
 
         .service-card:hover {
@@ -130,15 +118,15 @@
         } */
 
         .service-card h2 {
-            font-size: 2.2rem; /* 서비스 제목 크기 증가 */
+            font-size: 2.0rem; /* 서비스 제목 크기 증가 */
             color: #343a40;
             margin-top: 0;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             font-weight: 600;
         }
         
         .service-card p {
-            font-size: 1.1rem; /* 설명 텍스트 크기 증가 */
+            font-size: 1.0rem; /* 설명 텍스트 크기 증가 */
             color: #555;
             margin-bottom: 30px; /* 설명과 이미지 사이 간격 */
             max-width: 800px; /* 설명 텍스트 너비 제한 */
@@ -206,8 +194,8 @@
         }
         
         .icon {
-            width: 100px; /* 아이콘 크기 증가 */
-            height: 100px;
+            width: 80px; /* 아이콘 크기 증가 */
+            height: 80px;
             margin-bottom: 30px; /* 아이콘과 제목 사이 간격 증가 */
             border-radius: 25%; /* 아이콘 모서리 둥글게 (Wix 템플릿 스타일) */
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -239,11 +227,11 @@
 
 
         /* 반응형 디자인 */
-        @media (max-width: 1200px) {
+        @media (max-width: 1600px) {
             .container {
                 padding: 0 20px; /* 큰 화면에서 패딩 조정 */
             }
-            .service-card { /* 1200px 이하에서는 max-width 제거 */
+            .service-card { /* 1600px 이하에서는 max-width 제거 */
                 max-width: 100%;
             }
         }
