@@ -95,19 +95,21 @@
             align-items: center; /* 세로 중앙 정렬 */
             text-align: left; /* 텍스트 왼쪽 정렬 */
             gap: 40px; /* 이미지와 텍스트 사이 간격 */
+            max-width: 1200px; /* 요청에 따라 최대 너비 1200px */
+            margin: 0 auto; /* 가운데 정렬 */
         }
 
-        /* 좌우 정렬을 위한 스타일 */
-        .service-card.reverse {
-            flex-direction: row-reverse; /* 이미지와 텍스트 순서 반전 */
+        /* 좌우 정렬을 위한 스타일 (reverse 클래스 제거로 인해 이제 사용되지 않음) */
+        /* .service-card.reverse {
+            flex-direction: row-reverse;
             text-align: right;
         }
         .service-card.reverse .service-info {
-            order: 1; /* 텍스트를 이미지 앞으로 */
+            order: 1;
         }
         .service-card.reverse .service-image {
-            order: 2; /* 이미지를 텍스트 뒤로 */
-        }
+            order: 2;
+        } */
 
 
         .service-card:hover {
@@ -121,9 +123,9 @@
             flex-direction: column;
             align-items: flex-start; /* 텍스트 시작점 정렬 */
         }
-        .service-card.reverse .service-info {
-            align-items: flex-end; /* 텍스트 끝점 정렬 */
-        }
+        /* .service-card.reverse .service-info {
+            align-items: flex-end;
+        } */
 
         .service-card h2 {
             font-size: 2.2rem; /* 서비스 제목 크기 증가 */
@@ -169,9 +171,9 @@
             flex-wrap: wrap; /* 모바일에서 줄바꿈 */
             justify-content: flex-start; /* 버튼 왼쪽 정렬 */
         }
-        .service-card.reverse .download-buttons {
-            justify-content: flex-end; /* 버튼 오른쪽 정렬 */
-        }
+        /* .service-card.reverse .download-buttons {
+            justify-content: flex-end;
+        } */
 
         .download-button {
             display: flex;
@@ -238,6 +240,9 @@
             .container {
                 padding: 0 20px; /* 큰 화면에서 패딩 조정 */
             }
+            .service-card { /* 1200px 이하에서는 max-width 제거 */
+                max-width: 100%;
+            }
         }
 
         @media (max-width: 992px) { /* 태블릿 가로 */
@@ -283,14 +288,14 @@
                 text-align: center; /* 텍스트 중앙 정렬 */
                 padding: 30px;
             }
-            .service-card.reverse { /* 모바일에서 반전 해제 */
+            /* .service-card.reverse {
                 flex-direction: column;
                 text-align: center;
-            }
-            .service-card.reverse .service-info,
+            } */
+            /* .service-card.reverse .service-info,
             .service-card.reverse .service-image {
-                order: unset; /* 순서 초기화 */
-            }
+                order: unset;
+            } */
             .service-info {
                 align-items: center; /* 모바일에서 중앙 정렬 */
             }
@@ -314,9 +319,9 @@
                 gap: 15px;
                 justify-content: center; /* 모바일에서 버튼 중앙 정렬 */
             }
-            .service-card.reverse .download-buttons {
-                justify-content: center; /* 모바일에서 버튼 중앙 정렬 */
-            }
+            /* .service-card.reverse .download-buttons {
+                justify-content: center;
+            } */
 
             .download-button {
                 width: calc(100% - 60px); /* 패딩 고려 */
@@ -403,8 +408,8 @@
                     </div>
                 </div>
         
-                <!-- 포카이브 투어 서비스 카드 (우측 이미지, 좌측 텍스트 - reverse 클래스 사용) -->
-                <div class="service-card reverse">
+                <!-- 포카이브 투어 서비스 카드 (좌측 이미지, 우측 텍스트) -->
+                <div class="service-card">
                     <div class="service-image">
                         <img src="https://joy-hopeworld.github.io/image_main_Phocaive Tour.png" alt="포카이브 투어 앱 스크린샷" class="app-screenshot">
                     </div>
