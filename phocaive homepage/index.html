@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포카이브 서비스 소개</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS 변수로 일관된 색상 체계 */
+        :root {
+            --primary-color: #6366f1;
+            --primary-light: #818cf8;
+            --primary-dark: #4338ca;
+            --secondary-color: #f1f5f9;
+            --accent-color: #06b6d4;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --text-light: #94a3b8;
+            --background: #ffffff;
+            --background-alt: #f8fafc;
+            --border-color: #e2e8f0;
+            --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --radius: 12px;
+            --radius-lg: 16px;
+        }
+
+        /* 기본 스타일 */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background);
+            color: var(--text-primary);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* 헤더 재디자인 */
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 50%, var(--accent-color) 100%);
+            padding: 80px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.05"><circle cx="30" cy="30" r="2"/></g></g></svg>');
+            opacity: 0.6;
+        }
+
+        .header-content {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 24px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin: 0 0 16px 0;
+            color: white;
+            letter-spacing: -0.02em;
+        }
+
+        header .subtitle {
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 8px;
+        }
+
+        header .description {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0;
+        }
+
+        /* 서비스 섹션 */
+        .services-section {
+            padding: 100px 0;
+            background: var(--background-alt);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0 0 16px 0;
+            letter-spacing: -0.02em;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .service-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+        }
+
+        /* 서비스 카드 재디자인 */
+        .service-card {
+            background: var(--background);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            padding: 0;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--border-color);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+            border-color: var(--primary-light);
+        }
+
+        .service-card:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .service-image {
+            flex: 1;
+            padding: 60px 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .app-screenshot {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            transition: transform 0.3s ease;
+        }
+
+        .app-screenshot:hover {
+            transform: scale(1.05);
+        }
+
+        .service-info {
+            flex: 1;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            margin-bottom: 32px;
+        }
+
+        .service-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0 0 16px 0;
+            letter-spacing: -0.02em;
+        }
+
+        .service-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin: 0 0 40px 0;
+            line-height: 1.7;
+        }
+
+        .download-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .download-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            color: var(--text-primary);
+            padding: 14px 28px;
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            min-width: 160px;
+            box-shadow: var(--shadow);
+        }
+
+        .download-button:hover {
+            background: #585BEE;
+            color: white;
+            border-color: #585BEE;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .download-button img {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+        }
+
+
+        /* 푸터 */
+        footer {
+            background: var(--text-primary);
+            color: white;
+            padding: 60px 0;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        .footer-text {
+            font-size: 1rem;
+            margin: 0 0 16px 0;
+            opacity: 0.8;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+
+        .footer-link:hover {
+            opacity: 0.7;
+        }
+
+        .footer-copyright {
+            font-size: 0.9rem;
+            opacity: 0.6;
+            margin: 0;
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            .service-card {
+                flex-direction: column !important;
+            }
+            
+            .service-image,
+            .service-info {
+                flex: none;
+                width: 100%;
+            }
+            
+            .service-image {
+                padding: 40px;
+            }
+            
+            .service-info {
+                padding: 40px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 60px 0 80px;
+            }
+
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            header .subtitle {
+                font-size: 1.1rem;
+            }
+
+            header .description {
+                font-size: 1rem;
+            }
+
+            .services-section {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .section-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .service-grid {
+                gap: 40px;
+            }
+
+            .service-info {
+                padding: 32px;
+            }
+
+            .service-title {
+                font-size: 1.8rem;
+            }
+
+            .service-description {
+                font-size: 1rem;
+            }
+
+            .download-buttons {
+                flex-direction: column;
+            }
+
+            .download-button {
+                width: 100%;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            header {
+                padding: 40px 0 60px;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .services-section {
+                padding: 40px 0;
+            }
+
+            .section-header {
+                margin-bottom: 40px;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .service-image {
+                padding: 30px 20px;
+            }
+
+            .service-info {
+                padding: 24px;
+            }
+
+            .app-icon {
+                width: 64px;
+                height: 64px;
+            }
+
+            .service-title {
+                font-size: 1.5rem;
+                line-height: 1.2;
+            }
+
+            .service-description {
+                font-size: 0.95rem;
+                margin-bottom: 24px;
+            }
+
+            .download-buttons {
+                gap: 12px;
+            }
+
+            .download-button {
+                padding: 14px 16px;
+                font-size: 0.9rem;
+                min-width: unset;
+                width: 100%;
+                max-width: 280px;
+                margin: 0 auto;
+                justify-content: center;
+                text-align: center;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .download-button img {
+                width: 18px;
+                height: 18px;
+                margin-right: 8px;
+                flex-shrink: 0;
+            }
+
+            footer {
+                padding: 40px 0;
+            }
+
+            .app-screenshot {
+                max-width: 250px;
+            }
+        }
+
+        /* 애니메이션 효과 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .service-card {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .service-card:nth-child(1) { animation-delay: 0.1s; }
+        .service-card:nth-child(2) { animation-delay: 0.2s; }
+        .service-card:nth-child(3) { animation-delay: 0.3s; }
+
+        /* 스크롤 표시기 */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 24px;
+            height: 40px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            padding-top: 8px;
+        }
+
+        .scroll-indicator::before {
+            content: '';
+            width: 2px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 1px;
+            animation: scroll 2s infinite;
+        }
+
+        @keyframes scroll {
+            0%, 20% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(16px); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="header-badge">✨ Team PHOCAIVE</div>
+                <h1>포카이브 서비스</h1>
+                <p class="subtitle">안녕하세요, Phocaive 개발팀입니다</p>
+                <p class="description">우리는 K-POP 팬들을 위한 혁신적인 모바일 서비스를 제공합니다</p>
+                <div class="scroll-indicator"></div>
+            </div>
+        </div>
+    </header>
+    
+    <section class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">우리의 서비스</h2>
+                <p class="section-subtitle">팬들의 일상을 더욱 특별하게 만드는 앱들을 만나보세요</p>
+            </div>
+            
+            <div class="service-grid">
+                <!-- 포카이브 서비스 카드 -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://joy-hopeworld.github.io/image_main_Phocaive.png" alt="포카이브 앱 스크린샷" class="app-screenshot">
+                    </div>
+                    <div class="service-info">
+                        <img src="https://joy-hopeworld.github.io/image_Phocaive_Icon.png" alt="포카이브 앱 아이콘" class="app-icon">
+                        <h3 class="service-title">포카이브<br>(Phocaive)</h3>
+                        <p class="service-description">
+                            방탄소년단 포토카드 교환을 위한 전용 플랫폼입니다. 안전하고 편리한 교환 시스템으로 전 세계 아미들과 소통해보세요.
+                        </p>
+                        <div class="download-buttons">
+                            <a href="https://play.google.com/store/apps/details?id=com.phocaive&pcampaignid=web_share" class="download-button" target="_blank">
+                                <img src="https://joy-hopeworld.github.io/image_googleplay-store-240.png" alt="Google Play">
+                                Google Play
+                            </a>
+                            <a href="https://apps.apple.com/kr/app/%ED%8F%AC%EC%B9%B4%EC%9D%B4%EB%B8%8C-phocaive-bts-%ED%8F%AC%ED%86%A0%EC%B9%B4%EB%93%9C/id1624512192" class="download-button" target="_blank">
+                                <img src="https://joy-hopeworld.github.io/image_appstore-240.png" alt="App Store">
+                                App Store
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 포카이브 투어 서비스 카드 -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://joy-hopeworld.github.io/image_main_Phocaive Tour.png" alt="포카이브 투어 앱 스크린샷" class="app-screenshot">
+                    </div>
+                    <div class="service-info">
+                        <img src="https://joy-hopeworld.github.io/image_Phocaive Tour_Icon.png" alt="포카이브 투어 앱 아이콘" class="app-icon">
+                        <h3 class="service-title">포카이브 투어<br>(Phocaive Tour)</h3>
+                        <p class="service-description">
+                            방탄소년단 멤버들이 방문했던 특별한 장소들을 지도와 함께 안내합니다. 성지순례를 더욱 의미 있게 만들어보세요.
+                        </p>
+                        <div class="download-buttons">
+                            <a href="https://play.google.com/store/apps/details?id=YOUR_PHOCAIVE_TOUR_ANDROID_APP_ID" class="download-button" target="_blank">
+                                <img src="https://joy-hopeworld.github.io/image_googleplay-store-240.png" alt="Google Play">
+                                Google Play
+                            </a>
+                            <a href="https://apps.apple.com/us/app/YOUR_PHOCAIVE_TOUR_IOS_APP_ID" class="download-button" target="_blank">
+                                <img src="https://joy-hopeworld.github.io/image_appstore-240.png" alt="App Store">
+                                App Store
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 태스크 체크보드 서비스 카드 -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://joy-hopeworld.github.io/image_main_Task Checkboard.png" alt="태스크 체크보드 앱 스크린샷" class="app-screenshot">
+                    </div>
+                    <div class="service-info">
+                        <img src="https://joy-hopeworld.github.io/image_Task Checkboard_Icon.png" alt="태스크 체크보드 앱 아이콘" class="app-icon">
+                        <h3 class="service-title">태스크 체크보드<br>(Task Checkboard)</h3>
+                        <p class="service-description">
+                            심플하고 직관적인 할 일 관리 앱입니다. 일상의 작은 성취들을 체크하며 더 나은 하루를 만들어가세요.
+                        </p>
+                        <div class="download-buttons">
+                            <a href="https://play.google.com/store/apps/details?id=com.checkboard.checkboard&pcampaignid=web_share" class="download-button" target="_blank">
+                                <img src="https://joy-hopeworld.github.io/image_googleplay-store-240.png" alt="Google Play">
+                                Google Play
+                            </a>
+                            <a href="https://apps.apple.com/kr/app/%ED%8F%AC%EC%B9%B4%EC%9D%B4%EB%B8%8C-phocaive-bts-%ED%8F%AC%ED%86%A0%EC%B9%B4%EB%93%9C/id1624512192" class="download-button" target="_blank">
+                                <img src="https://joy-hopeworld.github.io/image_appstore-240.png" alt="App Store">
+                                App Store
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">함께 만들어가는 K-POP 팬 커뮤니티</p>
+                <div class="footer-links">
+                    <a href="https://twitter.com/phocaive" class="footer-link" target="_blank">Twitter</a>
+                    <a href="mailto:phocaive@gmail.com" class="footer-link">Contact</a>
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                    <a href="#" class="footer-link">Terms of Service</a>
+                </div>
+                <p class="footer-copyright">© 2024 Team PHOCAIVE. All rights reserved. Made with 💜 for BTS ARMY</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
