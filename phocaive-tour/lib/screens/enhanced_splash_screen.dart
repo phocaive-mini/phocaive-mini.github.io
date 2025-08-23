@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -5,16 +6,17 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import '../services/admob_service.dart';
 import '../flutter_gen/gen_l10n/app_localizations.dart';
 
-class SplashScreen extends StatefulWidget {
-  const SplashScreen({super.key});
+class EnhancedSplashScreen extends StatefulWidget {
+  const EnhancedSplashScreen({super.key});
 
   @override
-  State<SplashScreen> createState() => _SplashScreenState();
+  State<EnhancedSplashScreen> createState() => _EnhancedSplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
+class _EnhancedSplashScreenState extends State<EnhancedSplashScreen> {
   BannerAd? _bannerAd;
   bool _isBannerAdReady = false;
+  Timer? _navigationTimer;
 
   @override
   void initState() {
@@ -32,12 +34,12 @@ class _SplashScreenState extends State<SplashScreen> {
             _isBannerAdReady = true;
           });
           if (kDebugMode) {
-            print('[DEBUG] Splash banner ad loaded successfully');
+            print('[DEBUG] Enhanced splash banner ad loaded successfully');
           }
         }
       }).catchError((error) {
         if (kDebugMode) {
-          print('[DEBUG] Splash banner ad failed to load: $error');
+          print('[DEBUG] Enhanced splash banner ad failed to load: $error');
         }
       });
     }
@@ -46,23 +48,17 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void dispose() {
     _bannerAd?.dispose();
+    _navigationTimer?.cancel();
     super.dispose();
   }
 
-  void _navigateToMain() async {
-    // Wait at least 3 seconds for splash screen
-    await Future.delayed(const Duration(seconds: 3));
-    
-    // Wait a bit more if ad is still loading (up to 2 additional seconds)
-    int extraWaitTime = 0;
-    while (!_isBannerAdReady && extraWaitTime < 2000 && mounted) {
-      await Future.delayed(const Duration(milliseconds: 500));
-      extraWaitTime += 500;
-    }
-    
-    if (mounted) {
-      context.go('/');
-    }
+  void _navigateToMain() {
+    // 총 4초 동안 스플래시 유지
+    _navigationTimer = Timer(const Duration(seconds: 4), () {
+      if (mounted) {
+        context.go('/');
+      }
+    });
   }
 
   @override
@@ -79,8 +75,8 @@ class _SplashScreenState extends State<SplashScreen> {
                 children: [
                   // App logo image
                   Container(
-                    width: 150,
-                    height: 150,
+                    width: 120,
+                    height: 120,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       boxShadow: [
@@ -95,9 +91,19 @@ class _SplashScreenState extends State<SplashScreen> {
                       borderRadius: BorderRadius.circular(20),
                       child: Image.asset(
                         'assets/images/app_icon.png',
-                        width: 150,
-                        height: 150,
+                        width: 120,
+                        height: 120,
                         fit: BoxFit.cover,
+                        errorBuilder: (context, error, stackTrace) {
+                          return Container(
+                            color: const Color(0xFF8E54E9),
+                            child: const Icon(
+                              Icons.photo,
+                              color: Colors.white,
+                              size: 60,
+                            ),
+                          );
+                        },
                       ),
                     ),
                   ),
@@ -111,7 +117,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    AppLocalizations.of(context)!.tourGuideSubtitle,
+                    AppLocalizations.of(context)?.tourGuideSubtitle ?? 'BTS Tour Guide',
                     style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                       color: const Color(0xFF8E54E9).withValues(alpha: 0.7),
                     ),
@@ -160,14 +166,17 @@ class _SplashScreenState extends State<SplashScreen> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              const Icon(
-                                Icons.ads_click,
-                                color: Color(0xFF8B5CF6),
-                                size: 16,
+                              const SizedBox(
+                                width: 16,
+                                height: 16,
+                                child: CircularProgressIndicator(
+                                  strokeWidth: 2,
+                                  valueColor: AlwaysStoppedAnimation<Color>(Color(0xFF8B5CF6)),
+                                ),
                               ),
-                              const SizedBox(width: 8),
+                              const SizedBox(width: 12),
                               Text(
-                                AdMobService.isDebugMode ? 'TEST AD LOADING...' : 'AD LOADING...',
+                                AdMobService.isDebugMode ? 'Loading test ad...' : 'Loading ad...',
                                 style: const TextStyle(
                                   color: Color(0xFF718096),
                                   fontSize: 12,

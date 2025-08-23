@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Disabled splash screen to prevent double splash with custom splash screen -->
+<!-- Minimal native splash - quickly transitions to Flutter splash -->
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Transparent background to minimize splash time -->
-    <item android:drawable="@android:color/transparent" />
+    <!-- White background -->
+    <item android:drawable="@android:color/white" />
 </layer-list>

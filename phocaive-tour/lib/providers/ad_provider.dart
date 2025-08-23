@@ -25,10 +25,24 @@ class AdState {
 }
 
 class AdNotifier extends StateNotifier<AdState> {
+  DateTime? _lastButtonPress;
+  
   AdNotifier() : super(AdState()) {
     if (!kIsWeb) {
-      // 초기 로딩을 비동기로 처리하여 UI 블로킹 방지
-      Future.microtask(() => _loadHeaderInterstitialAd());
+      // 초기 로딩을 즉시 시작
+      _loadHeaderInterstitialAd();
+      // 3초 후 추가로 하나 더 로드 시도 (첫 번째가 실패한 경우)
+      Future.delayed(const Duration(seconds: 3), () {
+        if (state.headerInterstitialAd == null && !state.isLoading) {
+          _loadHeaderInterstitialAd();
+        }
+      });
+      // 10초 후 추가로 하나 더 로드 시도 (지속적인 실패 대비)
+      Future.delayed(const Duration(seconds: 10), () {
+        if (state.headerInterstitialAd == null && !state.isLoading) {
+          _loadHeaderInterstitialAd();
+        }
+      });
     }
   }
 
@@ -53,11 +67,25 @@ class AdNotifier extends StateNotifier<AdState> {
   }
 
   void showHeaderInterstitialAd() {
+    // 디바운스: 연속 클릭 방지 (3초)
+    final now = DateTime.now();
+    if (_lastButtonPress != null && 
+        now.difference(_lastButtonPress!).inSeconds < 3) {
+      debugPrint('Button press ignored due to debounce (less than 3 seconds)');
+      return;
+    }
+    _lastButtonPress = now;
+    
     final ad = state.headerInterstitialAd;
     if (ad != null) {
+      // 광고가 준비된 경우 즉시 표시
       AdMobService.showInterstitialAd(ad);
       state = state.copyWith(headerInterstitialAd: null);
       _loadHeaderInterstitialAd(); // 다음 광고 미리 로드
+      debugPrint('Header interstitial ad shown successfully');
+    } else {
+      // 이 경우는 버튼이 비활성화되어야 하므로 발생하지 않아야 함
+      debugPrint('Warning: showHeaderInterstitialAd called but no ad available');
     }
   }
 

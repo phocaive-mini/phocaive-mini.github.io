@@ -4,7 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import 'screens/splash_screen.dart';
+import 'screens/enhanced_splash_screen.dart';
 import 'screens/main_screen.dart';
 import 'screens/map_screen.dart';
 import 'screens/webview_screen.dart';
@@ -78,7 +78,7 @@ final GoRouter _router = GoRouter(
   routes: [
     GoRoute(
       path: '/splash',
-      builder: (context, state) => const SplashScreen(),
+      builder: (context, state) => const EnhancedSplashScreen(),
     ),
     GoRoute(
       path: '/',

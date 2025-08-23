@@ -57,48 +57,65 @@ class MainScreen extends ConsumerWidget {
           if (!kIsWeb)
             Padding(
               padding: const EdgeInsets.only(right: 16.0),
-              child: ElevatedButton(
-                onPressed: adState.isLoading 
-                    ? null 
-                    : () => ref.read(adProvider.notifier).showHeaderInterstitialAd(),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF8B5CF6),
-                  foregroundColor: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 8,
-                  ),
-                ),
-                child: adState.isLoading
-                    ? Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          const SizedBox(
-                            width: 12,
-                            height: 12,
-                            child: CircularProgressIndicator(
-                              strokeWidth: 1.5,
-                              valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-                            ),
+              child: AnimatedSwitcher(
+                duration: const Duration(milliseconds: 300),
+                child: adState.headerInterstitialAd != null
+                    ? ElevatedButton(
+                        key: const ValueKey('active_button'),
+                        onPressed: () => ref.read(adProvider.notifier).showHeaderInterstitialAd(),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xFF8B5CF6),
+                          foregroundColor: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
                           ),
-                          const SizedBox(width: 8),
-                          Text(
-                            l10n.supportPhocaive,
-                            style: const TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w600,
-                            ),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 16,
+                            vertical: 8,
                           ),
-                        ],
+                        ),
+                        child: Text(
+                          l10n.supportPhocaive,
+                          style: const TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
                       )
-                    : Text(
-                        l10n.supportPhocaive,
-                        style: const TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w600,
+                    : ElevatedButton(
+                        key: const ValueKey('loading_button'),
+                        onPressed: null, // 비활성화
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xFFD1D5DB),
+                          foregroundColor: const Color(0xFF6B7280),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 16,
+                            vertical: 8,
+                          ),
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            const SizedBox(
+                              width: 12,
+                              height: 12,
+                              child: CircularProgressIndicator(
+                                strokeWidth: 1.5,
+                                valueColor: AlwaysStoppedAnimation<Color>(Color(0xFF6B7280)),
+                              ),
+                            ),
+                            const SizedBox(width: 8),
+                            Text(
+                              '${l10n.supportPhocaive} 준비중...',
+                              style: const TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
               ),

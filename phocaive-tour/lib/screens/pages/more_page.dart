@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -200,13 +202,31 @@ class MorePage extends StatelessWidget {
   }
 
   Widget _buildStoreButtons(BuildContext context, AppLocalizations l10n) {
-    return Row(
-      children: [
-        Expanded(child: _buildGooglePlayButton(context, l10n)),
-        const SizedBox(width: 16),
-        Expanded(child: _buildAppStoreButton(context, l10n)),
-      ],
-    );
+    // 플랫폼별로 해당 스토어 버튼만 중앙 정렬로 표시
+    if (Platform.isIOS) {
+      return Center(
+        child: SizedBox(
+          width: 200, // 버튼 너비 제한
+          child: _buildAppStoreButton(context, l10n),
+        ),
+      );
+    } else if (Platform.isAndroid) {
+      return Center(
+        child: SizedBox(
+          width: 200, // 버튼 너비 제한
+          child: _buildGooglePlayButton(context, l10n),
+        ),
+      );
+    } else {
+      // 웹이나 기타 플랫폼의 경우 둘 다 표시
+      return Row(
+        children: [
+          Expanded(child: _buildGooglePlayButton(context, l10n)),
+          const SizedBox(width: 16),
+          Expanded(child: _buildAppStoreButton(context, l10n)),
+        ],
+      );
+    }
   }
 
   Widget _buildGooglePlayButton(BuildContext context, AppLocalizations l10n) {
