@@ -52,11 +52,12 @@ class ErrorHandler {
     }
     
     // 사용자에게 알림 (선택적)
+    final l10n = AppLocalizations.of(context)!;
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('Content loading failed. Please try again.'),
+      SnackBar(
+        content: Text(l10n.contentLoadingError),
         backgroundColor: Colors.orange,
-        duration: Duration(seconds: 2),
+        duration: const Duration(seconds: 2),
       ),
     );
   }
@@ -73,11 +74,12 @@ class ErrorHandler {
   static void handleNetworkError(BuildContext context) {
     if (!context.mounted) return;
     
+    final l10n = AppLocalizations.of(context)!;
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('Network connection failed. Please check your internet.'),
+      SnackBar(
+        content: Text(l10n.networkConnectionError),
         backgroundColor: Colors.red,
-        duration: Duration(seconds: 3),
+        duration: const Duration(seconds: 3),
       ),
     );
   }

@@ -161,5 +161,41 @@
   "adLoading": "AD LOADING...",
   "@adLoading": {
     "description": "Ad loading message"
+  },
+  "contentLoadingError": "Content loading failed. Please try again.",
+  "@contentLoadingError": {
+    "description": "Error message when content fails to load"
+  },
+  "networkConnectionError": "Network connection failed. Please check your internet.",
+  "@networkConnectionError": {
+    "description": "Error message for network connection failure"
+  },
+  "hybeBuilding": "HYBE Building",
+  "@hybeBuilding": {
+    "description": "HYBE Building marker title"
+  },
+  "btsAgencyHeadquarters": "BTS Agency Headquarters",
+  "@btsAgencyHeadquarters": {
+    "description": "BTS Agency Headquarters snippet"
+  },
+  "olympicStadium": "Olympic Stadium",
+  "@olympicStadium": {
+    "description": "Olympic Stadium marker title"
+  },
+  "btsPerformanceVenue": "BTS Performance Venue",
+  "@btsPerformanceVenue": {
+    "description": "BTS Performance Venue snippet"
+  },
+  "hanRiverPark": "Han River Park",
+  "@hanRiverPark": {
+    "description": "Han River Park marker title"
+  },
+  "popularBtsFilmingLocation": "Popular BTS Filming Location",
+  "@popularBtsFilmingLocation": {
+    "description": "Popular BTS Filming Location snippet"
+  },
+  "contactEmail": "@phocaive_tour / phocaive@gmail.com",
+  "@contactEmail": {
+    "description": "Contact email information"
   }
 }

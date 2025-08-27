@@ -339,6 +339,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'AD LOADING...'**
   String get adLoading;
+
+  /// Error message when content fails to load
+  ///
+  /// In en, this message translates to:
+  /// **'Content loading failed. Please try again.'**
+  String get contentLoadingError;
+
+  /// Error message for network connection failure
+  ///
+  /// In en, this message translates to:
+  /// **'Network connection failed. Please check your internet.'**
+  String get networkConnectionError;
+
+  /// HYBE Building marker title
+  ///
+  /// In en, this message translates to:
+  /// **'HYBE Building'**
+  String get hybeBuilding;
+
+  /// BTS Agency Headquarters snippet
+  ///
+  /// In en, this message translates to:
+  /// **'BTS Agency Headquarters'**
+  String get btsAgencyHeadquarters;
+
+  /// Olympic Stadium marker title
+  ///
+  /// In en, this message translates to:
+  /// **'Olympic Stadium'**
+  String get olympicStadium;
+
+  /// BTS Performance Venue snippet
+  ///
+  /// In en, this message translates to:
+  /// **'BTS Performance Venue'**
+  String get btsPerformanceVenue;
+
+  /// Han River Park marker title
+  ///
+  /// In en, this message translates to:
+  /// **'Han River Park'**
+  String get hanRiverPark;
+
+  /// Popular BTS Filming Location snippet
+  ///
+  /// In en, this message translates to:
+  /// **'Popular BTS Filming Location'**
+  String get popularBtsFilmingLocation;
+
+  /// Contact email information
+  ///
+  /// In en, this message translates to:
+  /// **'@phocaive_tour / phocaive@gmail.com'**
+  String get contactEmail;
 }
 
 class _AppLocalizationsDelegate

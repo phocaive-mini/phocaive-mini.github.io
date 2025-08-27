@@ -135,4 +135,31 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get adLoading => '広告読み込み中...';
+
+  @override
+  String get contentLoadingError => 'コンテンツの読み込みに失敗しました。もう一度お試しください。';
+
+  @override
+  String get networkConnectionError => 'ネットワーク接続に失敗しました。インターネット接続を確認してください。';
+
+  @override
+  String get hybeBuilding => 'HYBEビル';
+
+  @override
+  String get btsAgencyHeadquarters => 'BTS所属事務所本社';
+
+  @override
+  String get olympicStadium => 'オリンピックスタジアム';
+
+  @override
+  String get btsPerformanceVenue => 'BTS公演会場';
+
+  @override
+  String get hanRiverPark => '漢江公園';
+
+  @override
+  String get popularBtsFilmingLocation => 'BTS人気撮影スポット';
+
+  @override
+  String get contactEmail => '@phocaive_tour / phocaive@gmail.com';
 }

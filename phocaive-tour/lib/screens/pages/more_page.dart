@@ -124,7 +124,7 @@ class MorePage extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           Text(
-            '@phocaive_tour / phocaive@gmail.com',
+            l10n.contactEmail,
             style: const TextStyle(
               fontSize: 14,
               color: Color(0xFF6B7280),

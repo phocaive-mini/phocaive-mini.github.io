@@ -8,7 +8,6 @@ import 'screens/enhanced_splash_screen.dart';
 import 'screens/main_screen.dart';
 import 'screens/map_screen.dart';
 import 'screens/webview_screen.dart';
-import 'screens/about_screen.dart';
 import 'services/admob_service.dart';
 import 'flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -108,10 +107,6 @@ final GoRouter _router = GoRouter(
         url: 'https://phocaive.notion.site/ebd/fae7c377717a45efab5b3504cd382c39?v=f657452e62504f03877789817a30cee4',
         title: 'Global',
       ),
-    ),
-    GoRoute(
-      path: '/about',
-      builder: (context, state) => const AboutScreen(),
     ),
   ],
 );

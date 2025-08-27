@@ -136,4 +136,32 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get adLoading => 'AD LOADING...';
+
+  @override
+  String get contentLoadingError => 'Content loading failed. Please try again.';
+
+  @override
+  String get networkConnectionError =>
+      'Network connection failed. Please check your internet.';
+
+  @override
+  String get hybeBuilding => 'HYBE Building';
+
+  @override
+  String get btsAgencyHeadquarters => 'BTS Agency Headquarters';
+
+  @override
+  String get olympicStadium => 'Olympic Stadium';
+
+  @override
+  String get btsPerformanceVenue => 'BTS Performance Venue';
+
+  @override
+  String get hanRiverPark => 'Han River Park';
+
+  @override
+  String get popularBtsFilmingLocation => 'Popular BTS Filming Location';
+
+  @override
+  String get contactEmail => '@phocaive_tour / phocaive@gmail.com';
 }

@@ -39,5 +39,14 @@
   "getItOn": "ダウンロード",
   "googlePlay": "Google Play",
   "testAdLoading": "テスト広告読み込み中...",
-  "adLoading": "広告読み込み中..."
+  "adLoading": "広告読み込み中...",
+  "contentLoadingError": "コンテンツの読み込みに失敗しました。もう一度お試しください。",
+  "networkConnectionError": "ネットワーク接続に失敗しました。インターネット接続を確認してください。",
+  "hybeBuilding": "HYBEビル",
+  "btsAgencyHeadquarters": "BTS所属事務所本社",
+  "olympicStadium": "オリンピックスタジアム",
+  "btsPerformanceVenue": "BTS公演会場",
+  "hanRiverPark": "漢江公園",
+  "popularBtsFilmingLocation": "BTS人気撮影スポット",
+  "contactEmail": "@phocaive_tour / phocaive@gmail.com"
 }
