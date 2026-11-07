@@ -1,597 +1,486 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>포카이브 고객지원</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* CSS 변수로 일관된 색상 체계 */
-        :root {
-            --primary-color: #6366f1;
-            --primary-light: #818cf8;
-            --primary-dark: #4338ca;
-            --secondary-color: #f1f5f9;
-            --accent-color: #06b6d4;
-            --text-primary: #1e293b;
-            --text-secondary: #64748b;
-            --text-light: #94a3b8;
-            --background: #ffffff;
-            --background-alt: #f8fafc;
-            --border-color: #e2e8f0;
-            --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-            --radius: 12px;
-            --radius-lg: 16px;
-        }
-
-        /* 기본 스타일 */
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background);
-            color: var(--text-primary);
-            line-height: 1.6;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            scroll-behavior: smooth;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        /* 헤더 재디자인 */
-        header {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 50%, var(--accent-color) 100%);
-            padding: 80px 0 100px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.05"><circle cx="30" cy="30" r="2"/></g></g></svg>');
-            opacity: 0.6;
-        }
-
-        .header-content {
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .header-badge {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            margin-bottom: 24px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        header h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin: 0 0 16px 0;
-            color: white;
-            letter-spacing: -0.02em;
-        }
-
-        header .subtitle {
-            font-size: 1.25rem;
-            font-weight: 400;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 8px;
-        }
-
-        header .description {
-            font-size: 1.1rem;
-            font-weight: 300;
-            color: rgba(255, 255, 255, 0.8);
-            margin: 0;
-        }
-
-        /* 서비스 섹션 */
-        .services-section {
-            padding: 100px 0;
-            background: var(--background-alt);
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin: 0 0 16px 0;
-            letter-spacing: -0.02em;
-        }
-
-        .section-subtitle {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            margin: 0;
-        }
-
-        .service-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 60px;
-        }
-
-        /* 서비스 카드 재디자인 */
-        .service-card {
-            background: var(--background);
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-lg);
-            padding: 0;
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid var(--border-color);
-        }
-
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-            border-color: var(--primary-light);
-        }
-
-        .service-card:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-
-        .service-image {
-            flex: 1;
-            padding: 60px 40px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .app-screenshot {
-            width: 100%;
-            max-width: 300px;
-            height: auto;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-lg);
-            transition: transform 0.3s ease;
-        }
-
-        .app-screenshot:hover {
-            transform: scale(1.05);
-        }
-
-        .service-info {
-            flex: 1;
-            padding: 60px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .app-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-            margin-bottom: 32px;
-        }
-
-        .service-title {
-            font-size: 2.25rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin: 0 0 16px 0;
-            letter-spacing: -0.02em;
-        }
-
-        .service-description {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            margin: 0 0 40px 0;
-            line-height: 1.7;
-        }
-
-        .download-buttons {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        .download-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: white;
-            color: var(--text-primary);
-            padding: 14px 28px;
-            border: 2px solid var(--border-color);
-            border-radius: var(--radius);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            min-width: 160px;
-            box-shadow: var(--shadow);
-        }
-
-        .download-button:hover {
-            background: #585BEE;
-            color: white;
-            border-color: #585BEE;
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .download-button img {
-            width: 20px;
-            height: 20px;
-            margin-right: 8px;
-        }
-
-
-        /* 푸터 */
-        footer {
-            background: var(--text-primary);
-            color: white;
-            padding: 60px 0;
-            margin-top: auto;
-        }
-
-        .footer-content {
-            text-align: center;
-        }
-
-        .footer-text {
-            font-size: 1rem;
-            margin: 0 0 16px 0;
-            opacity: 0.8;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 32px;
-            margin-bottom: 24px;
-            flex-wrap: wrap;
-        }
-
-        .footer-link {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: opacity 0.2s;
-        }
-
-        .footer-link:hover {
-            opacity: 0.7;
-        }
-
-        .footer-copyright {
-            font-size: 0.9rem;
-            opacity: 0.6;
-            margin: 0;
-        }
-
-        /* 반응형 디자인 */
-        @media (max-width: 1024px) {
-            .container {
-                padding: 0 20px;
-            }
-            
-            .service-card {
-                flex-direction: column !important;
-            }
-            
-            .service-image,
-            .service-info {
-                flex: none;
-                width: 100%;
-            }
-            
-            .service-image {
-                padding: 40px;
-            }
-            
-            .service-info {
-                padding: 40px;
-                text-align: center;
-            }
-        }
-
-        @media (max-width: 768px) {
-            header {
-                padding: 60px 0 80px;
-            }
-
-            header h1 {
-                font-size: 2.5rem;
-            }
-
-            header .subtitle {
-                font-size: 1.1rem;
-            }
-
-            header .description {
-                font-size: 1rem;
-            }
-
-            .services-section {
-                padding: 60px 0;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .section-subtitle {
-                font-size: 1.1rem;
-            }
-
-            .service-grid {
-                gap: 40px;
-            }
-
-            .service-info {
-                padding: 32px;
-            }
-
-            .service-title {
-                font-size: 1.8rem;
-            }
-
-            .service-description {
-                font-size: 1rem;
-            }
-
-            .download-buttons {
-                flex-direction: column;
-            }
-
-            .download-button {
-                width: 100%;
-                justify-content: center;
-                text-align: center;
-            }
-
-            .footer-links {
-                flex-direction: column;
-                gap: 16px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 16px;
-            }
-
-            header {
-                padding: 40px 0 60px;
-            }
-
-            header h1 {
-                font-size: 2rem;
-            }
-
-            .services-section {
-                padding: 40px 0;
-            }
-
-            .section-header {
-                margin-bottom: 40px;
-            }
-
-            .section-title {
-                font-size: 1.75rem;
-            }
-
-            .service-image {
-                padding: 30px 20px;
-            }
-
-            .service-info {
-                padding: 24px;
-            }
-
-            .app-icon {
-                width: 64px;
-                height: 64px;
-            }
-
-            .service-title {
-                font-size: 1.5rem;
-                line-height: 1.2;
-            }
-
-            .service-description {
-                font-size: 0.95rem;
-                margin-bottom: 24px;
-            }
-
-            .download-buttons {
-                gap: 12px;
-            }
-
-            .download-button {
-                padding: 14px 16px;
-                font-size: 0.9rem;
-                min-width: unset;
-                width: 100%;
-                max-width: 280px;
-                margin: 0 auto;
-                justify-content: center;
-                text-align: center;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
-
-            .download-button img {
-                width: 18px;
-                height: 18px;
-                margin-right: 8px;
-                flex-shrink: 0;
-            }
-
-            footer {
-                padding: 40px 0;
-            }
-
-            .app-screenshot {
-                max-width: 250px;
-            }
-        }
-
-        /* 애니메이션 효과 */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .service-card {
-            animation: fadeInUp 0.6s ease-out;
-        }
-
-        .service-card:nth-child(1) { animation-delay: 0.1s; }
-        .service-card:nth-child(2) { animation-delay: 0.2s; }
-        .service-card:nth-child(3) { animation-delay: 0.3s; }
-
-        /* 스크롤 표시기 */
-        .scroll-indicator {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 24px;
-            height: 40px;
-            border: 2px solid rgba(255, 255, 255, 0.5);
-            border-radius: 12px;
-            display: flex;
-            justify-content: center;
-            padding-top: 8px;
-        }
-
-        .scroll-indicator::before {
-            content: '';
-            width: 2px;
-            height: 8px;
-            background: rgba(255, 255, 255, 0.7);
-            border-radius: 1px;
-            animation: scroll 2s infinite;
-        }
-
-        @keyframes scroll {
-            0%, 20% { transform: translateY(0); opacity: 1; }
-            100% { transform: translateY(16px); opacity: 0; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>비빌로그 BeVillLog</title>
+<meta name="description" content="비빌로그(BeVillLog) — 포카 · 방탄투어 · 공연 · 미디어·영화, 아미로서의 나의 기록을 한곳에.">
+<link rel="icon" href="bevilllog/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&family=Noto+Sans+JP:wght@400;700;800&family=Noto+Sans+SC:wght@400;700;800&family=Noto+Sans+TC:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #8E54E9;
+    --secondary: #4776E6;
+    --text: #2B2730;
+    --sub: #6F6C73;
+    --bg: #FFFFFF;
+    --fill: #F6F3FB;
+    --line: #ECE8F2;
+    --card: #FFFFFF;
+    --chip: #F1E9FD;
+    --frame: #17141C;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --text: #EEEAF3; --sub: #ABA7B1; --bg: #141218; --fill: #1C1922; --line: #2C2834; --card: #211E28; --chip: #2E2440; --frame: #000; }
+  }
+  :root[data-theme="dark"] { --text: #EEEAF3; --sub: #ABA7B1; --bg: #141218; --fill: #1C1922; --line: #2C2834; --card: #211E28; --chip: #2E2440; --frame: #000; }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.7 'Noto Sans KR', -apple-system, 'Apple SD Gothic Neo', sans-serif; word-break: keep-all; overflow-x: hidden; }
+  html[lang="ja"] body { font-family: 'Noto Sans JP', -apple-system, 'Hiragino Sans', sans-serif; word-break: normal; line-break: strict; }
+  html[lang="zh-Hans"] body { font-family: 'Noto Sans SC', -apple-system, 'PingFang SC', sans-serif; word-break: normal; }
+  html[lang="zh-Hant"] body { font-family: 'Noto Sans TC', -apple-system, 'PingFang TC', sans-serif; word-break: normal; }
+  html[lang="en"] body, html[lang="es-419"] body { word-break: normal; }
+  a { color: inherit; }
+  img { display: block; max-width: 100%; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+
+  /* 상단 */
+  .top { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, var(--bg) 86%, transparent); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+  .top .wrap { display: flex; align-items: center; gap: 24px; height: 64px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 18px; text-decoration: none; letter-spacing: -0.01em; }
+  .brand img { width: 34px; height: 34px; border-radius: 10px; }
+  .top nav { display: flex; gap: 22px; font-size: 14.5px; margin-left: 8px; }
+  .top nav a { text-decoration: none; color: var(--sub); font-weight: 500; }
+  .top nav a:hover { color: var(--primary); }
+  .lang { margin-left: auto; position: relative; display: flex; align-items: center; }
+  .lang svg { position: absolute; left: 12px; width: 16px; height: 16px; color: var(--sub); pointer-events: none; }
+  .lang select { appearance: none; -webkit-appearance: none; font: inherit; font-size: 14px; font-weight: 500; color: var(--text); background: var(--fill); border: 1px solid var(--line); border-radius: 99px; padding: 7px 32px 7px 34px; cursor: pointer; }
+  .lang::after { content: ''; position: absolute; right: 14px; width: 6px; height: 6px; border-right: 1.5px solid var(--sub); border-bottom: 1.5px solid var(--sub); transform: rotate(45deg) translateY(-2px); pointer-events: none; }
+
+  /* 히어로 */
+  .hero { position: relative; overflow: hidden; color: #fff; background: linear-gradient(135deg, #8E54E9 0%, #6F63E8 45%, #4776E6 100%); }
+  .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 85% 15%, rgba(255,255,255,.22), transparent 40%), radial-gradient(circle at 5% 95%, rgba(255,255,255,.14), transparent 35%); }
+  .hero .wrap { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; padding-top: 72px; padding-bottom: 0; }
+  .badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 99px; background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.3); font-size: 13.5px; font-weight: 500; }
+  .hero h1 { font-size: 64px; line-height: 1.1; margin: 20px 0 6px; letter-spacing: -0.03em; font-weight: 800; }
+  html:not([lang="ko"]) .hero .en { display: none; }
+  .hero .en { font-size: 22px; font-weight: 500; opacity: .85; margin: 0 0 22px; letter-spacing: .02em; }
+  .hero .lead { font-size: 20px; font-weight: 700; margin: 0 0 8px; }
+  .hero .lead2 { font-size: 17px; opacity: .9; margin: 0 0 32px; max-width: 30em; }
+  .stores { display: flex; gap: 12px; flex-wrap: wrap; padding-bottom: 72px; }
+  .store { display: inline-flex; align-items: center; gap: 10px; padding: 12px 22px; border-radius: 14px; background: #fff; color: #2B2730; text-decoration: none; font-weight: 700; font-size: 15px; box-shadow: 0 10px 24px rgba(30,20,60,.2); transition: transform .15s; }
+  .store:hover { transform: translateY(-2px); }
+  .store img { width: 22px; height: 22px; }
+  .hero-phones { position: relative; height: 560px; align-self: end; }
+  .hero-phones .phone { position: absolute; bottom: -60px; }
+  .hero-phones .p1 { left: 50%; transform: translateX(-50%); width: 270px; z-index: 3; }
+  .hero-phones .p2 { left: 4%; width: 220px; bottom: -110px; transform: rotate(-6deg); z-index: 2; opacity: .96; }
+  .hero-phones .p3 { right: 4%; width: 220px; bottom: -110px; transform: rotate(6deg); z-index: 2; opacity: .96; }
+
+  /* 폰 프레임 */
+  .phone { border-radius: 34px; border: 7px solid var(--frame); background: var(--frame); overflow: hidden; box-shadow: 0 24px 48px rgba(40,20,80,.22); }
+  .phone img { width: 100%; height: auto; border-radius: 27px; aspect-ratio: 540 / 1061; object-fit: cover; background: #f2f0f5; }
+
+  /* 기능 섹션 */
+  section { padding: 104px 0; }
+  .alt { background: var(--fill); }
+  .feature { display: grid; grid-template-columns: 1fr 1.1fr; gap: 56px; align-items: center; }
+  .feature.rev .text { order: 2; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 8px; color: var(--primary); font-weight: 800; font-size: 13px; letter-spacing: .08em; }
+  .eyebrow .ico { width: 30px; height: 30px; border-radius: 9px; display: grid; place-items: center; background: var(--chip); font-size: 16px; letter-spacing: 0; }
+  h2 { font-size: 38px; line-height: 1.3; margin: 14px 0 16px; letter-spacing: -0.02em; font-weight: 800; }
+  .text p { color: var(--sub); font-size: 17px; margin: 0 0 24px; }
+  .points { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+  .points li { display: flex; align-items: center; gap: 10px; font-weight: 500; font-size: 15.5px; }
+  .points li::before { content: ''; flex: none; width: 20px; height: 20px; border-radius: 50%; background: var(--primary) url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5.5 10.5l3 3 6-7" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>') center / 14px no-repeat; }
+  .phones { display: flex; gap: 20px; justify-content: center; align-items: flex-start; }
+  .phones .phone { width: 250px; flex: none; }
+  .phones .phone.low { margin-top: 56px; }
+  .phones.three .phone { width: 220px; }
+  .phones.three .phone:nth-child(2) { margin-top: 40px; }
+  .phones.three .phone:nth-child(3) { margin-top: 80px; }
+
+  /* 아미로그·커뮤니티: 가운데 정렬 */
+  .center { text-align: center; }
+  .center .text p { max-width: 34em; margin-left: auto; margin-right: auto; }
+  .center .phones { margin-top: 48px; }
+  .brandband { background: linear-gradient(135deg, #8E54E9, #4776E6); color: #fff; }
+  .brandband .eyebrow { color: #fff; }
+  .brandband .eyebrow .ico { background: rgba(255,255,255,.2); }
+  .brandband .text p { color: rgba(255,255,255,.88); }
+  .brandband .phone { --frame: #1d1530; box-shadow: 0 24px 48px rgba(10,5,40,.35); }
+
+  footer { border-top: 1px solid var(--line); padding: 44px 0 56px; font-size: 14px; color: var(--sub); }
+  footer .wrap { display: flex; flex-direction: column; gap: 14px; }
+  .flinks { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+  .flinks a { text-decoration: none; color: var(--text); font-weight: 500; }
+  .flinks a:hover { color: var(--primary); }
+  .flinks a.strong { font-weight: 800; }
+  .fbrand { display: flex; align-items: center; gap: 8px; font-weight: 800; color: var(--text); font-size: 15px; }
+  .fbrand img { width: 24px; height: 24px; border-radius: 7px; }
+
+  @media (max-width: 960px) {
+    .top nav { display: none; }
+    .hero .wrap { grid-template-columns: 1fr; text-align: center; padding-top: 56px; }
+    .hero .stores { justify-content: center; padding-bottom: 8px; }
+    .hero .lead2 { margin-left: auto; margin-right: auto; }
+    .hero-phones { height: 440px; }
+    .hero-phones .p1 { width: 220px; bottom: -40px; }
+    .hero-phones .p2, .hero-phones .p3 { width: 180px; bottom: -90px; }
+    .feature, .feature.rev { grid-template-columns: 1fr; gap: 40px; }
+    .feature.rev .text { order: 0; }
+    .phones { overflow-x: auto; justify-content: flex-start; scroll-snap-type: x mandatory; padding: 4px 16px 24px; margin: 0 -16px; }
+    .phones .phone { scroll-snap-align: center; }
+    .phones::-webkit-scrollbar { display: none; }
+    .center .phones { justify-content: flex-start; }
+  }
+  @media (max-width: 560px) {
+    .top .wrap { gap: 12px; }
+    .brand span { display: none; }
+    .hero h1 { font-size: 46px; }
+    .hero .lead { font-size: 18px; }
+    .hero .lead2 { font-size: 15.5px; }
+    .store { flex: 1 1 140px; justify-content: center; }
+    .hero-phones { height: 380px; }
+    .hero-phones .p1 { width: 190px; }
+    .hero-phones .p2, .hero-phones .p3 { width: 150px; }
+    .hero-phones .p2 { left: -2%; } .hero-phones .p3 { right: -2%; }
+    section { padding: 72px 0; }
+    h2 { font-size: 28px; }
+    .text p { font-size: 16px; }
+    .phones .phone, .phones.three .phone { width: 200px; }
+    .phones .phone.low, .phones.three .phone:nth-child(2), .phones.three .phone:nth-child(3) { margin-top: 0; }
+  }
+</style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="header-badge">✨ Team PHOCAIVE</div>
-                <h1>포카이브 서비스 소개</h1>
-                <p class="subtitle">안녕하세요, Phocaive 개발팀입니다</p>
-                <p class="description">Phocaive는 아래의 서비스를 제공하고 있습니다</p>
-                <div class="scroll-indicator"></div>
-            </div>
-        </div>
-    </header>
-    
-    <section class="services-section">
-        <div class="container">            
-            <div class="service-grid">
-                <!-- 포카이브 서비스 카드 -->
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="https://phocaive-mini.github.io/image_main_Phocaive.png" alt="포카이브 앱 스크린샷" class="app-screenshot">
-                    </div>
-                    <div class="service-info">
-                        <img src="https://phocaive-mini.github.io/image_Phocaive_Icon.png" alt="포카이브 앱 아이콘" class="app-icon">
-                        <h3 class="service-title">포카이브<br>(Phocaive)</h3>
-                        <p class="service-description">
-                            '포카이브'는 방탄소년단 포토카드 교환 플랫폼입니다. 안전하고 편리한 교환 시스템으로 전 세계 아미들과 소통해보세요.
-                        </p>
-                        <div class="download-buttons">
-                            <a href="https://play.google.com/store/apps/details?id=com.phocaive&pcampaignid=web_share" class="download-button" target="_blank">
-                                <img src="https://phocaive-mini.github.io/image_googleplay-store-240.png" alt="Google Play">
-                                Google Play
-                            </a>
-                            <a href="https://apps.apple.com/kr/app/%ED%8F%AC%EC%B9%B4%EC%9D%B4%EB%B8%8C-phocaive-bts-%ED%8F%AC%ED%86%A0%EC%B9%B4%EB%93%9C/id1624512192" class="download-button" target="_blank">
-                                <img src="https://phocaive-mini.github.io/image_appstore-240.png" alt="App Store">
-                                App Store
-                            </a>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- 포카이브 투어 서비스 카드 -->
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="https://phocaive-mini.github.io/image_main_Phocaive Tour.png" alt="포카이브 투어 앱 스크린샷" class="app-screenshot">
-                    </div>
-                    <div class="service-info">
-                        <img src="https://phocaive-mini.github.io/image_Phocaive Tour_Icon.png" alt="포카이브 투어 앱 아이콘" class="app-icon">
-                        <h3 class="service-title">포카이브 투어<br>(Phocaive Tour)</h3>
-                        <p class="service-description">
-                            ‘포카이브 투어’는 방탄소년단 멤버들이 방문했던 장소들을
-지도와 함께 안내하는 앱입니다.
-                        </p>
-                        <div class="download-buttons">
-                            <a href="https://play.google.com/store/apps/details?id=com.phocaive.tour.phocaive_tour&pcampaignid=web_share" class="download-button" target="_blank">
-                                <img src="https://phocaive-mini.github.io/image_googleplay-store-240.png" alt="Google Play">
-                                Google Play
-                            </a>
-                            <a href="https://apps.apple.com/kr/app/%ED%8F%AC%EC%B9%B4%EC%9D%B4%EB%B8%8C-%ED%88%AC%EC%96%B4-phocaive-tour-bts/id6751343643" class="download-button" target="_blank">
-                                <img src="https://phocaive-mini.github.io/image_appstore-240.png" alt="App Store">
-                                App Store
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#"><img src="bevilllog/icon.png" alt=""><span>BeVillLog</span></a>
+    <nav>
+      <a href="#photocard" data-i18n="navPhotocard">포토카드</a>
+      <a href="#tour" data-i18n="navTour">방탄투어</a>
+      <a href="#shows" data-i18n="navShows">관람기록</a>
+      <a href="#armylog" data-i18n="navArmyLog">아미로그</a>
+    </nav>
+    <label class="lang" aria-label="Language">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg>
+      <select id="lang">
+        <option value="ko">한국어</option>
+        <option value="en">English</option>
+        <option value="ja">日本語</option>
+        <option value="zh-Hans">简体中文</option>
+        <option value="zh-Hant">繁體中文</option>
+        <option value="es-419">Español</option>
+      </select>
+    </label>
+  </div>
+</header>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-links">
-                    <a href="https://twitter.com/phocaive" class="footer-link" target="_blank">Twitter</a>
-                    <a href="mailto:phocaive@gmail.com" class="footer-link">Contact</a>
-                </div>
-                <p class="footer-copyright">© Team PHOCAIVE. All rights reserved. Made with 💜 for BTS ARMY</p>
-            </div>
-        </div>
-    </footer>
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <span class="badge" data-i18n="badge">💜 아미로서의 나의 기록</span>
+      <h1 data-i18n="heroTitle">비빌로그</h1>
+      <p class="en">BeVillLog</p>
+      <p class="lead" data-i18n="heroLead">포카 · 방탄투어 · 공연 · 미디어·영화를 한곳에</p>
+      <p class="lead2" data-i18n="heroLead2">흩어져 있던 덕질의 순간을 체크 한 번으로 차곡차곡. 모일수록 나만의 아미로그가 완성돼요.</p>
+      <div class="stores">
+        <a class="store" href="https://play.google.com/store/apps/details?id=com.phocaive" target="_blank" rel="noopener"><img src="image_googleplay-store-240.png" alt="">Google Play</a>
+        <a class="store" href="https://apps.apple.com/app/id1624512192" target="_blank" rel="noopener"><img src="image_appstore-240.png" alt="">App Store</a>
+      </div>
+    </div>
+    <div class="hero-phones" aria-hidden="true">
+      <div class="phone p2"><img data-shot="07" alt=""></div>
+      <div class="phone p3"><img data-shot="15" alt=""></div>
+      <div class="phone p1"><img data-shot="01" alt=""></div>
+    </div>
+  </div>
+</div>
+
+<section id="photocard">
+  <div class="wrap feature">
+    <div class="text">
+      <span class="eyebrow"><span class="ico">🃏</span><span data-i18n="navPhotocard">포토카드</span></span>
+      <h2 data-i18n="pcTitle">내 포카 바인더를<br>폰 안에</h2>
+      <p data-i18n="pcBody">앨범·DVD·굿즈별 포토카드를 한눈에 보고, 가진 카드는 탭 한 번으로 기록해요. 몇 장을 모았는지, 앨범을 얼마나 채웠는지 바로 보여요.</p>
+      <ul class="points">
+        <li data-i18n="pc1">앨범별 수집률을 한눈에</li>
+        <li data-i18n="pc2">카드마다 가진 장수까지</li>
+        <li data-i18n="pc3">여러 장도 한 번에 기록</li>
+      </ul>
+    </div>
+    <div class="phones">
+      <div class="phone"><img data-shot="01" alt="" loading="lazy"></div>
+      <div class="phone low"><img data-shot="02" alt="" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section id="tour" class="alt">
+  <div class="wrap feature rev">
+    <div class="text">
+      <span class="eyebrow"><span class="ico">🗺️</span><span data-i18n="navTour">방탄투어</span></span>
+      <h2 data-i18n="tourTitle">방탄이 다녀간 곳,<br>나도 다녀왔어요</h2>
+      <p data-i18n="tourBody">지도와 지역별 목록으로 방탄 성지를 찾아보고, 다녀온 날과 인증샷을 남겨요. 멤버별로 골라 보면 더 쉬워요.</p>
+      <ul class="points">
+        <li data-i18n="tour1">지도와 지역별 성지 목록</li>
+        <li data-i18n="tour2">멤버별로 골라 보기</li>
+        <li data-i18n="tour3">방문한 날과 인증샷 기록</li>
+      </ul>
+    </div>
+    <div class="phones">
+      <div class="phone"><img data-shot="03" alt="" loading="lazy"></div>
+      <div class="phone low"><img data-shot="06" alt="" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section id="shows">
+  <div class="wrap feature">
+    <div class="text">
+      <span class="eyebrow"><span class="ico">🎫</span><span data-i18n="navShows">관람기록</span></span>
+      <h2 data-i18n="showTitle">그날의 무대를<br>나만의 티켓북에</h2>
+      <p data-i18n="showBody">콘서트·팬미팅·페스티벌 회차마다 좌석, 사진, 후기를 남기면 티켓북이 채워져요. 공연 리포트로 지금까지 함께한 무대를 한눈에 돌아봐요.</p>
+      <ul class="points">
+        <li data-i18n="show1">회차별 좌석·사진·후기</li>
+        <li data-i18n="show2">연도별 관람을 담은 공연 리포트</li>
+        <li data-i18n="show3">미디어·영화도 본 것부터 체크</li>
+      </ul>
+    </div>
+    <div class="phones three">
+      <div class="phone"><img data-shot="07" alt="" loading="lazy"></div>
+      <div class="phone"><img data-shot="08" alt="" loading="lazy"></div>
+      <div class="phone"><img data-shot="09" alt="" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section id="armylog" class="brandband center">
+  <div class="wrap">
+    <div class="text">
+      <span class="eyebrow"><span class="ico">💜</span><span data-i18n="navArmyLog">아미로그</span></span>
+      <h2 data-i18n="alTitle">쌓인 기록이<br>나만의 아미로그로</h2>
+      <p data-i18n="alBody">포카·투어·관람 기록을 카드 4장으로 정리해 드려요. 이미지로 저장하거나 바로 공유해 보세요.</p>
+    </div>
+    <div class="phones three">
+      <div class="phone"><img data-shot="10" alt="" loading="lazy"></div>
+      <div class="phone"><img data-shot="11" alt="" loading="lazy"></div>
+      <div class="phone"><img data-shot="12" alt="" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section id="community" class="center">
+  <div class="wrap">
+    <div class="text">
+      <span class="eyebrow"><span class="ico">🌌</span><span data-i18n="navCommunity">비빌로그 기록</span></span>
+      <h2 data-i18n="cmTitle">전 세계 비빌러들이 모은<br>거대한 보라색 소우주</h2>
+      <p data-i18n="cmBody">비빌러들이 남긴 기록을 모아 함께 봐요. 가장 많이 모은 포카, 가장 많이 다녀간 성지, 함께한 무대까지.</p>
+    </div>
+    <div class="phones three">
+      <div class="phone"><img data-shot="15" alt="" loading="lazy"></div>
+      <div class="phone"><img data-shot="16" alt="" loading="lazy"></div>
+      <div class="phone"><img data-shot="17" alt="" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fbrand"><img src="bevilllog/icon.png" alt="">BeVillLog</div>
+    <div class="flinks">
+      <a id="lnkTerms" href="bevilllog/terms/ko.html" data-i18n="terms">서비스 이용약관</a>
+      <a id="lnkPrivacy" class="strong" href="bevilllog/privacy/ko.html" data-i18n="privacy">개인정보처리방침</a>
+      <a href="mailto:phocaive@gmail.com"><span data-i18n="contact">문의</span> phocaive@gmail.com</a>
+      <a href="https://twitter.com/phocaive" target="_blank" rel="noopener">X @phocaive</a>
+    </div>
+    <div data-i18n="unofficial">비빌로그는 팬이 만든 비공식 앱입니다.</div>
+    <div>© 2026 Phocaive · <span data-i18n="developer">개발: 포카이브(Phocaive)</span></div>
+  </div>
+</footer>
+
+<script>
+const LANGS = ['ko', 'en', 'ja', 'zh-Hans', 'zh-Hant', 'es-419'];
+const T = {
+  ko: {
+    title: '비빌로그 BeVillLog',
+    desc: '비빌로그(BeVillLog) — 포카 · 방탄투어 · 공연 · 미디어·영화, 아미로서의 나의 기록을 한곳에.',
+    navPhotocard: '포토카드', navTour: '방탄투어', navShows: '관람기록', navArmyLog: '아미로그', navCommunity: '비빌로그 기록',
+    badge: '💜 아미로서의 나의 기록', heroTitle: '비빌로그',
+    heroLead: '포카 · 방탄투어 · 공연 · 미디어·영화를 한곳에',
+    heroLead2: '흩어져 있던 덕질의 순간을 체크 한 번으로 차곡차곡. 모일수록 나만의 아미로그가 완성돼요.',
+    pcTitle: '내 포카 바인더를<br>폰 안에',
+    pcBody: '앨범·DVD·굿즈별 포토카드를 한눈에 보고, 가진 카드는 탭 한 번으로 기록해요. 몇 장을 모았는지, 앨범을 얼마나 채웠는지 바로 보여요.',
+    pc1: '앨범별 수집률을 한눈에', pc2: '카드마다 가진 장수까지', pc3: '여러 장도 한 번에 기록',
+    tourTitle: '방탄이 다녀간 곳,<br>나도 다녀왔어요',
+    tourBody: '지도와 지역별 목록으로 방탄 성지를 찾아보고, 다녀온 날과 인증샷을 남겨요. 멤버별로 골라 보면 더 쉬워요.',
+    tour1: '지도와 지역별 성지 목록', tour2: '멤버별로 골라 보기', tour3: '방문한 날과 인증샷 기록',
+    showTitle: '그날의 무대를<br>나만의 티켓북에',
+    showBody: '콘서트·팬미팅·페스티벌 회차마다 좌석, 사진, 후기를 남기면 티켓북이 채워져요. 공연 리포트로 지금까지 함께한 무대를 한눈에 돌아봐요.',
+    show1: '회차별 좌석·사진·후기', show2: '연도별 관람을 담은 공연 리포트', show3: '미디어·영화도 본 것부터 체크',
+    alTitle: '쌓인 기록이<br>나만의 아미로그로',
+    alBody: '포카·투어·관람 기록을 카드 4장으로 정리해 드려요. 이미지로 저장하거나 바로 공유해 보세요.',
+    cmTitle: '전 세계 비빌러들이 모은<br>거대한 보라색 소우주',
+    cmBody: '비빌러들이 남긴 기록을 모아 함께 봐요. 가장 많이 모은 포카, 가장 많이 다녀간 성지, 함께한 무대까지.',
+    terms: '서비스 이용약관', privacy: '개인정보처리방침', contact: '문의',
+    unofficial: '비빌로그는 팬이 만든 비공식 앱입니다.', developer: '개발: 포카이브(Phocaive)'
+  },
+  en: {
+    title: 'BeVillLog',
+    desc: 'BeVillLog — photocards, BTS Tour spots, shows, media and movies. Your life as ARMY, all in one place.',
+    navPhotocard: 'Photocards', navTour: 'BTS Tour', navShows: 'Shows', navArmyLog: 'ARMY Log', navCommunity: 'BeVillLog records',
+    badge: '💜 My story as ARMY', heroTitle: 'BeVillLog',
+    heroLead: 'Photocards, BTS Tour spots, shows, media and movies in one place',
+    heroLead2: 'All those scattered fan moments, saved with a single tap. The more you log, the more your own ARMY Log comes to life.',
+    pcTitle: 'Your photocard binder,<br>right in your pocket',
+    pcBody: 'Browse photocards by album, DVD and merch, and log the ones you own with one tap. See at a glance how many you have and how full each album is.',
+    pc1: 'Collection progress for every album', pc2: 'How many copies of each card you own', pc3: 'Log many cards at once',
+    tourTitle: 'Where BTS went,<br>I went too',
+    tourBody: 'Find BTS spots on the map or by region, then save the day you visited and a proof shot. Filter by member to find them even faster.',
+    tour1: 'Map and spot lists by region', tour2: 'Filter by member', tour3: 'Visit date and proof shots',
+    showTitle: 'Every stage you saw,<br>in your own ticket book',
+    showBody: 'Add your seat, photos and a review for each concert, fan meeting or festival date, and your ticket book fills up. Your show report looks back on every stage you have shared.',
+    show1: 'Seat, photos and review for each date', show2: 'A show report, year by year', show3: 'Check off media and movies, too',
+    alTitle: 'Your records become<br>your own ARMY Log',
+    alBody: 'We turn your photocard, tour and show records into 4 cards. Save them as images or share them right away.',
+    cmTitle: 'A giant purple universe<br>built by BeVillers worldwide',
+    cmBody: 'See what BeVillers have logged together — the most-loved photocards, the most-visited spots and the stages we shared.',
+    terms: 'Terms of Service', privacy: 'Privacy Policy', contact: 'Contact',
+    unofficial: 'BeVillLog is an unofficial, fan-made app.', developer: 'Developed by Phocaive'
+  },
+  ja: {
+    title: 'BeVillLog',
+    desc: 'BeVillLog — トレカ・聖地巡礼・公演・映像。ARMYとしての私の記録をひとつに。',
+    navPhotocard: 'トレカ', navTour: '聖地巡礼', navShows: '観覧記録', navArmyLog: 'アミログ', navCommunity: 'BeVillLogの記録',
+    badge: '💜 ARMYとしての私の記録', heroTitle: 'BeVillLog',
+    heroLead: 'トレカ・聖地巡礼・公演・映像をひとつに',
+    heroLead2: 'バラバラだった推し活の瞬間を、タップひとつでコツコツと。記録が増えるほど、私だけのアミログができあがります。',
+    pcTitle: '私のトレカバインダーを<br>スマホの中に',
+    pcBody: 'アルバム・DVD・グッズ別のトレカをひと目で見て、持っているカードはタップひとつで記録。何枚集めたか、アルバムをどれだけ埋めたかがすぐ分かります。',
+    pc1: 'アルバムごとのコンプ率をひと目で', pc2: 'カードごとの所持枚数まで', pc3: '何枚でもまとめて記録',
+    tourTitle: 'BTSが訪れた場所、<br>私も行ってきました',
+    tourBody: '地図や地域別リストでBTSの聖地を探して、訪れた日と記念写真を残しましょう。メンバー別に絞り込めばもっと簡単。',
+    tour1: '地図と地域別の聖地リスト', tour2: 'メンバー別に絞り込み', tour3: '訪れた日と記念写真を記録',
+    showTitle: 'あの日のステージを<br>私だけのチケットブックに',
+    showBody: 'コンサート・ファンミーティング・フェスの公演ごとに座席・写真・感想を残せば、チケットブックが埋まっていきます。公演レポートでこれまでのステージを振り返りましょう。',
+    show1: '公演ごとの座席・写真・感想', show2: '年ごとの観覧をまとめた公演レポート', show3: '映像・映画も観たものからチェック',
+    alTitle: '積み重ねた記録が<br>私だけのアミログに',
+    alBody: 'トレカ・聖地巡礼・観覧の記録をカード4枚にまとめます。画像で保存したり、そのままシェアしたり。',
+    cmTitle: '世界中のビビラーが集めた<br>大きな紫の小宇宙',
+    cmBody: 'ビビラーみんなの記録を一緒に見てみよう。いちばん集められたトレカ、いちばん訪れた聖地、一緒に過ごしたステージまで。',
+    terms: '利用規約', privacy: 'プライバシーポリシー', contact: 'お問い合わせ',
+    unofficial: 'BeVillLogはファンが作った非公式アプリです。', developer: '開発：Phocaive'
+  },
+  'zh-Hans': {
+    title: 'BeVillLog',
+    desc: 'BeVillLog —— 小卡 · 圣地巡礼 · 演出 · 综艺影像·电影，作为 ARMY 的我的记录，一站收藏。',
+    navPhotocard: '小卡', navTour: '圣地巡礼', navShows: '观演记录', navArmyLog: 'ARMY Log', navCommunity: 'BeVillLog 记录',
+    badge: '💜 作为 ARMY 的我的记录', heroTitle: 'BeVillLog',
+    heroLead: '小卡 · 圣地巡礼 · 演出 · 综艺影像·电影，一站记录',
+    heroLead2: '零散的追星瞬间，轻点一下就能一一收好。记录越多，专属于你的 ARMY Log 就越完整。',
+    pcTitle: '把我的小卡册<br>装进手机里',
+    pcBody: '按专辑、DVD、周边一览小卡，拥有的卡轻点一下就能记录。收了几张、专辑集齐了多少，一眼就能看到。',
+    pc1: '每张专辑的收集进度一目了然', pc2: '每张卡拥有几张也能记', pc3: '多张小卡一次记录',
+    tourTitle: '防弹去过的地方，<br>我也去过了',
+    tourBody: '通过地图和地区列表寻找防弹圣地，记下到访日期和打卡照。按成员筛选，找起来更轻松。',
+    tour1: '地图与地区圣地列表', tour2: '按成员筛选', tour3: '记录到访日期和打卡照',
+    showTitle: '把那天的舞台<br>收进专属票根册',
+    showBody: '为每场演唱会、粉丝见面会、音乐节记下座位、照片和观后感，票根册就会慢慢填满。用观演报告回顾一路走来的每一个舞台。',
+    show1: '每场的座位·照片·观后感', show2: '按年份整理的观演报告', show3: '综艺影像和电影也能打卡',
+    alTitle: '一点点积累的记录，<br>变成专属的 ARMY Log',
+    alBody: '把小卡、巡礼和观演记录整理成 4 张卡片。可以保存为图片，也可以直接分享。',
+    cmTitle: '全世界 BeViller 们汇聚成的<br>巨大紫色小宇宙',
+    cmBody: '一起看看 BeViller 们留下的记录吧：最受欢迎的小卡、去的人最多的圣地，还有一起度过的舞台。',
+    terms: '服务条款', privacy: '隐私政策', contact: '联系我们',
+    unofficial: 'BeVillLog 是由粉丝制作的非官方应用。', developer: '开发：Phocaive'
+  },
+  'zh-Hant': {
+    title: 'BeVillLog',
+    desc: 'BeVillLog —— 小卡 · 聖地巡禮 · 演出 · 媒體·電影，身為 ARMY 的我的紀錄，一次收進來。',
+    navPhotocard: '小卡', navTour: '聖地巡禮', navShows: '觀演紀錄', navArmyLog: 'ARMY Log', navCommunity: 'BeVillLog 紀錄',
+    badge: '💜 身為 ARMY 的我的紀錄', heroTitle: 'BeVillLog',
+    heroLead: '小卡 · 聖地巡禮 · 演出 · 媒體·電影，一次收進來',
+    heroLead2: '散落各處的追星瞬間，輕點一下就能好好收藏。紀錄越多，專屬於你的 ARMY Log 就越完整。',
+    pcTitle: '把我的小卡冊<br>裝進手機裡',
+    pcBody: '依專輯、DVD、周邊一覽小卡，擁有的卡輕點一下就能紀錄。收了幾張、專輯集滿多少，一眼就看得到。',
+    pc1: '每張專輯的收集進度一目了然', pc2: '每張卡擁有幾張也能記', pc3: '多張小卡一次紀錄',
+    tourTitle: '防彈去過的地方，<br>我也去過了',
+    tourBody: '透過地圖和地區列表尋找防彈聖地，記下造訪日期和打卡照。依成員篩選，找起來更輕鬆。',
+    tour1: '地圖與地區聖地列表', tour2: '依成員篩選', tour3: '紀錄造訪日期和打卡照',
+    showTitle: '把那天的舞台<br>收進專屬票根冊',
+    showBody: '為每場演唱會、粉絲見面會、音樂節記下座位、照片和心得，票根冊就會慢慢填滿。用觀演報告回顧一路走來的每一個舞台。',
+    show1: '每場的座位·照片·心得', show2: '依年份整理的觀演報告', show3: '媒體和電影也能打勾',
+    alTitle: '一點一滴的紀錄，<br>變成專屬的 ARMY Log',
+    alBody: '把小卡、巡禮和觀演紀錄整理成 4 張卡片。可以存成圖片，也可以直接分享。',
+    cmTitle: '全世界 BeViller 們匯聚成的<br>巨大紫色小宇宙',
+    cmBody: '一起看看 BeViller 們留下的紀錄吧：最受歡迎的小卡、最多人去過的聖地，還有一起度過的舞台。',
+    terms: '服務條款', privacy: '隱私權政策', contact: '聯絡我們',
+    unofficial: 'BeVillLog 是由粉絲製作的非官方應用程式。', developer: '開發：Phocaive'
+  },
+  'es-419': {
+    title: 'BeVillLog',
+    desc: 'BeVillLog: photocards, Ruta BTS, conciertos, media y cine. Tu historia como ARMY en un solo lugar.',
+    navPhotocard: 'Photocards', navTour: 'Ruta BTS', navShows: 'Funciones', navArmyLog: 'ARMY Log', navCommunity: 'Registros BeVillLog',
+    badge: '💜 Mi historia como ARMY', heroTitle: 'BeVillLog',
+    heroLead: 'Photocards, Ruta BTS, conciertos, media y cine en un solo lugar',
+    heroLead2: 'Esos momentos de fan que tenías dispersos, guardados con un solo toque. Cuanto más registras, más se completa tu propio ARMY Log.',
+    pcTitle: 'Tu binder de photocards,<br>en tu celular',
+    pcBody: 'Mira las photocards por álbum, DVD y merch, y registra las que tienes con un toque. Ve al instante cuántas juntaste y cuánto llevas de cada álbum.',
+    pc1: 'Tu avance en cada álbum', pc2: 'Cuántas copias tienes de cada carta', pc3: 'Registra varias a la vez',
+    tourTitle: 'Donde estuvo BTS,<br>yo también fui',
+    tourBody: 'Encuentra los lugares de BTS en el mapa o por región, y guarda el día de tu visita y tu foto. Filtra por miembro para encontrarlos más rápido.',
+    tour1: 'Mapa y lugares por región', tour2: 'Filtro por miembro', tour3: 'Fecha de visita y foto',
+    showTitle: 'Cada show que viviste,<br>en tu propio ticket book',
+    showBody: 'Agrega tu asiento, fotos y reseña de cada concierto, fanmeeting o festival, y tu ticket book se va llenando. Tu reporte de conciertos repasa cada escenario que compartiste.',
+    show1: 'Asiento, fotos y reseña por fecha', show2: 'Reporte de conciertos año por año', show3: 'Marca también media y cine',
+    alTitle: 'Tus registros se convierten<br>en tu ARMY Log',
+    alBody: 'Convertimos tus registros de photocards, Ruta BTS y funciones en 4 tarjetas. Guárdalas como imagen o compártelas al momento.',
+    cmTitle: 'Un enorme universo morado<br>reunido por BeVillers de todo el mundo',
+    cmBody: 'Mira lo que registraron todos los BeVillers: las photocards más queridas, los lugares más visitados y los escenarios que compartimos.',
+    terms: 'Términos del servicio', privacy: 'Política de privacidad', contact: 'Contacto',
+    unofficial: 'BeVillLog es una app no oficial hecha por fans.', developer: 'Desarrollado por Phocaive'
+  }
+};
+
+function detectLang() {
+  try {
+    const q = new URLSearchParams(location.search).get('lang');
+    if (LANGS.includes(q)) return q;
+  } catch (e) {}
+  try {
+    const saved = localStorage.getItem('bevilllog-lang');
+    if (LANGS.includes(saved)) return saved;
+  } catch (e) {}
+  const prefs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || 'en'];
+  for (const raw of prefs) {
+    const l = String(raw).toLowerCase();
+    if (l.startsWith('ko')) return 'ko';
+    if (l.startsWith('ja')) return 'ja';
+    if (l.startsWith('zh')) return /hant|tw|hk|mo/.test(l) ? 'zh-Hant' : 'zh-Hans';
+    if (l.startsWith('es')) return 'es-419';
+    if (l.startsWith('en')) return 'en';
+  }
+  return 'en';
+}
+
+function applyLang(lang) {
+  const t = T[lang];
+  document.documentElement.lang = lang;
+  document.title = t.title;
+  document.querySelector('meta[name="description"]').setAttribute('content', t.desc);
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const v = t[el.dataset.i18n];
+    if (v !== undefined) el.innerHTML = v;
+  });
+  document.querySelectorAll('img[data-shot]').forEach(img => {
+    img.src = 'bevilllog/shots/' + lang + '/' + img.dataset.shot + '.webp';
+  });
+  document.getElementById('lnkTerms').href = 'bevilllog/terms/' + lang + '.html';
+  document.getElementById('lnkPrivacy').href = 'bevilllog/privacy/' + lang + '.html';
+  document.getElementById('lang').value = lang;
+}
+
+const sel = document.getElementById('lang');
+sel.addEventListener('change', () => {
+  try { localStorage.setItem('bevilllog-lang', sel.value); } catch (e) {}
+  applyLang(sel.value);
+});
+applyLang(detectLang());
+</script>
 </body>
 </html>
