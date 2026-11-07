@@ -1,0 +1,22 @@
+/* 비빌로그 홈페이지·약관 공통 — 글꼴과 글자 크기 기준 (모든 페이지가 이 값만 씀) */
+:root {
+  --font: 'Pretendard Variable', Pretendard, -apple-system, 'Apple SD Gothic Neo', sans-serif;
+  --fs-xs: 13px;    /* 작은 표시: 배지·분류 이름·언어 목록 */
+  --fs-sm: 14px;    /* 보조: 메뉴·날짜·맨 아래 */
+  --fs-body: 16px;  /* 본문·표·목록 */
+  --fs-lg: 18px;    /* 소개 문단 */
+  --fs-xl: 20px;    /* 약관 소제목·첫 화면 한 줄 소개 */
+  --fs-2xl: 28px;   /* 약관 제목·모바일 섹션 제목 */
+  --fs-3xl: 40px;   /* 홈페이지 섹션 제목 */
+  --fs-hero: 64px;  /* 첫 화면 서비스명 */
+}
+html:lang(ja) { --font: 'Noto Sans JP', -apple-system, 'Hiragino Sans', sans-serif; }
+html:lang(zh-Hans) { --font: 'Noto Sans SC', -apple-system, 'PingFang SC', sans-serif; }
+html:lang(zh-Hant) { --font: 'Noto Sans TC', -apple-system, 'PingFang TC', sans-serif; }
+body { font-family: var(--font); font-size: var(--fs-body); }
+html:lang(ko) body { word-break: keep-all; }
+html:not(:lang(ko)) body { word-break: normal; }
+html:lang(ja) body { line-break: strict; }
+@media (max-width: 560px) {
+  :root { --fs-lg: 16px; --fs-xl: 18px; --fs-3xl: 28px; --fs-hero: 44px; }
+}
