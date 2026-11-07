@@ -29,3 +29,7 @@ th { background:var(--fill); font-weight:700; }
 div.todo { padding:10px 14px; margin:12px 0; font-size:14px; }
 footer { border-top:1px solid var(--line); padding:28px 0 40px; color:var(--sub); font-size:13.5px; }
 @media (max-width:560px) { h1 { font-size:23px; } .toc { columns:1; } }
+html:lang(ja) body { font-family: -apple-system, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', 'Yu Gothic', sans-serif; word-break: normal; line-break: strict; }
+html:lang(zh-Hans) body { font-family: -apple-system, 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif; word-break: normal; }
+html:lang(zh-Hant) body { font-family: -apple-system, 'PingFang TC', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; word-break: normal; }
+html:lang(en) body, html:lang(es-419) body { word-break: normal; }
