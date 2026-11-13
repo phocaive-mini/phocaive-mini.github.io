@@ -351,10 +351,10 @@ const T = {
   ja: {
     title: 'BeViLLOG',
     desc: 'BeViLLOG — トレカ・聖地巡礼・公演・映像。ARMYとしての私の記録をひとつに。',
-    navPhotocard: 'トレカ', navTour: '聖地巡礼', navShows: '観覧記録', navArmyLog: 'アミログ', navCommunity: 'BeViLLOGの記録',
+    navPhotocard: 'トレカ', navTour: '聖地巡礼', navShows: '観覧記録', navArmyLog: 'ARMYログ', navCommunity: 'BeViLLOGの記録',
     badge: '💜 私はn年目のARMY', heroTitle: 'BeViLLOG',
     heroLead: 'トレカから聖地巡礼、公演観覧まで。ARMYのすべての瞬間を記録',
-    heroLead2: 'バラバラだったBTSの推し活の瞬間を、タップひとつでコツコツと。<br>記録が増えるほど、私だけのアミログができあがります。',
+    heroLead2: 'バラバラだったBTSの推し活の瞬間を、タップひとつでコツコツと。<br>記録が増えるほど、私だけのARMYログができあがります。',
     pcTitle: 'バインダーを出さなくても<br>手のひらのトレカ図鑑',
     pcBody: 'アルバム・DVD・グッズ別のトレカをひと目で見て、持っているカードはタップひとつで記録。何枚集めたか、アルバムをどれだけ埋めたかがすぐ分かります。',
     pc1: 'アルバムごとのコンプ率をひと目で', pc2: 'カードごとの所持枚数まで', pc3: '何枚でもまとめて記録',
@@ -364,7 +364,7 @@ const T = {
     showTitle: 'あの日の熱い歓声を、<br>デジタルチケットブックにずっと',
     showBody: 'コンサート・ファンミーティング・フェスの公演ごとに座席・写真・感想を残せば、チケットブックが埋まっていきます。公演レポートでこれまでのステージを振り返りましょう。',
     show1: '公演ごとの座席・写真・感想', show2: '年ごとの観覧をまとめた公演レポート', show3: '映像・映画も観たものからチェック',
-    alTitle: 'コツコツ積み重ねた推し活の時間、<br>わたしだけのアミログが完成',
+    alTitle: 'コツコツ積み重ねた推し活の時間、<br>わたしだけのARMYログが完成',
     alBody: 'トレカ・聖地巡礼・観覧の記録をカード4枚にまとめます。<br>画像で保存したり、そのままシェアしたり。',
     cmTitle: '世界中のARMYが一緒につくった<br>大きな紫の小宇宙',
     cmBody: 'ビビラーみんなの記録を一緒に見てみよう。<br>いちばん集められたトレカ、いちばん訪れた聖地、一緒に過ごしたステージまで。',
@@ -473,7 +473,7 @@ function applyLang(lang) {
     if (v !== undefined) el.innerHTML = v;
   });
   document.querySelectorAll('img[data-shot]').forEach(img => {
-    img.src = 'bevillog/shots/' + lang + '/' + img.dataset.shot + '.webp?v=20261113';
+    img.src = 'bevillog/shots/' + lang + '/' + img.dataset.shot + '.webp?v=20261114';
   });
   document.getElementById('lnkTerms').href = 'bevillog/terms/' + lang + '.html';
   document.getElementById('lnkPrivacy').href = 'bevillog/privacy/' + lang + '.html';
