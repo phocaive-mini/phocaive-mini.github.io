@@ -473,7 +473,7 @@ function applyLang(lang) {
     if (v !== undefined) el.innerHTML = v;
   });
   document.querySelectorAll('img[data-shot]').forEach(img => {
-    img.src = 'bevillog/shots/' + lang + '/' + img.dataset.shot + '.webp';
+    img.src = 'bevillog/shots/' + lang + '/' + img.dataset.shot + '.webp?v=20261113';
   });
   document.getElementById('lnkTerms').href = 'bevillog/terms/' + lang + '.html';
   document.getElementById('lnkPrivacy').href = 'bevillog/privacy/' + lang + '.html';
