@@ -33,6 +33,9 @@ function initLang(T) {
     document.querySelectorAll('[data-i18n]').forEach(function (el) {
       if (t[el.dataset.i18n] !== undefined) el.textContent = t[el.dataset.i18n];
     });
+    document.querySelectorAll('[data-lang-file]').forEach(function (a) {
+      a.href = a.dataset.langFile + lang + '.html';
+    });
     document.querySelectorAll('[data-lang-href]').forEach(function (a) {
       a.href = a.dataset.langHref + '?lang=' + lang;
     });
@@ -43,4 +46,12 @@ function initLang(T) {
     apply(sel.value);
   });
   apply(detectLang());
+  // 뒤로 가기로 저장된 화면이 되살아날 때 다른 페이지에서 바꾼 언어를 다시 반영
+  // (주소의 ?lang= 보다 마지막에 고른 언어가 우선)
+  window.addEventListener('pageshow', function (e) {
+    if (!e.persisted) return;
+    var saved = null;
+    try { saved = localStorage.getItem('bevillog-lang'); } catch (err) {}
+    apply(LANGS.indexOf(saved) >= 0 ? saved : detectLang());
+  });
 }

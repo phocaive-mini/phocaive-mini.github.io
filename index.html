@@ -16,9 +16,9 @@
 <header>
   <div class="wrap">
     <a class="brand" href="./">Phocaive</a>
-    <label class="lang" aria-label="Language">
+    <label class="lang">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg>
-      <select id="lang">
+      <select id="lang" aria-label="Language">
         <option value="ko">한국어</option>
         <option value="en">English</option>
         <option value="ja">日本語</option>
@@ -36,13 +36,13 @@
     <div class="apps">
       <a class="app" href="bevillog/" data-lang-href="bevillog/">
         <img class="icon" src="bevillog/icon.png" alt="">
-        <div class="name">비빌로그<small>BeViLLOG</small></div>
+        <div class="name"><span class="ko-only">비빌로그</span><span class="not-ko">BeViLLOG</span><small class="ko-only">BeViLLOG</small></div>
         <p class="line" data-i18n="bevillogLine">포카부터 투어, 공연 관람까지 아미의 모든 순간을 기록해요</p>
         <span class="go" data-i18n="more">자세히 보기 →</span>
       </a>
       <a class="app" href="creak-creak/" data-lang-href="creak-creak/">
         <div class="icon soon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M2 20 9 8l4 6 3-4 6 10z"/></svg></div>
-        <div class="name">삐걱삐걱<small>Creak Creak</small></div>
+        <div class="name"><span class="ko-only">삐걱삐걱</span><span class="not-ko">Creak Creak</span><small class="ko-only">Creak Creak</small></div>
         <p class="line" data-i18n="creakLine">체력이 삐걱거려도 괜찮아. 친구랑 같이 오르는 등산 기록</p>
         <span><span class="badge" data-i18n="soon">준비 중</span></span>
       </a>
@@ -53,6 +53,7 @@
 <footer>
   <div class="wrap">
     <span><span data-i18n="contact">문의</span> · <a href="mailto:phocaive@gmail.com">phocaive@gmail.com</a></span>
+    <a href="bevillog/privacy/ko.html" data-lang-file="bevillog/privacy/" data-i18n="privacy">비빌로그 개인정보처리방침</a>
     <span>© Phocaive</span>
   </div>
 </footer>
@@ -61,29 +62,29 @@
 <script>
 initLang({
   ko: { title: 'Phocaive', desc: '포카이브가 만드는 앱 — 비빌로그 BeViLLOG · 삐걱삐걱 Creak Creak',
-        heading: '포카이브가 만드는 앱', more: '자세히 보기 →', soon: '준비 중', contact: '문의',
+        heading: '포카이브가 만드는 앱', more: '자세히 보기 →', soon: '준비 중', contact: '문의', privacy: '비빌로그 개인정보처리방침',
         bevillogLine: '포카부터 투어, 공연 관람까지 아미의 모든 순간을 기록해요',
         creakLine: '체력이 삐걱거려도 괜찮아. 친구랑 같이 오르는 등산 기록' },
   en: { title: 'Phocaive', desc: 'Apps by Phocaive — BeViLLOG · Creak Creak',
-        heading: 'Apps by Phocaive', more: 'Learn more →', soon: 'Coming soon', contact: 'Contact',
+        heading: 'Apps by Phocaive', more: 'Learn more →', soon: 'Coming soon', contact: 'Contact', privacy: 'BeViLLOG Privacy Policy',
         bevillogLine: 'From photocards to tours and shows — every ARMY moment, logged',
         creakLine: 'Not the fittest? That’s fine. Hike with friends and log it together' },
   ja: { title: 'Phocaive', desc: 'Phocaiveのアプリ — BeViLLOG · Creak Creak',
-        heading: 'Phocaiveのアプリ', more: '詳しく見る →', soon: '準備中', contact: 'お問い合わせ',
+        heading: 'Phocaiveのアプリ', more: '詳しく見る →', soon: '準備中', contact: 'お問い合わせ', privacy: 'BeViLLOG プライバシーポリシー',
         bevillogLine: 'トレカから聖地巡礼、公演観覧まで。ARMYのすべての瞬間を記録',
         creakLine: '体力に自信がなくても大丈夫。友だちと一緒に登る登山記録' },
   'zh-Hans': { title: 'Phocaive', desc: 'Phocaive 的应用 — BeViLLOG · Creak Creak',
-        heading: 'Phocaive 的应用', more: '了解更多 →', soon: '即将推出', contact: '联系我们',
+        heading: 'Phocaive 的应用', more: '了解更多 →', soon: '即将推出', contact: '联系我们', privacy: 'BeViLLOG 隐私政策',
         bevillogLine: '从小卡到圣地巡礼、观演，记录 ARMY 的每一个瞬间',
         creakLine: '体力不好也没关系，和朋友一起爬山、一起记录' },
   'zh-Hant': { title: 'Phocaive', desc: 'Phocaive 的應用程式 — BeViLLOG · Creak Creak',
-        heading: 'Phocaive 的應用程式', more: '了解更多 →', soon: '即將推出', contact: '聯絡我們',
+        heading: 'Phocaive 的應用程式', more: '了解更多 →', soon: '即將推出', contact: '聯絡我們', privacy: 'BeViLLOG 隱私權政策',
         bevillogLine: '從小卡到聖地巡禮、觀演，記錄 ARMY 的每一個瞬間',
         creakLine: '體力不好也沒關係，和朋友一起爬山、一起記錄' },
   'es-419': { title: 'Phocaive', desc: 'Apps de Phocaive — BeViLLOG · Creak Creak',
-        heading: 'Apps de Phocaive', more: 'Ver más →', soon: 'Próximamente', contact: 'Contacto',
+        heading: 'Apps de Phocaive', more: 'Ver más →', soon: 'Próximamente', contact: 'Contacto', privacy: 'Política de privacidad de BeViLLOG',
         bevillogLine: 'De photocards a la Ruta BTS y los conciertos: guarda cada momento ARMY',
-        creakLine: '¿Poca resistencia? No pasa nada. Sube con amigos y guárdalo juntos' }
+        creakLine: '¿Poca resistencia? No pasa nada. Sube la montaña con amigos y regístralo juntos' }
 });
 </script>
 </body>
