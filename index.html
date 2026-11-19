@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Phocaive</title>
-<meta name="description" content="포카이브가 만드는 앱 — 비빌로그 BeViLLOG">
+<meta name="description" content="포카이브 — 좋아하는 마음을 오래 남기는 앱을 만듭니다 · 비빌로그 BeViLLOG">
 <link rel="icon" href="bevillog/icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
@@ -32,18 +32,21 @@
 
 <main>
   <div class="wrap">
-    <h1 data-i18n="heading">포카이브가 만드는 앱</h1>
+    <section class="intro">
+      <h1 class="wordmark">Phocaive</h1>
+      <p data-i18n="tagline">좋아하는 마음을 오래 남기는 앱을 만듭니다</p>
+    </section>
     <div class="apps">
-      <a class="app" href="bevillog/" data-lang-href="bevillog/">
+      <a class="app bev" href="bevillog/" data-lang-href="bevillog/">
         <img class="icon" src="bevillog/icon.png" alt="">
-        <div class="name"><span class="ko-only">비빌로그</span><span class="not-ko">BeViLLOG</span><small class="ko-only">BeViLLOG</small></div>
+        <div class="name"><span class="ko-only">비빌로그 BeViLLOG</span><span class="not-ko">BeViLLOG</span></div>
         <p class="line" data-i18n="bevillogLine">포카부터 투어, 공연 관람까지 아미의 모든 순간을 기록해요</p>
         <span class="go" data-i18n="more">자세히 보기 →</span>
       </a>
       <div class="app next">
-        <div class="icon soon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        <div class="plus" aria-hidden="true">＋</div>
         <div class="name" data-i18n="nextName">두 번째 앱</div>
-        <span><span class="badge" data-i18n="soon">준비 중</span></span>
+        <span class="badge" data-i18n="soon">준비 중</span>
       </div>
     </div>
   </div>
@@ -59,30 +62,24 @@
 <script src="site.js"></script>
 <script>
 initLang({
-  ko: { title: 'Phocaive', desc: '포카이브가 만드는 앱 — 비빌로그 BeViLLOG',
-        heading: '포카이브가 만드는 앱', more: '자세히 보기 →', soon: '준비 중', contact: '문의',
-        bevillogLine: '포카부터 투어, 공연 관람까지 아미의 모든 순간을 기록해요',
-        nextName: '두 번째 앱' },
-  en: { title: 'Phocaive', desc: 'Apps by Phocaive — BeViLLOG',
-        heading: 'Apps by Phocaive', more: 'Learn more →', soon: 'Coming soon', contact: 'Contact',
-        bevillogLine: 'From photocards to tours and shows — every ARMY moment, logged',
-        nextName: 'Our second app' },
-  ja: { title: 'Phocaive', desc: 'Phocaiveのアプリ — BeViLLOG',
-        heading: 'Phocaiveのアプリ', more: '詳しく見る →', soon: '準備中', contact: 'お問い合わせ',
-        bevillogLine: 'トレカから聖地巡礼、公演観覧まで。ARMYのすべての瞬間を記録',
-        nextName: '2つ目のアプリ' },
-  'zh-Hans': { title: 'Phocaive', desc: 'Phocaive 的应用 — BeViLLOG',
-        heading: 'Phocaive 的应用', more: '了解更多 →', soon: '即将推出', contact: '联系我们',
-        bevillogLine: '从小卡到圣地巡礼、观演，记录 ARMY 的每一个瞬间',
-        nextName: '第二款应用' },
-  'zh-Hant': { title: 'Phocaive', desc: 'Phocaive 的應用程式 — BeViLLOG',
-        heading: 'Phocaive 的應用程式', more: '了解更多 →', soon: '即將推出', contact: '聯絡我們',
-        bevillogLine: '從小卡到聖地巡禮、觀演，記錄 ARMY 的每一個瞬間',
-        nextName: '第二款應用程式' },
-  'es-419': { title: 'Phocaive', desc: 'Apps de Phocaive — BeViLLOG',
-        heading: 'Apps de Phocaive', more: 'Ver más →', soon: 'Próximamente', contact: 'Contacto',
-        bevillogLine: 'De photocards a la Ruta BTS y los conciertos: guarda cada momento ARMY',
-        nextName: 'Nuestra segunda app' }
+  ko: { title: 'Phocaive', desc: '포카이브 — 좋아하는 마음을 오래 남기는 앱을 만듭니다 · 비빌로그 BeViLLOG',
+        tagline: '좋아하는 마음을 오래 남기는 앱을 만듭니다', more: '자세히 보기 →', soon: '준비 중', contact: '문의', nextName: '두 번째 앱',
+        bevillogLine: '포카부터 투어, 공연 관람까지 아미의 모든 순간을 기록해요' },
+  en: { title: 'Phocaive', desc: 'Phocaive — apps that keep what you love, for a long time · BeViLLOG',
+        tagline: 'We make apps that keep what you love, for a long time', more: 'Learn more →', soon: 'Coming soon', contact: 'Contact', nextName: 'Our second app',
+        bevillogLine: 'From photocards to tours and shows — every ARMY moment, logged' },
+  ja: { title: 'Phocaive', desc: 'Phocaive — 好きな気持ちを、ずっと残せるアプリ · BeViLLOG',
+        tagline: '好きな気持ちを、ずっと残せるアプリをつくっています', more: '詳しく見る →', soon: '準備中', contact: 'お問い合わせ', nextName: '2つ目のアプリ',
+        bevillogLine: 'トレカから聖地巡礼、公演観覧まで。ARMYのすべての瞬間を記録' },
+  'zh-Hans': { title: 'Phocaive', desc: 'Phocaive — 让喜欢的心意长久留存 · BeViLLOG',
+        tagline: '我们打造让喜欢的心意长久留存的应用', more: '了解更多 →', soon: '即将推出', contact: '联系我们', nextName: '第二款应用',
+        bevillogLine: '从小卡到圣地巡礼、观演，记录 ARMY 的每一个瞬间' },
+  'zh-Hant': { title: 'Phocaive', desc: 'Phocaive — 讓喜歡的心意長久留存 · BeViLLOG',
+        tagline: '我們打造讓喜歡的心意長久留存的應用程式', more: '了解更多 →', soon: '即將推出', contact: '聯絡我們', nextName: '第二款應用程式',
+        bevillogLine: '從小卡到聖地巡禮、觀演，記錄 ARMY 的每一個瞬間' },
+  'es-419': { title: 'Phocaive', desc: 'Phocaive — apps para guardar por mucho tiempo lo que amas · BeViLLOG',
+        tagline: 'Creamos apps para guardar por mucho tiempo lo que amas', more: 'Ver más →', soon: 'Próximamente', contact: 'Contacto', nextName: 'Nuestra segunda app',
+        bevillogLine: 'De photocards a la Ruta BTS y los conciertos: guarda cada momento ARMY' }
 });
 </script>
 </body>
