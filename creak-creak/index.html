@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>삐걱삐걱 Creak Creak</title>
+<meta name="description" content="삐걱삐걱 Creak Creak — 준비 중">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&family=Noto+Sans+SC:wght@400;500;700;800&family=Noto+Sans+TC:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../bevillog/base.css">
+<link rel="stylesheet" href="../site.css">
+<style>
+  .soon-box { text-align: center; padding: 48px 0 24px; }
+  .soon-box .icon { width: 72px; height: 72px; border-radius: 18px; margin: 0 auto 20px; display: grid; place-items: center; background: var(--fill); color: var(--sub); }
+  .soon-box .icon svg { width: 38px; height: 38px; }
+  .soon-box h1 { margin: 0 0 4px; }
+  .soon-box .en { color: var(--sub); margin: 0 0 20px; }
+  .soon-box .line { font-size: var(--fs-lg); margin: 16px 0 0; }
+  .back { display: inline-block; margin-top: 32px; font-size: var(--fs-sm); font-weight: 700; text-decoration: none; padding: 10px 0; }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="../" data-lang-href="../">Phocaive</a>
+    <label class="lang" aria-label="Language">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg>
+      <select id="lang">
+        <option value="ko">한국어</option>
+        <option value="en">English</option>
+        <option value="ja">日本語</option>
+        <option value="zh-Hans">简体中文</option>
+        <option value="zh-Hant">繁體中文</option>
+        <option value="es-419">Español</option>
+      </select>
+    </label>
+  </div>
+</header>
+
+<main>
+  <div class="wrap soon-box">
+    <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M2 20 9 8l4 6 3-4 6 10z"/></svg></div>
+    <h1>삐걱삐걱</h1>
+    <p class="en">Creak Creak</p>
+    <span class="badge" data-i18n="soon">준비 중</span>
+    <p class="line" data-i18n="line">체력이 삐걱거려도 괜찮아. 친구랑 같이 오르는 등산 기록</p>
+    <a class="back" href="../" data-lang-href="../" data-i18n="back">← 다른 앱 보기</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><span data-i18n="contact">문의</span> · <a href="mailto:phocaive@gmail.com">phocaive@gmail.com</a></span>
+    <span>© Phocaive</span>
+  </div>
+</footer>
+
+<script src="../site.js"></script>
+<script>
+initLang({
+  ko: { title: '삐걱삐걱 Creak Creak', desc: '삐걱삐걱 Creak Creak — 준비 중', soon: '준비 중', contact: '문의', back: '← 다른 앱 보기',
+        line: '체력이 삐걱거려도 괜찮아. 친구랑 같이 오르는 등산 기록' },
+  en: { title: 'Creak Creak', desc: 'Creak Creak — coming soon', soon: 'Coming soon', contact: 'Contact', back: '← Other apps',
+        line: 'Not the fittest? That’s fine. Hike with friends and log it together' },
+  ja: { title: 'Creak Creak', desc: 'Creak Creak — 準備中', soon: '準備中', contact: 'お問い合わせ', back: '← ほかのアプリ',
+        line: '体力に自信がなくても大丈夫。友だちと一緒に登る登山記録' },
+  'zh-Hans': { title: 'Creak Creak', desc: 'Creak Creak — 即将推出', soon: '即将推出', contact: '联系我们', back: '← 其他应用',
+        line: '体力不好也没关系，和朋友一起爬山、一起记录' },
+  'zh-Hant': { title: 'Creak Creak', desc: 'Creak Creak — 即將推出', soon: '即將推出', contact: '聯絡我們', back: '← 其他應用程式',
+        line: '體力不好也沒關係，和朋友一起爬山、一起記錄' },
+  'es-419': { title: 'Creak Creak', desc: 'Creak Creak — próximamente', soon: 'Próximamente', contact: 'Contacto', back: '← Otras apps',
+        line: '¿Poca resistencia? No pasa nada. Sube con amigos y guárdalo juntos' }
+});
+</script>
+</body>
+</html>
